@@ -1168,59 +1168,14 @@
     <section id="contact" class="contact-form-section">
         <div class="container">
             <h2 class="fade-in" id="contact-form">お問い合わせフォーム</h2>
-            <form class="contact-form fade-in" id="contactForm">
-                <div id="formMessage" class="form-message"></div>
-
-                <div class="form-group">
-                    <label for="companyName">クリニック・医院名<span class="required">*</span></label>
-                    <input type="text" id="companyName" name="companyName" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="name">お名前<span class="required">*</span></label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">電話番号<span class="required">*</span></label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">メールアドレス<span class="required">*</span></label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="address">所在地（市町村）</label>
-                    <input type="text" id="address" name="address" placeholder="例：高崎市">
-                </div>
-
-                <div class="form-group">
-                    <label for="inquiry">お問い合わせ内容<span class="required">*</span></label>
-                    <select id="inquiry" name="inquiry" required>
-                        <option value="">選択してください</option>
-                        <option value="無料診断希望">無料診断希望</option>
-                        <option value="サービス内容について">サービス内容について</option>
-                        <option value="料金について">料金について</option>
-                        <option value="その他">その他</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">メッセージ</label>
-                    <textarea id="message" name="message" placeholder="ご質問やご要望などございましたら、お気軽にお書きください。"></textarea>
-                </div>
-
-                <div class="form-submit">
-                    <button type="submit" class="submit-button">送信する</button>
-                </div>
-
-                <div class="form-notice">
-                    お送りいただいた情報は、プライバシーポリシーに基づき適切に管理いたします。<br>
-                    通常1営業日以内にご返信いたします。
-                </div>
-            </form>
+            <div class="google-form-container fade-in">
+                <!-- ここにGoogleフォームの埋め込みコードを貼り付けてください -->
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfTzOb5_8V3KsDoV7p3RgeA9j9Audo5cG_Lo9djK83SS9Y87A/viewform?embedded=true" width="100%" height="1374" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+            </div>
+            <div class="form-notice" style="text-align: center; margin-top: 30px;">
+                お送りいただいた情報は、プライバシーポリシーに基づき適切に管理いたします。<br>
+                通常1営業日以内にご返信いたします。
+            </div>
         </div>
     </section>
 
@@ -1318,65 +1273,48 @@
             });
         });
 
-        // Contact Form Submission
+        // Contact Form Submission (Formspree version)
         const contactForm = document.getElementById('contactForm');
         const formMessage = document.getElementById('formMessage');
 
         if (contactForm) {
             contactForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                console.log('Form submit started');
 
                 const submitButton = contactForm.querySelector('.submit-button');
                 submitButton.disabled = true;
                 submitButton.textContent = '送信中...';
 
-                // フォームデータを取得
-                const formData = new FormData(contactForm);
-                const data = Object.fromEntries(formData.entries());
-                console.log('Form data:', data);
-
                 try {
-                    console.log('Sending request to /api/contact');
-                    // APIにPOSTリクエストを送信
-                    const response = await fetch('/api/contact', {
+                    const formData = new FormData(contactForm);
+                    const response = await fetch(contactForm.action, {
                         method: 'POST',
+                        body: formData,
                         headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(data)
+                            'Accept': 'application/json'
+                        }
                     });
 
-                    console.log('Response status:', response.status);
-                    const result = await response.json();
-                    console.log('Response data:', result);
-
-                    if (result.success) {
-                        formMessage.textContent = result.message;
+                    if (response.ok) {
+                        formMessage.textContent = 'お問い合わせありがとうございます。内容を確認次第、担当者よりご連絡させていただきます。';
                         formMessage.className = 'form-message success';
                         contactForm.reset();
                     } else {
-                        formMessage.textContent = result.message;
+                        formMessage.textContent = '送信に失敗しました。お手数ですが、お電話（070-2350-6245）またはメール（info@gunma-meo.com）で直接お問い合わせください。';
                         formMessage.className = 'form-message error';
                     }
-
                 } catch (error) {
-                    console.error('Error:', error);
                     formMessage.textContent = '送信中にエラーが発生しました。お手数ですが、お電話（070-2350-6245）またはメール（info@gunma-meo.com）で直接お問い合わせください。';
                     formMessage.className = 'form-message error';
                 } finally {
-                    // ボタンを元に戻す
                     submitButton.disabled = false;
                     submitButton.textContent = '送信する';
 
-                    // 5秒後にメッセージを非表示
                     setTimeout(() => {
                         formMessage.className = 'form-message';
                     }, 5000);
                 }
             });
-        } else {
-            console.error('Contact form not found');
         }
     </script>
 </body>
