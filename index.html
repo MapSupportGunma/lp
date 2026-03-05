@@ -1322,53 +1322,62 @@
         const contactForm = document.getElementById('contactForm');
         const formMessage = document.getElementById('formMessage');
 
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                console.log('Form submit started');
 
-            const submitButton = contactForm.querySelector('.submit-button');
-            submitButton.disabled = true;
-            submitButton.textContent = '送信中...';
+                const submitButton = contactForm.querySelector('.submit-button');
+                submitButton.disabled = true;
+                submitButton.textContent = '送信中...';
 
-            // フォームデータを取得
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData.entries());
+                // フォームデータを取得
+                const formData = new FormData(contactForm);
+                const data = Object.fromEntries(formData.entries());
+                console.log('Form data:', data);
 
-            try {
-                // APIにPOSTリクエストを送信
-                const response = await fetch('/api/contact', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
+                try {
+                    console.log('Sending request to /api/contact');
+                    // APIにPOSTリクエストを送信
+                    const response = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data)
+                    });
 
-                const result = await response.json();
+                    console.log('Response status:', response.status);
+                    const result = await response.json();
+                    console.log('Response data:', result);
 
-                if (result.success) {
-                    formMessage.textContent = result.message;
-                    formMessage.className = 'form-message success';
-                    contactForm.reset();
-                } else {
-                    formMessage.textContent = result.message;
+                    if (result.success) {
+                        formMessage.textContent = result.message;
+                        formMessage.className = 'form-message success';
+                        contactForm.reset();
+                    } else {
+                        formMessage.textContent = result.message;
+                        formMessage.className = 'form-message error';
+                    }
+
+                } catch (error) {
+                    console.error('Error:', error);
+                    formMessage.textContent = '送信中にエラーが発生しました。お手数ですが、お電話（070-2350-6245）またはメール（info@gunma-meo.com）で直接お問い合わせください。';
                     formMessage.className = 'form-message error';
+                } finally {
+                    // ボタンを元に戻す
+                    submitButton.disabled = false;
+                    submitButton.textContent = '送信する';
+
+                    // 5秒後にメッセージを非表示
+                    setTimeout(() => {
+                        formMessage.className = 'form-message';
+                    }, 5000);
                 }
-
-            } catch (error) {
-                console.error('Error:', error);
-                formMessage.textContent = '送信中にエラーが発生しました。お手数ですが、お電話（070-2350-6245）またはメール（info@gunma-meo.com）で直接お問い合わせください。';
-                formMessage.className = 'form-message error';
-            } finally {
-                // ボタンを元に戻す
-                submitButton.disabled = false;
-                submitButton.textContent = '送信する';
-
-                // 5秒後にメッセージを非表示
-                setTimeout(() => {
-                    formMessage.className = 'form-message';
-                }, 5000);
-            }
-        });
+            });
+        } else {
+            console.error('Contact form not found');
+        }
     </script>
 </body>
 </html>
