@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マップサポート群馬 - 群馬県特化型MEO代行サービス</title>
+    <meta name="description" content="群馬県内の歯科・美容クリニック・整骨院専門のMEO代行サービス。現地訪問・写真撮影・口コミ管理をワンストップで代行します。">
+    <meta property="og:title" content="マップサポート群馬 - 群馬県特化型MEO代行サービス">
+    <meta property="og:description" content="「現地に行って撮る」MEO対策。群馬県内の医療機関専門。">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Serif JP', serif;
+            font-weight: 400;
+            color: #2c2c2c;
+            line-height: 1.9;
+            background: #fafafa;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 120px 0;
+            scroll-margin-top: 80px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Noto Serif JP', serif;
+            font-weight: 700;
+            line-height: 1.6;
+            letter-spacing: 0.08em;
+        }
+
+        h2 {
+            font-size: 2.4rem;
+            margin-bottom: 80px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 25px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #1B4F72;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 20px 0;
+        }
+
+        header.scrolled {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-decoration: none;
+            letter-spacing: 0.08em;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        nav a {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.95rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            letter-spacing: 0.05em;
+        }
+
+        nav a:hover {
+            color: #1B4F72;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #1a1a1a;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            color: #1a1a1a;
+            text-align: center;
+            padding: 140px 30px 100px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 40px;
+            letter-spacing: 0.1em;
+            line-height: 1.5;
+            color: #1a1a1a;
+        }
+
+        .hero-subtitle {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 50px;
+            line-height: 2.2;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: #5A6977;
+        }
+
+        .hero-area {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.95rem;
+            color: #999;
+            margin-bottom: 50px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 22px 65px;
+            background: #1B4F72;
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 500;
+            font-size: 1.15rem;
+            border: 3px solid #1B4F72;
+            transition: all 0.4s ease;
+            letter-spacing: 0.1em;
+        }
+
+        .cta-button:hover {
+            background: #2a6a92;
+            border-color: #2a6a92;
+            transform: translateY(-2px);
+        }
+
+        .cta-button.secondary {
+            background: #ffffff;
+            color: #1B4F72;
+            border: 2px solid #ffffff;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255,255,255,0.9);
+        }
+
+        /* Problems Section */
+        .problems {
+            background: #ffffff;
+        }
+
+        .problems-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .problem-item {
+            padding: 45px 40px;
+            background: #fafafa;
+            border-left: 5px solid #1B4F72;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .problem-item:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+        }
+
+        .problem-item p {
+            font-size: 1.15rem;
+            line-height: 2;
+            letter-spacing: 0.05em;
+        }
+
+        /* Services Section */
+        .services {
+            background: #f5f5f5;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .service-item {
+            text-align: center;
+            background: #ffffff;
+            padding: 50px 35px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-label {
+            display: inline-block;
+            padding: 10px 28px;
+            background: #1B4F72;
+            color: #ffffff;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            letter-spacing: 0.1em;
+        }
+
+        .service-item h3 {
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+        }
+
+        .service-item p {
+            text-align: left;
+            line-height: 2;
+            font-size: 1.05rem;
+        }
+
+        /* Comparison Section */
+        .comparison {
+            background: #ffffff;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: #ffffff;
+            overflow: hidden;
+            box-shadow: 0 3px 20px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 25px 20px;
+            text-align: center;
+            border: 1px solid #e8e8e8;
+        }
+
+        .comparison-table th {
+            background: #1B4F72;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .comparison-table tr th:first-child,
+        .comparison-table tr td:first-child {
+            text-align: left;
+            font-weight: 600;
+            background: #f9f9f9;
+            font-size: 1.05rem;
+        }
+
+        .comparison-table td {
+            font-size: 1rem;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        .comparison-note {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .comparison-note p {
+            font-size: 1.1rem;
+            line-height: 2.2;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: #f5f5f5;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+        }
+
+        .pricing-card {
+            background: #ffffff;
+            border: 3px solid #e0e0e0;
+            padding: 50px 35px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .pricing-card:hover {
+            border-color: #1B4F72;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .pricing-card.featured {
+            border-color: #1B4F72;
+            border-width: 4px;
+            position: relative;
+            background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
+        }
+
+        .pricing-title {
+            font-size: 1.7rem;
+            margin-bottom: 25px;
+            letter-spacing: 0.08em;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1B4F72;
+            margin-bottom: 12px;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        .pricing-period {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 35px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 35px;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 30px;
+            font-size: 1.05rem;
+        }
+
+        .pricing-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1B4F72;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 60px;
+            padding: 45px;
+            background: #ffffff;
+            border-radius: 4px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .pricing-note p {
+            font-size: 1.1rem;
+            line-height: 2.2;
+            margin-bottom: 15px;
+        }
+
+        .pricing-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Flow Section */
+        .flow {
+            background: #ffffff;
+        }
+
+        .flow-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            position: relative;
+        }
+
+        .flow-step {
+            text-align: center;
+            position: relative;
+            padding: 40px 25px;
+            background: #fafafa;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .flow-step:hover {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+            transform: translateY(-3px);
+        }
+
+        .flow-step:not(:last-child):after {
+            content: "→";
+            position: absolute;
+            right: -40px;
+            top: 50px;
+            font-size: 2rem;
+            color: #1B4F72;
+            font-weight: 700;
+        }
+
+        .flow-number {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            border: 4px solid #1B4F72;
+            border-radius: 50%;
+            line-height: 72px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1B4F72;
+            margin-bottom: 30px;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        .flow-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 18px;
+        }
+
+        .flow-step p {
+            font-size: 0.98rem;
+            line-height: 1.9;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: #f5f5f5;
+        }
+
+        .faq-list {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 25px;
+            background: #ffffff;
+            border: 2px solid #e8e8e8;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            padding: 30px 35px;
+            cursor: pointer;
+            position: relative;
+            font-weight: 600;
+            font-size: 1.15rem;
+            transition: background 0.3s ease;
+            letter-spacing: 0.03em;
+        }
+
+        .faq-question:hover {
+            background: #fafafa;
+        }
+
+        .faq-question:after {
+            content: "+";
+            position: absolute;
+            right: 35px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: #1B4F72;
+            transition: transform 0.3s ease;
+            font-weight: 400;
+        }
+
+        .faq-question.active:after {
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            padding: 0 35px;
+        }
+
+        .faq-answer.active {
+            max-height: 600px;
+            padding: 0 35px 30px 35px;
+        }
+
+        .faq-answer p {
+            line-height: 2.1;
+            font-size: 1.05rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #1B4F72;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: #ffffff;
+            margin-bottom: 50px;
+        }
+
+        .cta-section h2:after {
+            background: #ffffff;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content > p {
+            font-size: 1.2rem;
+            line-height: 2.2;
+            margin-bottom: 50px;
+        }
+
+        .cta-info {
+            margin: 50px 0;
+            padding: 45px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .cta-phone {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin: 25px 0;
+            letter-spacing: 0.08em;
+        }
+
+        .cta-email {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 1.3rem;
+            margin: 25px 0;
+            letter-spacing: 0.05em;
+        }
+
+        .cta-buttons {
+            margin-top: 40px;
+        }
+
+        .cta-area {
+            margin-top: 50px;
+            font-size: 1.15rem;
+            opacity: 0.95;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        /* Contact Form Section */
+        .contact-form-section {
+            background: #ffffff;
+        }
+
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #2c2c2c;
+        }
+
+        .form-group label .required {
+            color: #d32f2f;
+            margin-left: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            background: #fafafa;
+            transition: all 0.3s ease;
+            color: #2c2c2c;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #1B4F72;
+            background: #ffffff;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .submit-button {
+            display: inline-block;
+            padding: 20px 80px;
+            background: #1B4F72;
+            color: #ffffff;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 500;
+            font-size: 1.15rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            letter-spacing: 0.1em;
+        }
+
+        .submit-button:hover {
+            background: #2a6a92;
+            transform: translateY(-2px);
+        }
+
+        .submit-button:disabled {
+            background: #999;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-notice {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .form-message {
+            margin-top: 20px;
+            padding: 15px 20px;
+            border-radius: 4px;
+            font-family: 'Noto Sans JP', sans-serif;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #81c784;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #ffebee;
+            color: #c62828;
+            border: 1px solid #e57373;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 0.08em;
+        }
+
+        .footer-subtitle {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.95rem;
+            margin-bottom: 35px;
+            opacity: 0.85;
+        }
+
+        .footer-copyright {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: #ffffff;
+                flex-direction: column;
+                gap: 0;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                padding: 20px 0;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav li {
+                padding: 15px 30px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            nav li:last-child {
+                border-bottom: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+
+            h2 {
+                font-size: 1.9rem;
+                margin-bottom: 50px;
+            }
+
+            .hero {
+                padding: 100px 25px 70px;
+                min-height: 85vh;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.05rem;
+            }
+
+            .cta-button {
+                padding: 18px 45px;
+                font-size: 1rem;
+            }
+
+            .problems-list {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .comparison-table {
+                font-size: 0.88rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 15px 10px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .flow-steps {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .flow-step:not(:last-child):after {
+                content: "↓";
+                right: auto;
+                left: 50%;
+                top: auto;
+                bottom: -45px;
+                transform: translateX(-50%);
+            }
+
+            .cta-phone {
+                font-size: 1.8rem;
+            }
+
+            .cta-email {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="header-container">
+            <a href="#" class="logo">マップサポート群馬</a>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#services">サービス内容</a></li>
+                    <li><a href="#pricing">料金</a></li>
+                    <li><a href="#faq">よくある質問</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>MEO対策、まるごと代行。</h1>
+            <p class="hero-subtitle">群馬県内の医療機関専門。<br>訪問撮影・口コミ管理・投稿運用をワンストップで。</p>
+            <p class="hero-area">対応エリア：高崎・前橋を中心に群馬県全域</p>
+            <a href="#contact" class="cta-button">無料相談のお問い合わせ</a>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="problems">
+        <div class="container">
+            <h2 class="fade-in">こんなお悩み、ありませんか？</h2>
+            <div class="problems-list">
+                <div class="problem-item fade-in">
+                    <p>MEOが大事なのはわかっているが、日々の診療で手が回らない</p>
+                </div>
+                <div class="problem-item fade-in">
+                    <p>東京の業者から営業電話が来るが、実態が見えず信用できない</p>
+                </div>
+                <div class="problem-item fade-in">
+                    <p>「写真を送ってください」と言われても、良い写真がない</p>
+                </div>
+                <div class="problem-item fade-in">
+                    <p>デジタルのトレンドについていけず、何から始めればいいかわからない</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="fade-in">3つのサービスで、Googleマップ集客をまるごと代行</h2>
+            <div class="services-grid">
+                <div class="service-item fade-in">
+                    <span class="service-label">MEO最適化</span>
+                    <h3>上位表示対策</h3>
+                    <p>Googleビジネスプロフィールを最適化し、検索結果での上位表示を目指します。基本情報の入力からカテゴリ設定まで、すべて代行します。</p>
+                </div>
+                <div class="service-item fade-in">
+                    <span class="service-label">口コミ管理</span>
+                    <h3>返信・運用代行</h3>
+                    <p>患者様からの口コミに迅速かつ適切に返信。週3回の確認体制で、クリニックの信頼性を高めます。</p>
+                </div>
+                <div class="service-item fade-in">
+                    <span class="service-label">現地撮影</span>
+                    <h3>訪問撮影代行</h3>
+                    <p>「写真を送ってください」とは言いません。私たちが現地に伺い、プロの視点で撮影します。外観・内観・設備まで丁寧に。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison">
+        <div class="container">
+            <h2 class="fade-in">なぜ「現地に行く」ことが重要なのか</h2>
+            <div class="fade-in">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>一般的なMEO業者</th>
+                            <th>マップサポート群馬</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>写真</td>
+                            <td>オーナー様が用意</td>
+                            <td>現地訪問して撮影</td>
+                        </tr>
+                        <tr>
+                            <td>報告</td>
+                            <td>メールのみ</td>
+                            <td>対面で訪問報告</td>
+                        </tr>
+                        <tr>
+                            <td>対応エリア</td>
+                            <td>全国（オンライン完結）</td>
+                            <td>群馬県内に特化</td>
+                        </tr>
+                        <tr>
+                            <td>医療知識</td>
+                            <td>なし</td>
+                            <td>医療系バックグラウンドあり</td>
+                        </tr>
+                        <tr>
+                            <td>運用方針</td>
+                            <td>順位保証をうたう業者も</td>
+                            <td>ホワイトハット運用のみ</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="comparison-note fade-in">
+                <p>外注カメラマンを1回呼ぶだけで3万円以上。<br>私たちは定期訪問の中で撮影まで行います。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="fade-in">料金プラン</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <h3 class="pricing-title">初期費用</h3>
+                    <div class="pricing-price">¥20,000</div>
+                    <div class="pricing-period">税込・買い切り</div>
+                    <ul class="pricing-features">
+                        <li>GBPアカウント構築・最適化</li>
+                        <li>NAP情報の統一</li>
+                        <li>初回写真撮影30枚</li>
+                        <li>口コミ促進POP作成</li>
+                    </ul>
+                </div>
+                <div class="pricing-card fade-in">
+                    <h3 class="pricing-title">スタンダード</h3>
+                    <div class="pricing-price">¥15,000</div>
+                    <div class="pricing-period">月額・税込</div>
+                    <ul class="pricing-features">
+                        <li>口コミ返信代行（週3回）</li>
+                        <li>定期投稿（隔週1本）</li>
+                        <li>訪問（隔月1回、約30分）</li>
+                        <li>インサイト共有・相談</li>
+                    </ul>
+                </div>
+                <div class="pricing-card featured fade-in">
+                    <h3 class="pricing-title">プレミアム</h3>
+                    <div class="pricing-price">¥30,000</div>
+                    <div class="pricing-period">月額・税込</div>
+                    <ul class="pricing-features">
+                        <li>口コミ返信代行（週3回）</li>
+                        <li>定期投稿（毎週1本）</li>
+                        <li>写真更新（隔月10〜15枚）</li>
+                        <li>毎月訪問・月次レポート</li>
+                        <li>Web集客コンサルティング</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pricing-note fade-in">
+                <p>初月の運用費は無料です（2ヶ月の最低利用期間あり）。<br>順位保証は行いません。表示回数・アクション数の改善にコミットします。</p>
+                <p>投稿は初月のみ毎回ご確認いただき、2ヶ月目以降はおまかせいただけます。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flow Section -->
+    <section class="flow">
+        <div class="container">
+            <h2 class="fade-in">ご利用の流れ</h2>
+            <div class="flow-steps">
+                <div class="flow-step fade-in">
+                    <div class="flow-number">1</div>
+                    <h3>お問い合わせ</h3>
+                    <p>まずはお気軽にご相談ください</p>
+                </div>
+                <div class="flow-step fade-in">
+                    <div class="flow-number">2</div>
+                    <h3>無料診断</h3>
+                    <p>貴院のGoogleマップの現状を診断し、改善点をレポートにまとめます</p>
+                </div>
+                <div class="flow-step fade-in">
+                    <div class="flow-number">3</div>
+                    <h3>ご契約・初期設定</h3>
+                    <p>写真撮影、GBP最適化、口コミポップの設置を実施</p>
+                </div>
+                <div class="flow-step fade-in">
+                    <div class="flow-number">4</div>
+                    <h3>運用開始</h3>
+                    <p>定期的な投稿・口コミ対応・訪問報告で集客を支えます</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="fade-in">よくある質問</h2>
+            <div class="faq-list">
+                <div class="faq-item fade-in">
+                    <div class="faq-question">成果が出るまでどのくらいかかりますか？</div>
+                    <div class="faq-answer">
+                        <p>GBPの最適化効果は通常2〜4週間で表示回数に変化が現れます。安定した成果には2〜3ヶ月をいただいています。</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">順位保証はありますか？</div>
+                    <div class="faq-answer">
+                        <p>順位保証は行っておりません。Googleのアルゴリズムは非公開のため、順位保証は技術的に不可能です。「表示回数」「電話タップ数」「ルート検索数」など、集客に直結する指標の改善にコミットします。</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">契約期間の縛りはありますか？</div>
+                    <div class="faq-answer">
+                        <p>初月無料の条件として2ヶ月の最低利用期間を設けています。3ヶ月目以降はいつでも解約可能です。</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">他のMEO業者との違いは何ですか？</div>
+                    <div class="faq-answer">
+                        <p>最大の違いは「現地訪問・現地撮影」です。多くの業者はオンライン完結型で写真はオーナー様にご用意いただく形式ですが、私たちは実際に貴院を訪問して撮影します。また医療機関に特化しているため、医療広告ガイドラインを理解した上での運用が可能です。</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">スタッフの撮影を嫌がる場合はどうなりますか？</div>
+                    <div class="faq-answer">
+                        <p>スタッフ様の撮影は任意です。ご本人の同意が得られた方のみ撮影します。スタッフ写真なしでも、院内・設備の写真で十分に魅力を伝えることが可能です。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>まずは無料診断から</h2>
+            <div class="cta-content">
+                <p>現在のGoogleマップ対策状況を無料で診断いたします。<br>お電話またはメールでお気軽にお問い合わせください。</p>
+                <div class="cta-info">
+                    <div class="cta-phone">070-2350-6245</div>
+                    <div class="cta-email">info@gunma-meo.com</div>
+                </div>
+                <div class="cta-buttons">
+                    <a href="#contact-form" class="cta-button secondary">無料相談・お問い合わせ</a>
+                </div>
+                <div class="cta-area">対応エリア：群馬県全域（高崎・前橋を中心に）</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="contact-form-section">
+        <div class="container">
+            <h2 class="fade-in" id="contact-form">お問い合わせフォーム</h2>
+            <form class="contact-form fade-in" id="contactForm">
+                <div id="formMessage" class="form-message"></div>
+
+                <div class="form-group">
+                    <label for="companyName">クリニック・医院名<span class="required">*</span></label>
+                    <input type="text" id="companyName" name="companyName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">お名前<span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">電話番号<span class="required">*</span></label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">メールアドレス<span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">所在地（市町村）</label>
+                    <input type="text" id="address" name="address" placeholder="例：高崎市">
+                </div>
+
+                <div class="form-group">
+                    <label for="inquiry">お問い合わせ内容<span class="required">*</span></label>
+                    <select id="inquiry" name="inquiry" required>
+                        <option value="">選択してください</option>
+                        <option value="無料診断希望">無料診断希望</option>
+                        <option value="サービス内容について">サービス内容について</option>
+                        <option value="料金について">料金について</option>
+                        <option value="その他">その他</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">メッセージ</label>
+                    <textarea id="message" name="message" placeholder="ご質問やご要望などございましたら、お気軽にお書きください。"></textarea>
+                </div>
+
+                <div class="form-submit">
+                    <button type="submit" class="submit-button">送信する</button>
+                </div>
+
+                <div class="form-notice">
+                    お送りいただいた情報は、プライバシーポリシーに基づき適切に管理いたします。<br>
+                    通常1営業日以内にご返信いたします。
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-title">マップサポート群馬</div>
+            <div class="footer-subtitle">群馬県特化型MEO代行サービス</div>
+            <div class="footer-copyright">&copy; 2026 マップサポート群馬. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+
+                // Close all other FAQs
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    if (q !== question) {
+                        q.classList.remove('active');
+                        q.nextElementSibling.classList.remove('active');
+                    }
+                });
+
+                // Toggle current FAQ
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.classList.add('active');
+                } else {
+                    question.classList.remove('active');
+                    answer.classList.remove('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitButton = contactForm.querySelector('.submit-button');
+            submitButton.disabled = true;
+            submitButton.textContent = '送信中...';
+
+            // フォームデータを取得
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                // APIにPOSTリクエストを送信
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    formMessage.textContent = result.message;
+                    formMessage.className = 'form-message success';
+                    contactForm.reset();
+                } else {
+                    formMessage.textContent = result.message;
+                    formMessage.className = 'form-message error';
+                }
+
+            } catch (error) {
+                console.error('Error:', error);
+                formMessage.textContent = '送信中にエラーが発生しました。お手数ですが、お電話（070-2350-6245）またはメール（info@gunma-meo.com）で直接お問い合わせください。';
+                formMessage.className = 'form-message error';
+            } finally {
+                // ボタンを元に戻す
+                submitButton.disabled = false;
+                submitButton.textContent = '送信する';
+
+                // 5秒後にメッセージを非表示
+                setTimeout(() => {
+                    formMessage.className = 'form-message';
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
