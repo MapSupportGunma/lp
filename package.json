@@ -1,0 +1,22 @@
+{
+  "name": "map-support-gunma",
+  "version": "1.0.0",
+  "description": "群馬県特化型MEO代行サービスのランディングページ",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["MEO", "landing-page", "gunma"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
