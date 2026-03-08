@@ -239,6 +239,145 @@
             background: rgba(255,255,255,0.9);
         }
 
+        /* MEO Explanation Section */
+        .meo-explanation {
+            background: #ffffff;
+            padding: 80px 0;
+        }
+
+        .meo-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .meo-intro h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+        }
+
+        .meo-intro-text {
+            font-size: 1.1rem;
+            line-height: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #333;
+        }
+
+        .meo-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            max-width: 950px;
+            margin: 60px auto 40px;
+            text-align: center;
+        }
+
+        .meo-stat-item {
+            padding: 0 20px;
+        }
+
+        .meo-stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #1B4F72;
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .meo-stat-description {
+            font-size: 0.95rem;
+            color: #5A6977;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .meo-stat-source {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        .meo-stats-summary {
+            text-align: center;
+            font-size: 1.05rem;
+            line-height: 2;
+            max-width: 850px;
+            margin: 40px auto 60px;
+            color: #333;
+        }
+
+        .meo-steps-section {
+            margin: 60px 0;
+        }
+
+        .meo-steps-section h3 {
+            text-align: center;
+            font-size: 1.6rem;
+            margin-bottom: 50px;
+            color: #1B4F72;
+        }
+
+        .meo-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 950px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+
+        .meo-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .meo-step:not(:last-child):after {
+            content: "→";
+            position: absolute;
+            right: -20px;
+            top: 20px;
+            font-size: 2rem;
+            color: #1B4F72;
+            font-weight: 700;
+        }
+
+        .meo-step-number {
+            width: 50px;
+            height: 50px;
+            background: #1B4F72;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .meo-step-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .meo-steps-note {
+            text-align: center;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            max-width: 750px;
+            margin: 0 auto 60px;
+            color: #5A6977;
+        }
+
+        .meo-closing {
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #333;
+            margin-top: 60px;
+        }
+
         /* Problems Section */
         .problems {
             background: #ffffff;
@@ -958,6 +1097,41 @@
                 font-size: 1rem;
             }
 
+            .meo-stats {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .meo-stat-number {
+                font-size: 2.5rem;
+            }
+
+            .meo-steps {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .meo-step:not(:last-child):after {
+                content: "↓";
+                right: auto;
+                left: 50%;
+                top: auto;
+                bottom: -35px;
+                transform: translateX(-50%);
+            }
+
+            .meo-intro h2 {
+                font-size: 1.8rem;
+            }
+
+            .meo-intro-text {
+                font-size: 1rem;
+            }
+
+            .meo-steps-section h3 {
+                font-size: 1.3rem;
+            }
+
             .problems-list {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -1056,9 +1230,62 @@
     <section class="hero">
         <div class="hero-content">
             <h1>MEO対策、まるごと代行。</h1>
-            <p class="hero-subtitle">群馬県内の医療機関専門。<br>撮影も、口コミ対応も、投稿も。<br>ぜんぶ、やります。</p>
+            <p class="hero-subtitle">Googleマップに表示される貴院の情報を最適化し、選ばれる医院へ。<br>撮影も、口コミ対応も、投稿も。<br>ぜんぶ、やります。</p>
             <p class="hero-area">対応エリア：高崎・前橋を中心に群馬県全域</p>
             <a href="#contact" class="cta-button">無料で相談する</a>
+        </div>
+    </section>
+
+    <!-- MEO Explanation Section -->
+    <section class="meo-explanation">
+        <div class="container">
+            <div class="meo-intro fade-in">
+                <h2>なぜ今、Googleマップ対策が必要なのか</h2>
+                <p class="meo-intro-text">「高崎 歯医者」「前橋 整骨院」——患者さんがスマホで検索した時、最初に目に入るのはGoogleマップの検索結果です。写真・口コミ・営業時間など、ここに表示される情報を整え、貴院を「選ばれる状態」にするのがGoogleマップ対策（MEO対策）です。</p>
+            </div>
+
+            <div class="fade-in">
+                <h3 style="text-align: center; font-size: 1.6rem; margin-bottom: 50px; color: #1B4F72;">患者さんの8割は、Google検索で医院を探しています</h3>
+                <div class="meo-stats">
+                    <div class="meo-stat-item">
+                        <div class="meo-stat-number">79.5%</div>
+                        <div class="meo-stat-description">スマホで調べものをする人のうち、Google検索を利用する割合</div>
+                        <div class="meo-stat-source">LINEリサーチ調査</div>
+                    </div>
+                    <div class="meo-stat-item">
+                        <div class="meo-stat-number">46%</div>
+                        <div class="meo-stat-description">Google検索全体のうち、地域に関連する検索の割合</div>
+                        <div class="meo-stat-source">GoFishDigital調査</div>
+                    </div>
+                    <div class="meo-stat-item">
+                        <div class="meo-stat-number">76%</div>
+                        <div class="meo-stat-description">地域検索をしたユーザーが、24時間以内に実際に店舗を訪問する割合</div>
+                        <div class="meo-stat-source">Google調査</div>
+                    </div>
+                </div>
+                <p class="meo-stats-summary">つまり、スマホユーザーの約8割がGoogle検索を使い、その半数近くが地域に関連する検索を行い、そのうち76%が実際に来院・来店しています。Googleマップ上での見え方は、貴院の集客に直結しています。</p>
+            </div>
+
+            <div class="meo-steps-section fade-in">
+                <h3>紹介を受けた患者さんも、来院前にGoogleで検索しています</h3>
+                <div class="meo-steps">
+                    <div class="meo-step">
+                        <div class="meo-step-number">1</div>
+                        <div class="meo-step-text">知人から「あそこの歯医者いいよ」と紹介を受ける</div>
+                    </div>
+                    <div class="meo-step">
+                        <div class="meo-step-number">2</div>
+                        <div class="meo-step-text">スマホで医院名を検索し、Googleマップで写真・口コミを確認する</div>
+                    </div>
+                    <div class="meo-step">
+                        <div class="meo-step-number">3</div>
+                        <div class="meo-step-text">「ここなら安心できそう」と感じたら、電話・予約をする</div>
+                    </div>
+                </div>
+                <p class="meo-steps-note">この2番目のステップで、写真が古い・口コミに返信がない・情報が不十分だと、せっかくの紹介が来院につながりません。</p>
+            </div>
+
+            <p class="meo-closing fade-in">しかし、多くの医院ではGoogleマップの運用にまで手が回っていません。</p>
         </div>
     </section>
 
