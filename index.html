@@ -272,9 +272,49 @@
             margin: 0;
         }
 
+        /* Trust Section */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .trust-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .trust-icon {
+            font-size: 3rem;
+            color: #E74C3C;
+            margin-bottom: 20px;
+        }
+
+        .trust-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #1B4F72;
+        }
+
+        .trust-card p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #5A6977;
+        }
+
         @media (max-width: 768px) {
             .fixed-cta {
                 display: block;
+            }
+
+            .trust-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
         }
 
@@ -1624,21 +1664,21 @@
     <section class="trust-section" style="background: #f0f5f9; padding: 80px 0;">
         <div class="container">
             <h2 class="fade-in" style="color: #1B4F72;">選ばれる3つの理由</h2>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 950px; margin: 0 auto;">
-                <div class="fade-in" style="text-align: center; padding: 40px 30px; background: #ffffff; border-radius: 8px; box-shadow: 0 3px 15px rgba(0,0,0,0.08);">
-                    <div style="font-size: 3rem; color: #E74C3C; margin-bottom: 20px;">✓</div>
-                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: #1B4F72;">群馬県内専門</h3>
-                    <p style="font-size: 1rem; line-height: 1.8; color: #5A6977;">高崎・前橋を中心に、地域の特性を熟知した運用を実施</p>
+            <div class="trust-grid">
+                <div class="trust-card fade-in">
+                    <div class="trust-icon">✓</div>
+                    <h3>群馬県内専門</h3>
+                    <p>高崎・前橋を中心に、地域の特性を熟知した運用を実施</p>
                 </div>
-                <div class="fade-in" style="text-align: center; padding: 40px 30px; background: #ffffff; border-radius: 8px; box-shadow: 0 3px 15px rgba(0,0,0,0.08);">
-                    <div style="font-size: 3rem; color: #E74C3C; margin-bottom: 20px;">✓</div>
-                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: #1B4F72;">現地訪問対応</h3>
-                    <p style="font-size: 1rem; line-height: 1.8; color: #5A6977;">東京の業者と違い、実際に伺って撮影・ヒアリングを実施</p>
+                <div class="trust-card fade-in">
+                    <div class="trust-icon">✓</div>
+                    <h3>現地訪問対応</h3>
+                    <p>東京の業者と違い、実際に伺って撮影・ヒアリングを実施</p>
                 </div>
-                <div class="fade-in" style="text-align: center; padding: 40px 30px; background: #ffffff; border-radius: 8px; box-shadow: 0 3px 15px rgba(0,0,0,0.08);">
-                    <div style="font-size: 3rem; color: #E74C3C; margin-bottom: 20px;">✓</div>
-                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: #1B4F72;">初月無料</h3>
-                    <p style="font-size: 1rem; line-height: 1.8; color: #5A6977;">リスクなく始められる。効果を実感してから続けられます</p>
+                <div class="trust-card fade-in">
+                    <div class="trust-icon">✓</div>
+                    <h3>初月無料</h3>
+                    <p>リスクなく始められる。効果を実感してから続けられます</p>
                 </div>
             </div>
         </div>
