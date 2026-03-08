@@ -306,6 +306,82 @@
             color: #333;
         }
 
+        .meo-chart-section {
+            margin: 60px 0;
+        }
+
+        .meo-chart-section h3 {
+            text-align: center;
+            font-size: 1.6rem;
+            margin-bottom: 50px;
+            color: #1B4F72;
+        }
+
+        .meo-chart-container {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .meo-chart-bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .meo-chart-label {
+            width: 130px;
+            font-size: 0.9rem;
+            color: #333;
+            text-align: right;
+            padding-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .meo-chart-bar-bg {
+            flex: 1;
+            height: 22px;
+            background: #f0f0f0;
+            border-radius: 3px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .meo-chart-bar-fill {
+            height: 100%;
+            background: #D5D8DC;
+            border-radius: 3px;
+            position: relative;
+            transition: width 0.8s ease;
+        }
+
+        .meo-chart-bar-fill.primary {
+            background: #1B4F72;
+        }
+
+        .meo-chart-percentage {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .meo-chart-source {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 20px;
+        }
+
+        .meo-chart-note {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #5A6977;
+            line-height: 1.8;
+        }
+
         .meo-steps-section {
             margin: 60px 0;
         }
@@ -1132,6 +1208,20 @@
                 font-size: 1.3rem;
             }
 
+            .meo-chart-section h3 {
+                font-size: 1.3rem;
+            }
+
+            .meo-chart-label {
+                width: 90px;
+                font-size: 0.8rem;
+                padding-right: 10px;
+            }
+
+            .meo-chart-percentage {
+                font-size: 0.75rem;
+            }
+
             .problems-list {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -1264,6 +1354,62 @@
                     </div>
                 </div>
                 <p class="meo-stats-summary">つまり、スマホユーザーの約8割がGoogle検索を使い、その半数近くが地域に関連する検索を行い、そのうち76%が実際に来院・来店しています。Googleマップ上での見え方は、貴院の集客に直結しています。</p>
+            </div>
+
+            <div class="meo-chart-section fade-in">
+                <h3>「医院探し」に使われるのは、圧倒的にGoogle検索です</h3>
+                <div class="meo-chart-container">
+                    <div class="meo-chart-bar">
+                        <div class="meo-chart-label">Google検索</div>
+                        <div class="meo-chart-bar-bg">
+                            <div class="meo-chart-bar-fill primary" style="width: 79.5%;">
+                                <div class="meo-chart-percentage">79.5%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="meo-chart-bar">
+                        <div class="meo-chart-label">YouTube</div>
+                        <div class="meo-chart-bar-bg">
+                            <div class="meo-chart-bar-fill" style="width: 48.2%;">
+                                <div class="meo-chart-percentage">48.2%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="meo-chart-bar">
+                        <div class="meo-chart-label">Yahoo! JAPAN</div>
+                        <div class="meo-chart-bar-bg">
+                            <div class="meo-chart-bar-fill" style="width: 44.7%;">
+                                <div class="meo-chart-percentage">44.7%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="meo-chart-bar">
+                        <div class="meo-chart-label">Instagram</div>
+                        <div class="meo-chart-bar-bg">
+                            <div class="meo-chart-bar-fill" style="width: 30%;">
+                                <div class="meo-chart-percentage">30%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="meo-chart-bar">
+                        <div class="meo-chart-label">X（旧Twitter）</div>
+                        <div class="meo-chart-bar-bg">
+                            <div class="meo-chart-bar-fill" style="width: 30%;">
+                                <div class="meo-chart-percentage">30%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="meo-chart-bar">
+                        <div class="meo-chart-label">TikTok</div>
+                        <div class="meo-chart-bar-bg">
+                            <div class="meo-chart-bar-fill" style="width: 11.6%;">
+                                <div class="meo-chart-percentage">11.6%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="meo-chart-source">LINEリサーチ「スマホでの検索行動に関する調査」</p>
+                <p class="meo-chart-note">InstagramやTikTokは若年層中心。医院を探す患者さんが使うのはGoogle検索です。</p>
             </div>
 
             <div class="meo-steps-section fade-in">
