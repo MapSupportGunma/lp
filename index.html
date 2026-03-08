@@ -240,105 +240,6 @@
         }
 
         /* MEO Explanation Section */
-        /* AI Era Section */
-        .ai-era-section {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
-            padding: 100px 0;
-        }
-
-        .ai-era-intro {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .ai-era-intro h2 {
-            font-size: 2rem;
-            line-height: 1.8;
-            margin-bottom: 40px;
-            color: #1B4F72;
-        }
-
-        .ai-era-lead {
-            font-size: 1.2rem;
-            line-height: 2;
-            color: #333;
-            max-width: 850px;
-            margin: 0 auto;
-        }
-
-        .ai-era-explanation {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 50px 45px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        .ai-era-text {
-            font-size: 1.1rem;
-            line-height: 2;
-            margin-bottom: 40px;
-            color: #333;
-        }
-
-        .ai-era-explanation h3 {
-            font-size: 1.6rem;
-            color: #1B4F72;
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .ai-checkpoints {
-            margin: 40px 0;
-        }
-
-        .ai-checkpoint {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
-            padding: 20px;
-            background: #f9fbfd;
-            border-left: 4px solid #1B4F72;
-            border-radius: 4px;
-        }
-
-        .ai-checkpoint-icon {
-            font-size: 1.8rem;
-            color: #1B4F72;
-            margin-right: 20px;
-            flex-shrink: 0;
-            font-weight: 700;
-        }
-
-        .ai-checkpoint-text {
-            font-size: 1.05rem;
-            line-height: 1.9;
-            color: #333;
-        }
-
-        .ai-era-conclusion {
-            margin-top: 50px;
-            padding-top: 40px;
-            border-top: 2px solid #e8eef5;
-        }
-
-        .ai-era-conclusion p {
-            font-size: 1.1rem;
-            line-height: 2.1;
-            margin-bottom: 25px;
-            color: #333;
-        }
-
-        .ai-era-conclusion p:last-child {
-            margin-bottom: 0;
-        }
-
-        .ai-era-conclusion strong {
-            color: #E74C3C;
-            font-weight: 600;
-        }
-
         .meo-explanation {
             background: #ffffff;
             padding: 80px 0;
@@ -630,6 +531,72 @@
             text-align: left;
             line-height: 2;
             font-size: 1.05rem;
+        }
+
+        /* Profile Section */
+        .profile {
+            background: #f5f5f5;
+        }
+
+        .profile-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 50px 45px;
+            box-shadow: 0 3px 20px rgba(0,0,0,0.08);
+        }
+
+        .profile-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #1B4F72;
+            text-align: center;
+        }
+
+        .profile-item {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .profile-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .profile-item h3 {
+            font-size: 1.2rem;
+            color: #1B4F72;
+            margin-bottom: 15px;
+        }
+
+        .profile-item p {
+            font-size: 1.05rem;
+            line-height: 2;
+            color: #333;
+        }
+
+        .profile-credentials {
+            list-style: none;
+        }
+
+        .profile-credentials li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .profile-credentials li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1B4F72;
+            font-weight: 700;
+            font-size: 1.3rem;
         }
 
         /* Comparison Section */
@@ -1262,51 +1229,24 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .ai-era-section {
-                padding: 70px 0;
-            }
-
-            .ai-era-intro h2 {
-                font-size: 1.6rem;
-                line-height: 1.7;
-            }
-
-            .ai-era-lead {
-                font-size: 1.05rem;
-            }
-
-            .ai-era-explanation {
+            .profile-container {
                 padding: 35px 25px;
             }
 
-            .ai-era-text {
-                font-size: 1rem;
-            }
-
-            .ai-era-explanation h3 {
-                font-size: 1.4rem;
-            }
-
-            .ai-checkpoint {
-                padding: 15px;
-            }
-
-            .ai-checkpoint-icon {
+            .profile-name {
                 font-size: 1.5rem;
-                margin-right: 15px;
             }
 
-            .ai-checkpoint-text {
+            .profile-item h3 {
+                font-size: 1.1rem;
+            }
+
+            .profile-item p {
                 font-size: 0.95rem;
             }
 
-            .ai-era-conclusion {
-                margin-top: 35px;
-                padding-top: 30px;
-            }
-
-            .ai-era-conclusion p {
-                font-size: 1rem;
+            .profile-credentials li {
+                font-size: 0.95rem;
             }
 
             nav ul {
@@ -1540,70 +1480,12 @@
         </div>
     </section>
 
-    <!-- AI Era Section -->
-    <section class="ai-era-section">
-        <div class="container">
-            <div class="ai-era-intro fade-in">
-                <h2>「Google検索」から「AIへの相談」へ。<br>今、GBP(Googleマップ)対策が"さらに"重要になっている理由</h2>
-                <p class="ai-era-lead">最近、「高崎市で痛くない歯医者を教えて」と、ChatGPTなどのAIに相談してクリニックを決める患者様が急増しているのをご存知ですか?</p>
-            </div>
-
-            <div class="ai-era-explanation fade-in">
-                <p class="ai-era-text">実は、AIがおすすめのクリニックを提案する際、最も参考にしているデータの一つが<strong>「Googleビジネスプロフィール(GBP)」</strong>の情報です。</p>
-
-                <h3>AIはここを見ている!</h3>
-
-                <div class="ai-checkpoints">
-                    <div class="ai-checkpoint">
-                        <div class="ai-checkpoint-icon">✓</div>
-                        <div class="ai-checkpoint-text">常に最新の情報(営業時間や休診日)が更新されているか</div>
-                    </div>
-                    <div class="ai-checkpoint">
-                        <div class="ai-checkpoint-icon">✓</div>
-                        <div class="ai-checkpoint-text">院内の雰囲気や設備がわかる写真が豊富にあるか</div>
-                    </div>
-                    <div class="ai-checkpoint">
-                        <div class="ai-checkpoint-icon">✓</div>
-                        <div class="ai-checkpoint-text">患者様からの口コミに対し、誠実な返信を行っているか</div>
-                    </div>
-                </div>
-
-                <div class="ai-era-conclusion">
-                    <p>つまり、GBPの情報がスカスカだったり、口コミが放置されていたりすると、<strong>「AIの選択肢から完全に外れてしまう」</strong>という大きな機会損失に繋がります。</p>
-                    <p>マップサポート群馬では、データサイエンスの知見を活かし、今後のAI検索時代にも選ばれ続けるためのGBP構築・運用を徹底サポートします。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- MEO Explanation Section -->
     <section class="meo-explanation">
         <div class="container">
             <div class="meo-intro fade-in">
                 <h2>なぜ今、Googleマップ対策が必要なのか</h2>
                 <p class="meo-intro-text">「高崎 歯医者」「前橋 整骨院」——患者さんがスマホで検索した時、最初に目に入るのはGoogleマップの検索結果です。写真・口コミ・営業時間など、ここに表示される情報を整え、貴院を「選ばれる状態」にするのがGoogleマップ対策（MEO対策）です。</p>
-            </div>
-
-            <div class="fade-in">
-                <h3 style="text-align: center; font-size: 1.6rem; margin-bottom: 50px; color: #1B4F72;">患者さんの8割は、Google検索で医院を探しています</h3>
-                <div class="meo-stats">
-                    <div class="meo-stat-item">
-                        <div class="meo-stat-number">79.5%</div>
-                        <div class="meo-stat-description">スマホで調べものをする人のうち、Google検索を利用する割合</div>
-                        <div class="meo-stat-source">LINEリサーチ調査</div>
-                    </div>
-                    <div class="meo-stat-item">
-                        <div class="meo-stat-number">46%</div>
-                        <div class="meo-stat-description">Google検索全体のうち、地域に関連する検索の割合</div>
-                        <div class="meo-stat-source">GoFishDigital調査</div>
-                    </div>
-                    <div class="meo-stat-item">
-                        <div class="meo-stat-number">76%</div>
-                        <div class="meo-stat-description">地域検索をしたユーザーが、24時間以内に実際に店舗を訪問する割合</div>
-                        <div class="meo-stat-source">Google調査</div>
-                    </div>
-                </div>
-                <p class="meo-stats-summary">つまり、スマホユーザーの約8割がGoogle検索を使い、その半数近くが地域に関連する検索を行い、そのうち76%が実際に来院・来店しています。Googleマップ上での見え方は、貴院の集客に直結しています。</p>
             </div>
 
             <div class="meo-chart-section fade-in">
@@ -1662,6 +1544,28 @@
                 <p class="meo-chart-note">InstagramやTikTokは若年層中心。医院を探す患者さんが使うのはGoogle検索です。</p>
             </div>
 
+            <div class="fade-in">
+                <h3 style="text-align: center; font-size: 1.6rem; margin-bottom: 50px; color: #1B4F72;">患者さんの8割は、Google検索で医院を探しています</h3>
+                <div class="meo-stats">
+                    <div class="meo-stat-item">
+                        <div class="meo-stat-number">79.5%</div>
+                        <div class="meo-stat-description">スマホで調べものをする人のうち、Google検索を利用する割合</div>
+                        <div class="meo-stat-source">LINEリサーチ調査</div>
+                    </div>
+                    <div class="meo-stat-item">
+                        <div class="meo-stat-number">46%</div>
+                        <div class="meo-stat-description">Google検索全体のうち、地域に関連する検索の割合</div>
+                        <div class="meo-stat-source">GoFishDigital調査</div>
+                    </div>
+                    <div class="meo-stat-item">
+                        <div class="meo-stat-number">76%</div>
+                        <div class="meo-stat-description">地域検索をしたユーザーが、24時間以内に実際に店舗を訪問する割合</div>
+                        <div class="meo-stat-source">Google調査</div>
+                    </div>
+                </div>
+                <p class="meo-stats-summary">つまり、スマホユーザーの約8割がGoogle検索を使い、その半数近くが地域に関連する検索を行い、そのうち76%が実際に来院・来店しています。Googleマップ上での見え方は、貴院の集客に直結しています。</p>
+            </div>
+
             <div class="meo-steps-section fade-in">
                 <h3>紹介を受けた患者さんも、来院前にGoogleで検索しています</h3>
                 <div class="meo-steps">
@@ -1691,7 +1595,7 @@
             <h2 class="fade-in">こんなお悩み、ありませんか？</h2>
             <div class="problems-list">
                 <div class="problem-item fade-in">
-                    <p>MEOが大事なのはわかっているが、日々の診療で手が回らない</p>
+                    <p>Googleマップの情報、放置してしまっている</p>
                 </div>
                 <div class="problem-item fade-in">
                     <p>東京の業者から営業電話が来るが、実態が見えず信用できない</p>
@@ -1701,30 +1605,6 @@
                 </div>
                 <div class="problem-item fade-in">
                     <p>デジタルのトレンドについていけず、何から始めればいいかわからない</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="fade-in">3つのサービスで、Googleマップ集客をまるごと代行</h2>
-            <div class="services-grid">
-                <div class="service-item fade-in">
-                    <span class="service-label">MEO最適化</span>
-                    <h3>上位表示対策</h3>
-                    <p>Googleビジネスプロフィールを最適化し、検索結果での上位表示を目指します。基本情報の入力からカテゴリ設定まで、すべて代行します。</p>
-                </div>
-                <div class="service-item fade-in">
-                    <span class="service-label">口コミ管理</span>
-                    <h3>返信・運用代行</h3>
-                    <p>患者様からの口コミに迅速かつ適切に返信。週3回の確認体制で、すべての口コミに丁寧に対応します。初月はオーナー様にご確認いただき、2ヶ月目以降はおまかせ運用に移行します。</p>
-                </div>
-                <div class="service-item fade-in">
-                    <span class="service-label">現地撮影</span>
-                    <h3>訪問撮影代行</h3>
-                    <p>「写真を送ってください」とは言いません。私たちが現地に伺い、プロの視点で撮影します。外観・内観・設備まで丁寧に。</p>
                 </div>
             </div>
         </div>
@@ -1745,50 +1625,75 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>写真</td>
+                            <td>写真撮影</td>
                             <td>オーナー様が用意</td>
                             <td>現地訪問して撮影</td>
                         </tr>
                         <tr>
-                            <td>報告</td>
+                            <td>月次報告</td>
                             <td>メールのみ</td>
                             <td>対面で訪問報告</td>
                         </tr>
                         <tr>
                             <td>対応エリア</td>
                             <td>全国（オンライン完結）</td>
-                            <td>群馬県内に特化</td>
-                        </tr>
-                        <tr>
-                            <td>医療知識</td>
-                            <td>なし</td>
-                            <td>医療系バックグラウンドあり</td>
-                        </tr>
-                        <tr>
-                            <td>運用方針</td>
-                            <td>順位保証をうたう業者も</td>
-                            <td>Googleの規約を厳守した運用</td>
+                            <td>群馬県内に特化し現地訪問</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="comparison-explanation fade-in">
-                <h3>現地訪問だからこそ、できること</h3>
-                <div class="comparison-points">
-                    <div class="comparison-point">
-                        <h4>1. 本当に「映える」写真が撮れる</h4>
-                        <p>オーナー様に「写真を送ってください」とお願いしても、スマホで撮った暗い写真や、古い写真しか手元にないケースがほとんどです。私たちは実際に現地を訪問し、患者目線で「この角度なら清潔感が伝わる」「ここを撮れば安心感が出る」という写真を撮影します。</p>
-                    </div>
-                    <div class="comparison-point">
-                        <h4>2. 院内の雰囲気を肌で感じ、投稿に反映できる</h4>
-                        <p>オンライン完結の業者は、貴院のことを実際には知りません。しかし私たちは訪問し、スタッフの方と会話し、院内の空気を感じます。だからこそ、テンプレートではない「その医院らしさ」が伝わる投稿ができます。</p>
-                    </div>
-                    <div class="comparison-point">
-                        <h4>3. 顔を合わせることで、信頼関係が生まれる</h4>
-                        <p>「MEO業者」というと、契約後は連絡が取りづらくなる、という不安を耳にします。私たちは毎月訪問し、対面でレポートをお渡しします。数字の報告だけでなく、気になることをその場で相談できる関係を大切にしています。</p>
-                    </div>
+            <div class="comparison-note">
+                <p>群馬県内に特化しているからこそ、現地訪問が可能です。この「足で稼ぐ」スタイルが、全国展開の業者にはない、私たちの最大の強みです。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section class="profile">
+        <div class="container">
+            <h2 class="fade-in">代表者プロフィール</h2>
+            <div class="profile-container fade-in">
+                <div class="profile-name">運営者：小此木 瑠偉</div>
+                <div class="profile-item">
+                    <h3>経歴・資格</h3>
+                    <ul class="profile-credentials">
+                        <li>群馬大学医学部出身（医学部医学科ではなく、医療系学部出身）</li>
+                        <li>東京大学大学院 松尾研究室GCI修了（データサイエンス・AI専門）</li>
+                        <li>基本情報技術者試験 合格</li>
+                    </ul>
                 </div>
-                <p class="comparison-summary">群馬県内に特化しているからこそ、現地訪問が可能です。この「足で稼ぐ」スタイルが、全国展開の業者にはない、私たちの最大の強みです。</p>
+                <div class="profile-item">
+                    <h3>なぜMEO代行を始めたのか</h3>
+                    <p>医療系のバックグラウンドを持ちながらデータ分析を学んできた経験を活かし、地元・群馬県の医療機関の集客支援をしたいと考えました。東京の業者は全国展開で効率化を優先しますが、私は一軒一軒に足を運び、その医院の良さを肌で感じて伝えることを大切にしています。</p>
+                </div>
+                <div class="profile-item">
+                    <h3>運用方針</h3>
+                    <p>Googleの規約を厳守し、順位保証ではなく「表示回数・アクション数の改善」にコミットします。短期的な順位操作ではなく、長期的に患者様から信頼される情報発信を支援します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="fade-in">3つのサービスで、Googleマップ運用をまるごと代行</h2>
+            <div class="services-grid">
+                <div class="service-item fade-in">
+                    <span class="service-label">MEO最適化</span>
+                    <h3>上位表示対策</h3>
+                    <p>Googleビジネスプロフィールを最適化し、検索結果での上位表示を目指します。基本情報の入力からカテゴリ設定まで、すべて代行します。</p>
+                </div>
+                <div class="service-item fade-in">
+                    <span class="service-label">口コミ管理</span>
+                    <h3>返信・運用代行</h3>
+                    <p>患者様からの口コミに迅速かつ適切に返信。週3回の確認体制で、すべての口コミに丁寧に対応します。初月はオーナー様にご確認いただき、2ヶ月目以降はおまかせ運用に移行します。</p>
+                </div>
+                <div class="service-item fade-in">
+                    <span class="service-label">現地撮影</span>
+                    <h3>訪問撮影代行</h3>
+                    <p>「写真を送ってください」とは言いません。私たちが現地に伺い、プロの視点で撮影します。外観・内観・設備まで丁寧に。</p>
+                </div>
             </div>
         </div>
     </section>
