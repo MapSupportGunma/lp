@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>マップサポート群馬 - 群馬県特化型MEO代行サービス</title>
-    <meta name="description" content="群馬県内の歯科・美容クリニック・整骨院専門のMEO代行サービス。現地訪問・写真撮影・口コミ管理をワンストップで代行します。">
+    <meta name="description" content="群馬県内の歯科・美容クリニック・整骨院専門のMEO代行サービス。月額15,000円で口コミ管理・投稿・毎月訪問をまるごと代行。初月無料。">
     <meta property="og:title" content="マップサポート群馬 - 群馬県特化型MEO代行サービス">
-    <meta property="og:description" content="「現地に行って撮る」MEO対策。群馬県内の医療機関専門。">
+    <meta property="og:description" content="MEO対策、まるごと代行。群馬県内の医療機関専門。月額15,000円、初月無料。">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://map-support-gunma.onrender.com/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
@@ -468,6 +469,77 @@
             margin-bottom: 0;
         }
 
+        /* Pricing Single Plan */
+        .pricing-single {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 3px solid #1B4F72;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #E74C3C;
+            color: #ffffff;
+            padding: 8px 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 20px;
+            box-shadow: 0 3px 10px rgba(231, 76, 60, 0.3);
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1B4F72;
+            margin: 20px 0;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        .price-tax {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #666;
+        }
+
+        .pricing-subtitle {
+            font-size: 1.5rem;
+            margin: 30px 0 20px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .pricing-notes {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #f0f0f0;
+            text-align: left;
+        }
+
+        .pricing-notes p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .pricing-campaign {
+            color: #E74C3C !important;
+            font-weight: 500;
+        }
+
+        .strike-price {
+            text-decoration: line-through;
+            color: #999;
+        }
+
         /* Flow Section */
         .flow {
             background: #ffffff;
@@ -640,11 +712,29 @@
             letter-spacing: 0.08em;
         }
 
+        .cta-phone a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .cta-phone a:hover {
+            opacity: 0.8;
+        }
+
         .cta-email {
             font-family: 'Noto Sans JP', sans-serif;
             font-size: 1.3rem;
             margin: 25px 0;
             letter-spacing: 0.05em;
+        }
+
+        .cta-email a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .cta-email a:hover {
+            opacity: 0.8;
         }
 
         .cta-buttons {
@@ -904,6 +994,27 @@
             .cta-email {
                 font-size: 1.05rem;
             }
+
+            .pricing-single {
+                padding: 40px 25px;
+            }
+
+            .pricing-badge {
+                font-size: 0.95rem;
+                padding: 6px 20px;
+            }
+
+            .pricing-price {
+                font-size: 2.2rem;
+            }
+
+            .pricing-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .pricing-notes p {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
@@ -932,9 +1043,9 @@
     <section class="hero">
         <div class="hero-content">
             <h1>MEO対策、まるごと代行。</h1>
-            <p class="hero-subtitle">群馬県内の医療機関専門。<br>訪問撮影・口コミ管理・投稿運用をワンストップで。</p>
+            <p class="hero-subtitle">群馬県内の医療機関専門。<br>撮影も、口コミ対応も、投稿も。ぜんぶ、やります。</p>
             <p class="hero-area">対応エリア：高崎・前橋を中心に群馬県全域</p>
-            <a href="#contact" class="cta-button">無料相談のお問い合わせ</a>
+            <a href="#contact" class="cta-button">無料で相談する</a>
         </div>
     </section>
 
@@ -972,7 +1083,7 @@
                 <div class="service-item fade-in">
                     <span class="service-label">口コミ管理</span>
                     <h3>返信・運用代行</h3>
-                    <p>患者様からの口コミに迅速かつ適切に返信。週3回の確認体制で、クリニックの信頼性を高めます。</p>
+                    <p>患者様からの口コミに迅速かつ適切に返信。週3回の確認体制で、すべての口コミに丁寧に対応します。初月はオーナー様にご確認いただき、2ヶ月目以降はおまかせ運用に移行します。</p>
                 </div>
                 <div class="service-item fade-in">
                     <span class="service-label">現地撮影</span>
@@ -1020,7 +1131,7 @@
                         <tr>
                             <td>運用方針</td>
                             <td>順位保証をうたう業者も</td>
-                            <td>ホワイトハット運用のみ</td>
+                            <td>Googleの規約を厳守した運用</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1035,27 +1146,19 @@
     <section id="pricing" class="pricing">
         <div class="container">
             <h2 class="fade-in">料金</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card fade-in">
-                    <h3 class="pricing-title">初期費用</h3>
-                    <div class="pricing-price">¥20,000</div>
-                    <div class="pricing-period">税込・買い切り</div>
-                    <ul class="pricing-features">
-                        <li>GBPアカウント構築・最適化</li>
-                        <li>NAP情報の統一</li>
-                        <li>初回写真撮影30枚</li>
-                        <li>口コミ促進POP作成</li>
-                    </ul>
-                </div>
-                <div class="pricing-card featured fade-in">
-                    <h3 class="pricing-title">月額費用</h3>
-                    <div class="pricing-price">¥15,000</div>
-                    <div class="pricing-period">月額・税込</div>
-                    <ul class="pricing-features">
-                        <li>口コミ返信代行</li>
-                        <li>定期投稿</li>
-                        <li>毎月訪問（レポート付き）</li>
-                    </ul>
+            <div class="pricing-single fade-in">
+                <div class="pricing-badge">初月無料</div>
+                <div class="pricing-price">月額 ¥15,000<span class="price-tax">（税込）</span></div>
+                <h3 class="pricing-subtitle">サービス内容</h3>
+                <ul class="pricing-features">
+                    <li>口コミ返信代行（週3回確認・返信）</li>
+                    <li>定期投稿（月2本）</li>
+                    <li>毎月訪問（A4レポート付き）</li>
+                </ul>
+                <div class="pricing-notes">
+                    <p class="pricing-campaign">※ 初期費用（GBP構築・写真撮影30枚・口コミ促進POP作成）は<br>立ち上げキャンペーン中につき<span class="strike-price">¥20,000</span> → <strong>¥0</strong>です</p>
+                    <p>※ 最低利用期間：2ヶ月</p>
+                    <p>※ 順位保証は行いません。表示回数・アクション数の改善にコミットします</p>
                 </div>
             </div>
         </div>
@@ -1079,7 +1182,7 @@
                 <div class="flow-step fade-in">
                     <div class="flow-number">3</div>
                     <h3>ご契約・初期設定</h3>
-                    <p>写真撮影、GBP最適化、口コミポップの設置を実施</p>
+                    <p>写真撮影（30枚）、GBP最適化、口コミ促進ポップの設置を実施</p>
                 </div>
                 <div class="flow-step fade-in">
                     <div class="flow-number">4</div>
@@ -1114,6 +1217,12 @@
                     </div>
                 </div>
                 <div class="faq-item fade-in">
+                    <div class="faq-question">初期費用はかかりますか？</div>
+                    <div class="faq-answer">
+                        <p>現在、立ち上げキャンペーン中のため初期費用は無料です。通常はGBP構築・写真撮影・口コミ促進POP作成に20,000円をいただいていますが、キャンペーン期間中は月額15,000円のみでご利用いただけます。</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
                     <div class="faq-question">他のMEO業者との違いは何ですか？</div>
                     <div class="faq-answer">
                         <p>最大の違いは「現地訪問・現地撮影」です。多くの業者はオンライン完結型で写真はオーナー様にご用意いただく形式ですが、私たちは実際に貴院を訪問して撮影します。また医療機関に特化しているため、医療広告ガイドラインを理解した上での運用が可能です。</p>
@@ -1136,11 +1245,11 @@
             <div class="cta-content">
                 <p>現在のGoogleマップ対策状況を無料で診断いたします。<br>お電話またはメールでお気軽にお問い合わせください。</p>
                 <div class="cta-info">
-                    <div class="cta-phone">070-2350-6245</div>
-                    <div class="cta-email">info@gunma-meo.com</div>
+                    <div class="cta-phone"><a href="tel:07023506245">070-2350-6245</a></div>
+                    <div class="cta-email"><a href="mailto:info@gunma-meo.com">info@gunma-meo.com</a></div>
                 </div>
                 <div class="cta-buttons">
-                    <a href="#contact-form" class="cta-button secondary">無料相談・お問い合わせ</a>
+                    <a href="#contact-form" class="cta-button secondary">無料で相談する</a>
                 </div>
                 <div class="cta-area">対応エリア：群馬県全域（高崎・前橋を中心に）</div>
             </div>
