@@ -240,6 +240,105 @@
         }
 
         /* MEO Explanation Section */
+        /* AI Era Section */
+        .ai-era-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+            padding: 100px 0;
+        }
+
+        .ai-era-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .ai-era-intro h2 {
+            font-size: 2rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            color: #1B4F72;
+        }
+
+        .ai-era-lead {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .ai-era-explanation {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 50px 45px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .ai-era-text {
+            font-size: 1.1rem;
+            line-height: 2;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .ai-era-explanation h3 {
+            font-size: 1.6rem;
+            color: #1B4F72;
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .ai-checkpoints {
+            margin: 40px 0;
+        }
+
+        .ai-checkpoint {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f9fbfd;
+            border-left: 4px solid #1B4F72;
+            border-radius: 4px;
+        }
+
+        .ai-checkpoint-icon {
+            font-size: 1.8rem;
+            color: #1B4F72;
+            margin-right: 20px;
+            flex-shrink: 0;
+            font-weight: 700;
+        }
+
+        .ai-checkpoint-text {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #333;
+        }
+
+        .ai-era-conclusion {
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 2px solid #e8eef5;
+        }
+
+        .ai-era-conclusion p {
+            font-size: 1.1rem;
+            line-height: 2.1;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .ai-era-conclusion p:last-child {
+            margin-bottom: 0;
+        }
+
+        .ai-era-conclusion strong {
+            color: #E74C3C;
+            font-weight: 600;
+        }
+
         .meo-explanation {
             background: #ffffff;
             padding: 80px 0;
@@ -1163,6 +1262,53 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .ai-era-section {
+                padding: 70px 0;
+            }
+
+            .ai-era-intro h2 {
+                font-size: 1.6rem;
+                line-height: 1.7;
+            }
+
+            .ai-era-lead {
+                font-size: 1.05rem;
+            }
+
+            .ai-era-explanation {
+                padding: 35px 25px;
+            }
+
+            .ai-era-text {
+                font-size: 1rem;
+            }
+
+            .ai-era-explanation h3 {
+                font-size: 1.4rem;
+            }
+
+            .ai-checkpoint {
+                padding: 15px;
+            }
+
+            .ai-checkpoint-icon {
+                font-size: 1.5rem;
+                margin-right: 15px;
+            }
+
+            .ai-checkpoint-text {
+                font-size: 0.95rem;
+            }
+
+            .ai-era-conclusion {
+                margin-top: 35px;
+                padding-top: 30px;
+            }
+
+            .ai-era-conclusion p {
+                font-size: 1rem;
+            }
+
             nav ul {
                 display: none;
                 position: absolute;
@@ -1391,6 +1537,42 @@
             <p class="hero-subtitle">Googleマップに表示される貴院の情報を最適化し、選ばれる医院へ。<br>撮影も、口コミ対応も、投稿も。<br>ぜんぶ、やります。</p>
             <p class="hero-area">対応エリア：高崎・前橋を中心に群馬県全域</p>
             <a href="#contact" class="cta-button">無料で相談する</a>
+        </div>
+    </section>
+
+    <!-- AI Era Section -->
+    <section class="ai-era-section">
+        <div class="container">
+            <div class="ai-era-intro fade-in">
+                <h2>「Google検索」から「AIへの相談」へ。<br>今、GBP(Googleマップ)対策が"さらに"重要になっている理由</h2>
+                <p class="ai-era-lead">最近、「高崎市で痛くない歯医者を教えて」と、ChatGPTなどのAIに相談してクリニックを決める患者様が急増しているのをご存知ですか?</p>
+            </div>
+
+            <div class="ai-era-explanation fade-in">
+                <p class="ai-era-text">実は、AIがおすすめのクリニックを提案する際、最も参考にしているデータの一つが<strong>「Googleビジネスプロフィール(GBP)」</strong>の情報です。</p>
+
+                <h3>AIはここを見ている!</h3>
+
+                <div class="ai-checkpoints">
+                    <div class="ai-checkpoint">
+                        <div class="ai-checkpoint-icon">✓</div>
+                        <div class="ai-checkpoint-text">常に最新の情報(営業時間や休診日)が更新されているか</div>
+                    </div>
+                    <div class="ai-checkpoint">
+                        <div class="ai-checkpoint-icon">✓</div>
+                        <div class="ai-checkpoint-text">院内の雰囲気や設備がわかる写真が豊富にあるか</div>
+                    </div>
+                    <div class="ai-checkpoint">
+                        <div class="ai-checkpoint-icon">✓</div>
+                        <div class="ai-checkpoint-text">患者様からの口コミに対し、誠実な返信を行っているか</div>
+                    </div>
+                </div>
+
+                <div class="ai-era-conclusion">
+                    <p>つまり、GBPの情報がスカスカだったり、口コミが放置されていたりすると、<strong>「AIの選択肢から完全に外れてしまう」</strong>という大きな機会損失に繋がります。</p>
+                    <p>マップサポート群馬では、データサイエンスの知見を活かし、今後のAI検索時代にも選ばれ続けるためのGBP構築・運用を徹底サポートします。</p>
+                </div>
+            </div>
         </div>
     </section>
 
