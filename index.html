@@ -14,17 +14,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --green: #1a3c34;
-            --green-light: #2a5c4e;
-            --cream: #f5f0e8;
-            --cream-dark: #ebe4d8;
-            --terra: #c4654a;
-            --terra-dark: #a8503a;
-            --charcoal: #2d2d2d;
-            --text: #3a3a3a;
-            --text-light: #6b6b6b;
-            --white: #fdfcfa;
-            --border: #d8d0c4;
+            --navy: #2c3e5a;
+            --navy-light: #3d5478;
+            --cream: #f4f5f7;
+            --cream-dark: #e8eaef;
+            --accent: #4a7fba;
+            --accent-dark: #3b6a9e;
+            --red: #c25550;
+            --charcoal: #2a2d33;
+            --text: #3c404a;
+            --text-light: #6e737e;
+            --white: #f9fafb;
+            --border: #d5d8df;
         }
 
         * {
@@ -85,7 +86,7 @@
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 64px;
-            color: var(--green);
+            color: var(--navy);
         }
 
         h3 {
@@ -103,7 +104,7 @@
             font-weight: 700;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--terra);
+            color: var(--accent);
             margin-bottom: 20px;
             position: relative;
             padding-left: 36px;
@@ -116,7 +117,7 @@
             top: 50%;
             width: 24px;
             height: 1px;
-            background: var(--terra);
+            background: var(--accent);
         }
 
         /* Animations */
@@ -150,7 +151,7 @@
         }
 
         header.scrolled {
-            background: rgba(245, 240, 232, 0.95);
+            background: rgba(244, 245, 247, 0.95);
             backdrop-filter: blur(12px);
             padding: 16px 0;
             border-bottom: 1px solid var(--border);
@@ -169,7 +170,7 @@
             font-family: 'Shippori Mincho', serif;
             font-size: 1.15rem;
             font-weight: 700;
-            color: var(--green);
+            color: var(--navy);
             text-decoration: none;
             letter-spacing: 0.1em;
         }
@@ -198,12 +199,12 @@
             left: 0;
             width: 0;
             height: 1px;
-            background: var(--green);
+            background: var(--navy);
             transition: width 0.3s ease;
         }
 
         nav a:hover {
-            color: var(--green);
+            color: var(--navy);
         }
 
         nav a:hover::after {
@@ -222,7 +223,7 @@
             display: block;
             width: 24px;
             height: 2px;
-            background: var(--green);
+            background: var(--navy);
             transition: all 0.3s ease;
         }
 
@@ -245,7 +246,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: var(--green);
+            background: var(--navy);
             position: relative;
             padding: 140px 0 120px;
             overflow: hidden;
@@ -258,7 +259,7 @@
             right: -20%;
             width: 80%;
             height: 200%;
-            background: radial-gradient(ellipse, rgba(42, 92, 78, 0.6) 0%, transparent 70%);
+            background: radial-gradient(ellipse, rgba(61, 84, 120, 0.5) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -269,7 +270,7 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(245,240,232,0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(244,245,247,0.2), transparent);
         }
 
         .hero .container {
@@ -299,7 +300,7 @@
         }
 
         .hero h1 .accent {
-            color: var(--terra);
+            color: var(--accent);
             position: relative;
         }
 
@@ -310,13 +311,13 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: var(--terra);
+            background: var(--accent);
             opacity: 0.4;
         }
 
         .hero-subtitle {
             font-size: 1.1rem;
-            color: rgba(245, 240, 232, 0.75);
+            color: rgba(244, 245, 247, 0.75);
             line-height: 2;
             margin-bottom: 24px;
             max-width: 520px;
@@ -324,7 +325,7 @@
 
         .hero-area {
             font-size: 0.85rem;
-            color: rgba(245, 240, 232, 0.5);
+            color: rgba(244, 245, 247, 0.5);
             margin-bottom: 48px;
             letter-spacing: 0.1em;
         }
@@ -334,8 +335,8 @@
             flex-direction: column;
             gap: 24px;
             padding: 48px;
-            background: rgba(245, 240, 232, 0.06);
-            border: 1px solid rgba(245, 240, 232, 0.1);
+            background: rgba(244, 245, 247, 0.06);
+            border: 1px solid rgba(244, 245, 247, 0.1);
             border-radius: 2px;
         }
 
@@ -345,20 +346,20 @@
         }
 
         .hero-stat:not(:last-child) {
-            border-bottom: 1px solid rgba(245, 240, 232, 0.1);
+            border-bottom: 1px solid rgba(244, 245, 247, 0.1);
         }
 
         .hero-stat-number {
             font-family: 'Shippori Mincho', serif;
             font-size: 3rem;
             font-weight: 800;
-            color: var(--terra);
+            color: rgba(244, 245, 247, 0.95);
             line-height: 1.1;
         }
 
         .hero-stat-text {
             font-size: 0.8rem;
-            color: rgba(245, 240, 232, 0.6);
+            color: rgba(244, 245, 247, 0.6);
             margin-top: 8px;
             letter-spacing: 0.05em;
         }
@@ -367,7 +368,7 @@
         .cta-button {
             display: inline-block;
             padding: 18px 48px;
-            background: var(--terra);
+            background: var(--accent);
             color: var(--cream);
             text-decoration: none;
             font-family: 'Zen Kaku Gothic New', sans-serif;
@@ -376,6 +377,7 @@
             border: none;
             cursor: pointer;
             letter-spacing: 0.08em;
+            border-radius: 4px;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
@@ -393,9 +395,9 @@
         }
 
         .cta-button:hover {
-            background: var(--terra-dark);
+            background: var(--accent-dark);
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(196, 101, 74, 0.3);
+            box-shadow: 0 8px 24px rgba(74, 127, 186, 0.3);
         }
 
         .cta-button:hover::before {
@@ -410,18 +412,18 @@
 
         .cta-button.outline:hover {
             background: var(--cream);
-            color: var(--green);
-            box-shadow: 0 8px 24px rgba(245, 240, 232, 0.2);
+            color: var(--navy);
+            box-shadow: 0 8px 24px rgba(244, 245, 247, 0.2);
         }
 
         .cta-button.green {
-            background: var(--green);
+            background: var(--navy);
             color: var(--cream);
         }
 
         .cta-button.green:hover {
-            background: var(--green-light);
-            box-shadow: 0 8px 24px rgba(26, 60, 52, 0.3);
+            background: var(--navy-light);
+            box-shadow: 0 8px 24px rgba(44, 62, 90, 0.3);
         }
 
         /* Fixed Mobile CTA */
@@ -476,7 +478,7 @@
         .meo-chart-section h3 {
             font-size: 1.35rem;
             margin-bottom: 48px;
-            color: var(--green);
+            color: var(--navy);
         }
 
         .meo-chart-container {
@@ -516,7 +518,7 @@
         }
 
         .meo-chart-bar-fill.primary {
-            background: var(--green);
+            background: var(--navy);
         }
 
         .meo-chart-percentage {
@@ -566,14 +568,14 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: var(--green);
+            background: var(--navy);
         }
 
         .meo-stat-number {
             font-family: 'Shippori Mincho', serif;
             font-size: 3.5rem;
             font-weight: 800;
-            color: var(--green);
+            color: var(--navy);
             line-height: 1.1;
             margin-bottom: 16px;
         }
@@ -606,7 +608,7 @@
         .meo-steps-section h3 {
             font-size: 1.35rem;
             margin-bottom: 48px;
-            color: var(--green);
+            color: var(--navy);
             text-align: center;
         }
 
@@ -632,7 +634,7 @@
             right: -22px;
             top: 28px;
             font-size: 1.5rem;
-            color: var(--green);
+            color: var(--navy);
             font-weight: 700;
             z-index: 1;
         }
@@ -640,7 +642,7 @@
         .meo-step-number {
             width: 48px;
             height: 48px;
-            background: var(--green);
+            background: var(--navy);
             color: var(--cream);
             border-radius: 50%;
             display: flex;
@@ -672,7 +674,7 @@
             margin: 80px auto 0;
             max-width: 780px;
             padding: 48px;
-            background: var(--green);
+            background: var(--navy);
             color: var(--cream);
             position: relative;
         }
@@ -684,7 +686,7 @@
             left: -8px;
             right: -8px;
             bottom: -8px;
-            border: 1px solid var(--green);
+            border: 1px solid var(--navy);
             opacity: 0.3;
             pointer-events: none;
         }
@@ -698,7 +700,7 @@
         .meo-ai-note p {
             font-size: 0.95rem;
             line-height: 2;
-            color: rgba(245, 240, 232, 0.85);
+            color: rgba(244, 245, 247, 0.85);
         }
 
         .meo-ai-note strong {
@@ -710,7 +712,7 @@
             font-family: 'Shippori Mincho', serif;
             font-size: 1.15rem;
             font-weight: 600;
-            color: var(--green);
+            color: var(--navy);
             margin-top: 80px;
         }
 
@@ -744,7 +746,7 @@
             left: 0;
             width: 0;
             height: 100%;
-            background: var(--green);
+            background: var(--navy);
             transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -799,7 +801,7 @@
             font-family: 'Shippori Mincho', serif;
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--green);
+            color: var(--navy);
             margin-bottom: 24px;
             display: block;
         }
@@ -807,7 +809,7 @@
         .trust-card h3 {
             font-size: 1.2rem;
             margin-bottom: 16px;
-            color: var(--green);
+            color: var(--navy);
         }
 
         .trust-card p {
@@ -843,7 +845,7 @@
         }
 
         .comparison-table th {
-            background: var(--green);
+            background: var(--navy);
             color: var(--cream);
             font-family: 'Zen Kaku Gothic New', sans-serif;
             font-weight: 700;
@@ -854,9 +856,15 @@
         .comparison-table tr td:first-child {
             text-align: left;
             font-weight: 700;
-            background: rgba(26, 60, 52, 0.03);
-            color: var(--green);
+            background: rgba(44, 62, 90, 0.03);
+            color: var(--navy);
             font-size: 0.9rem;
+        }
+
+        .comparison-table tr td:last-child {
+            background: rgba(74, 127, 186, 0.06);
+            font-weight: 500;
+            color: var(--navy);
         }
 
         .comparison-table tr:last-child td {
@@ -884,7 +892,7 @@
         .comparison-explanation > h3 {
             font-size: 1.5rem;
             margin-bottom: 48px;
-            color: var(--green);
+            color: var(--navy);
             text-align: center;
         }
 
@@ -897,18 +905,18 @@
             margin-bottom: 32px;
             padding: 32px 36px;
             background: var(--white);
-            border-left: 3px solid var(--green);
+            border-left: 3px solid var(--navy);
             transition: all 0.3s ease;
         }
 
         .comparison-point:hover {
-            border-left-color: var(--terra);
+            border-left-color: var(--accent);
             transform: translateX(4px);
         }
 
         .comparison-point h4 {
             font-size: 1.15rem;
-            color: var(--green);
+            color: var(--navy);
             margin-bottom: 12px;
         }
 
@@ -922,7 +930,7 @@
            Services Section
         ============================ */
         .services {
-            background: var(--green);
+            background: var(--navy);
             color: var(--cream);
         }
 
@@ -931,34 +939,34 @@
         }
 
         .services .section-label {
-            color: var(--terra);
+            color: var(--accent);
         }
 
         .services .section-label::before {
-            background: var(--terra);
+            background: var(--accent);
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2px;
-            background: rgba(245, 240, 232, 0.1);
+            background: rgba(244, 245, 247, 0.1);
         }
 
         .service-item {
             padding: 56px 36px;
-            background: var(--green);
+            background: var(--navy);
             transition: all 0.3s ease;
         }
 
         .service-item:hover {
-            background: var(--green-light);
+            background: var(--navy-light);
         }
 
         .service-label {
             display: inline-block;
             padding: 6px 20px;
-            border: 1px solid rgba(245, 240, 232, 0.3);
+            border: 1px solid rgba(244, 245, 247, 0.3);
             color: var(--cream);
             font-weight: 500;
             font-size: 0.8rem;
@@ -975,7 +983,7 @@
         .service-item p {
             font-size: 0.95rem;
             line-height: 2;
-            color: rgba(245, 240, 232, 0.7);
+            color: rgba(244, 245, 247, 0.7);
         }
 
         /* ============================
@@ -989,7 +997,7 @@
             max-width: 640px;
             margin: 0 auto;
             padding: 64px 56px;
-            border: 2px solid var(--green);
+            border: 2px solid var(--navy);
             position: relative;
             text-align: center;
         }
@@ -1010,7 +1018,7 @@
             top: -14px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--green);
+            background: var(--navy);
             color: var(--cream);
             padding: 8px 28px;
             font-family: 'Zen Kaku Gothic New', sans-serif;
@@ -1023,7 +1031,7 @@
             font-family: 'Shippori Mincho', serif;
             font-size: 3rem;
             font-weight: 800;
-            color: var(--terra);
+            color: var(--red);
             margin: 16px 0;
             line-height: 1.2;
         }
@@ -1032,7 +1040,7 @@
             font-family: 'Shippori Mincho', serif;
             font-size: 2.8rem;
             font-weight: 800;
-            color: var(--green);
+            color: var(--navy);
             margin: 24px 0;
         }
 
@@ -1068,7 +1076,7 @@
             content: "—";
             position: absolute;
             left: 0;
-            color: var(--green);
+            color: var(--navy);
             font-weight: 700;
         }
 
@@ -1087,7 +1095,7 @@
         }
 
         .pricing-campaign {
-            color: var(--terra) !important;
+            color: var(--red) !important;
             font-weight: 500;
         }
 
@@ -1135,8 +1143,8 @@
             width: 80px;
             height: 80px;
             background: var(--white);
-            border: 2px solid var(--green);
-            color: var(--green);
+            border: 2px solid var(--navy);
+            color: var(--navy);
             font-family: 'Shippori Mincho', serif;
             font-size: 1.5rem;
             font-weight: 700;
@@ -1146,7 +1154,7 @@
         .flow-step h3 {
             font-size: 1.1rem;
             margin-bottom: 16px;
-            color: var(--green);
+            color: var(--navy);
         }
 
         .flow-step p {
@@ -1183,7 +1191,7 @@
         }
 
         .faq-question:hover {
-            color: var(--green);
+            color: var(--navy);
         }
 
         .faq-question::after {
@@ -1194,7 +1202,7 @@
             transform: translateY(-50%);
             font-family: 'Zen Kaku Gothic New', sans-serif;
             font-size: 1.5rem;
-            color: var(--green);
+            color: var(--navy);
             transition: transform 0.3s ease;
             font-weight: 300;
         }
@@ -1224,7 +1232,7 @@
            CTA Section
         ============================ */
         .cta-section {
-            background: var(--green);
+            background: var(--navy);
             color: var(--cream);
             text-align: center;
             position: relative;
@@ -1238,7 +1246,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(ellipse at 30% 50%, rgba(42, 92, 78, 0.5) 0%, transparent 60%);
+            background: radial-gradient(ellipse at 30% 50%, rgba(61, 84, 120, 0.4) 0%, transparent 60%);
             pointer-events: none;
         }
 
@@ -1259,14 +1267,14 @@
             font-size: 1.05rem;
             line-height: 2;
             margin-bottom: 48px;
-            color: rgba(245, 240, 232, 0.8);
+            color: rgba(244, 245, 247, 0.8);
         }
 
         .cta-info {
             margin: 48px 0;
             padding: 40px;
-            border: 1px solid rgba(245, 240, 232, 0.15);
-            background: rgba(245, 240, 232, 0.05);
+            border: 1px solid rgba(244, 245, 247, 0.15);
+            background: rgba(244, 245, 247, 0.05);
         }
 
         .cta-phone {
@@ -1294,9 +1302,9 @@
         }
 
         .cta-email a {
-            color: rgba(245, 240, 232, 0.8);
+            color: rgba(244, 245, 247, 0.8);
             text-decoration: none;
-            border-bottom: 1px solid rgba(245, 240, 232, 0.3);
+            border-bottom: 1px solid rgba(244, 245, 247, 0.3);
             transition: all 0.3s ease;
         }
 
@@ -1312,7 +1320,7 @@
         .cta-area {
             margin-top: 48px;
             font-size: 0.9rem;
-            color: rgba(245, 240, 232, 0.5);
+            color: rgba(244, 245, 247, 0.5);
             letter-spacing: 0.08em;
         }
 
@@ -1427,11 +1435,7 @@
             }
 
             .hero-right {
-                padding: 32px;
-            }
-
-            .hero-stat-number {
-                font-size: 2.2rem;
+                display: none;
             }
 
             .cta-button {
@@ -1698,7 +1702,7 @@
             </div>
 
             <div class="reveal">
-                <h3 style="text-align: center; font-size: 1.35rem; margin-bottom: 48px; color: var(--green);">患者さんの8割は、Google検索で医院を探しています</h3>
+                <h3 style="text-align: center; font-size: 1.35rem; margin-bottom: 48px; color: var(--navy);">患者さんの8割は、Google検索で医院を探しています</h3>
                 <div class="meo-stats">
                     <div class="meo-stat-item reveal reveal-delay-1">
                         <div class="meo-stat-number">79.5%</div>
@@ -1776,17 +1780,17 @@
             <h2 class="reveal">選ばれる3つの理由</h2>
             <div class="trust-grid">
                 <div class="trust-card reveal reveal-delay-1">
-                    <div class="trust-icon">壱</div>
+                    <div class="trust-icon">01</div>
                     <h3>群馬県内専門</h3>
                     <p>高崎・前橋を中心に、地域の特性を熟知した運用を実施</p>
                 </div>
                 <div class="trust-card reveal reveal-delay-2">
-                    <div class="trust-icon">弐</div>
+                    <div class="trust-icon">02</div>
                     <h3>現地訪問対応</h3>
                     <p>東京の業者と違い、実際に伺って撮影・ヒアリングを実施</p>
                 </div>
                 <div class="trust-card reveal reveal-delay-3">
-                    <div class="trust-icon">参</div>
+                    <div class="trust-icon">03</div>
                     <h3>初月無料</h3>
                     <p>リスクなく始められる。効果を実感してから続けられます</p>
                 </div>
