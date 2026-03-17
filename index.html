@@ -281,7 +281,7 @@
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 0.6fr;
-            gap: 80px;
+            gap: 60px;
             align-items: center;
         }
 
@@ -1105,6 +1105,135 @@
         }
 
         /* ============================
+           Services & Pricing Section
+        ============================ */
+        .services-pricing {
+            background: var(--cream);
+        }
+
+        .sp-card {
+            max-width: 640px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 16px;
+            padding: 56px 48px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            position: relative;
+        }
+
+        .sp-badge {
+            display: inline-block;
+            background: var(--red);
+            color: #fff;
+            font-family: 'Zen Kaku Gothic New', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 8px 28px;
+            border-radius: 999px;
+            letter-spacing: 0.08em;
+            margin-bottom: 28px;
+        }
+
+        .sp-price {
+            font-family: 'Shippori Mincho', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .sp-tax {
+            font-family: 'Zen Kaku Gothic New', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        .sp-plan-name {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            letter-spacing: 0.06em;
+            margin-bottom: 36px;
+        }
+
+        .sp-divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 32px 0 24px;
+        }
+
+        .sp-divider::before,
+        .sp-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .sp-divider span {
+            font-family: 'Zen Kaku Gothic New', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+        }
+
+        .sp-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 8px;
+        }
+
+        .sp-features li {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--cream-dark);
+            position: relative;
+            padding-left: 28px;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .sp-features li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .sp-features li:last-child {
+            border-bottom: none;
+        }
+
+        .sp-notes {
+            text-align: left;
+        }
+
+        .sp-notes p {
+            font-size: 0.83rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 6px;
+        }
+
+        .sp-cta {
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .sp-card {
+                padding: 40px 24px;
+            }
+
+            .sp-price {
+                font-size: 2rem;
+            }
+        }
+
+        /* ============================
            Flow Section
         ============================ */
         .flow {
@@ -1589,8 +1718,7 @@
             <a href="#" class="logo">マップサポート群馬</a>
             <nav>
                 <ul id="nav-menu">
-                    <li><a href="#services">サービス内容</a></li>
-                    <li><a href="#pricing">料金</a></li>
+                    <li><a href="#services-pricing">サービス・料金</a></li>
                     <li><a href="#faq">よくある質問</a></li>
                     <li><a href="#contact">お問い合わせ</a></li>
                 </ul>
@@ -1605,7 +1733,7 @@
 
     <!-- Fixed Mobile CTA -->
     <div class="fixed-cta" id="fixedCta">
-        <a href="#contact" class="cta-button">無料で相談する</a>
+        <a href="#contact" class="cta-button">無料診断を受ける</a>
     </div>
 
     <!-- Hero Section -->
@@ -1616,7 +1744,7 @@
                     <h1>MEO対策、<br><span class="accent">まるごと代行。</span></h1>
                     <p class="hero-subtitle">Googleマップに表示される貴院の情報を最適化し、選ばれる医院へ。<br>撮影も、口コミ対応も、投稿も。<br>ぜんぶ、やります。</p>
                     <p class="hero-area">対応エリア：高崎・前橋を中心に群馬県全域</p>
-                    <a href="#contact" class="cta-button">無料で相談する</a>
+                    <a href="#contact" class="cta-button">無料診断を受ける</a>
                 </div>
                 <div class="hero-right">
                     <div class="hero-stat">
@@ -1791,17 +1919,32 @@
                         <tr>
                             <td>写真撮影</td>
                             <td>オーナー様が用意</td>
-                            <td>現地訪問して撮影</td>
+                            <td>現地訪問して撮影 ✓</td>
                         </tr>
                         <tr>
                             <td>月次報告</td>
                             <td>メールのみ</td>
-                            <td>対面で訪問報告</td>
+                            <td>対面で訪問報告 ✓</td>
                         </tr>
                         <tr>
                             <td>対応エリア</td>
                             <td>全国（オンライン完結）</td>
-                            <td>群馬県内に特化し現地訪問</td>
+                            <td>群馬県内に特化し現地訪問 ✓</td>
+                        </tr>
+                        <tr>
+                            <td>医療広告ガイドライン</td>
+                            <td>業種問わず一律対応</td>
+                            <td>医療機関専門で熟知 ✓</td>
+                        </tr>
+                        <tr>
+                            <td>口コミ返信</td>
+                            <td>月1〜2回</td>
+                            <td>週3回の確認体制 ✓</td>
+                        </tr>
+                        <tr>
+                            <td>契約期間</td>
+                            <td>6〜12ヶ月縛りが多い</td>
+                            <td>最低2ヶ月・初月無料 ✓</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1827,59 +1970,37 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 64px;" class="reveal">
-                <a href="#contact" class="cta-button green">まずは無料診断を受ける</a>
+                <a href="#contact" class="cta-button green">無料診断を受ける</a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
+    <!-- Services & Pricing Section -->
+    <section id="services-pricing" class="services-pricing">
         <div class="container">
-            <span class="section-label reveal">Services</span>
-            <h2 class="reveal">3つのサービスで、<br>Googleマップ運用をまるごと代行</h2>
-            <div class="services-grid">
-                <div class="service-item reveal reveal-delay-1">
-                    <span class="service-label">MEO最適化</span>
-                    <h3>上位表示対策</h3>
-                    <p>Googleビジネスプロフィールを最適化し、検索結果での上位表示を目指します。基本情報の入力からカテゴリ設定まで、すべて代行します。</p>
-                </div>
-                <div class="service-item reveal reveal-delay-2">
-                    <span class="service-label">口コミ管理</span>
-                    <h3>返信・運用代行</h3>
-                    <p>患者様からの口コミに迅速かつ適切に返信。週3回の確認体制で、すべての口コミに丁寧に対応します。初月はオーナー様にご確認いただき、2ヶ月目以降はおまかせ運用に移行します。</p>
-                </div>
-                <div class="service-item reveal reveal-delay-3">
-                    <span class="service-label">現地撮影</span>
-                    <h3>訪問撮影代行</h3>
-                    <p>「写真を送ってください」とは言いません。私たちが現地に伺い、プロの視点で撮影します。外観・内観・設備まで丁寧に。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <span class="section-label reveal">Pricing</span>
-            <h2 class="reveal">料金</h2>
-            <div class="pricing-single reveal">
-                <div class="pricing-badge">シンプルなワンプラン</div>
-                <div class="pricing-free-text">初月無料</div>
-                <div class="pricing-price">月額 ¥25,000<span class="price-tax">（税込）</span></div>
-                <h3 class="pricing-subtitle">サービス内容</h3>
-                <ul class="pricing-features">
-                    <li>口コミ管理・返信代行</li>
+            <span class="section-label reveal">Services & Pricing</span>
+            <h2 class="reveal">サービス内容・料金</h2>
+            <div class="sp-card reveal">
+                <div class="sp-badge">初月無料</div>
+                <div class="sp-price">月額 ¥25,000<span class="sp-tax">（税込）</span></div>
+                <div class="sp-plan-name">シンプルなワンプラン</div>
+                <div class="sp-divider"><span>サービス内容</span></div>
+                <ul class="sp-features">
+                    <li>口コミ管理・返信代行（週3回確認）</li>
                     <li>Googleビジネスプロフィール投稿運用（月2本）</li>
                     <li>月次訪問・インサイト分析レポート</li>
+                    <li>初期構築・写真撮影30枚（初期費用¥0）</li>
+                    <li>口コミ促進POP作成</li>
                 </ul>
-                <div class="pricing-notes">
-                    <p class="pricing-campaign">※ 初期費用（GBP構築・写真撮影30枚・口コミ促進POP作成）は<br>立ち上げキャンペーン中につき<span class="strike-price">¥20,000</span> → <strong>¥0</strong>です</p>
-                    <p>※ 最低利用期間：2ヶ月</p>
-                    <p>※ 順位保証は行いません。表示回数・アクション数の改善にコミットします</p>
+                <div class="sp-divider"><span>注意事項</span></div>
+                <div class="sp-notes">
+                    <p>初期費用：立ち上げキャンペーン中につき<span class="strike-price">¥20,000</span> → <strong>¥0</strong></p>
+                    <p>最低利用期間：2ヶ月（3ヶ月目以降いつでも解約可）</p>
+                    <p>順位保証なし（表示回数・アクション数の改善にコミット）</p>
                 </div>
-            </div>
-            <div style="text-align: center; margin-top: 64px;" class="reveal">
-                <a href="#contact" class="cta-button">今すぐ無料相談する</a>
+                <div class="sp-cta">
+                    <a href="#contact" class="cta-button">無料診断を受ける</a>
+                </div>
             </div>
         </div>
     </section>
@@ -1971,7 +2092,7 @@
                     <div class="cta-email"><a href="mailto:info@gunma-meo.com">info@gunma-meo.com</a></div>
                 </div>
                 <div class="cta-buttons reveal">
-                    <a href="#contact" class="cta-button outline">無料で相談する</a>
+                    <a href="#contact" class="cta-button outline">無料診断を受ける</a>
                 </div>
                 <div class="cta-area reveal">対応エリア：群馬県全域（高崎・前橋を中心に）</div>
             </div>
