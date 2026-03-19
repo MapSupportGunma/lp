@@ -11,61 +11,46 @@
     <meta property="og:url" content="https://map-support-gunma.onrender.com/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy: #2c3e5a;
-            --navy-light: #3d5478;
-            --cream: #f4f5f7;
-            --cream-dark: #e8eaef;
-            --accent: #4a7fba;
-            --accent-dark: #3b6a9e;
-            --red: #c25550;
-            --charcoal: #2a2d33;
-            --text: #3c404a;
-            --text-light: #6e737e;
-            --white: #f9fafb;
-            --border: #d5d8df;
+            --ink: #1b2438;
+            --ink-soft: #2e3a52;
+            --slate: #64748b;
+            --stone: #94a3b8;
+            --mist: #f1f3f8;
+            --cloud: #f8f9fc;
+            --white: #ffffff;
+            --blue: #3b6fad;
+            --blue-deep: #2d5a91;
+            --blue-pale: #e8eff8;
+            --blue-ghost: rgba(59, 111, 173, 0.06);
+            --red-warm: #c44d3f;
+            --border: #e2e6ef;
+            --shadow-sm: 0 1px 3px rgba(27, 36, 56, 0.04), 0 1px 2px rgba(27, 36, 56, 0.06);
+            --shadow-md: 0 4px 16px rgba(27, 36, 56, 0.06), 0 2px 4px rgba(27, 36, 56, 0.04);
+            --shadow-lg: 0 12px 40px rgba(27, 36, 56, 0.08), 0 4px 12px rgba(27, 36, 56, 0.04);
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Zen Kaku Gothic New', sans-serif;
+            font-family: 'Noto Sans JP', sans-serif;
             font-weight: 400;
-            color: var(--text);
-            line-height: 1.85;
-            background: var(--cream);
+            color: var(--ink-soft);
+            line-height: 1.9;
+            background: var(--cloud);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Noise texture overlay */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.025;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-            background-repeat: repeat;
-            background-size: 256px 256px;
+            font-feature-settings: "palt";
         }
 
         .container {
-            max-width: 1080px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 32px;
         }
@@ -77,87 +62,90 @@
         }
 
         h1, h2, h3, h4 {
-            font-family: 'Shippori Mincho', serif;
-            line-height: 1.4;
-            letter-spacing: 0.04em;
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.5;
+            letter-spacing: 0.02em;
+            font-weight: 700;
         }
 
         h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 64px;
-            color: var(--navy);
+            font-size: 1.75rem;
+            margin-bottom: 20px;
+            color: var(--ink);
         }
 
         h3 {
-            font-size: 1.35rem;
+            font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--charcoal);
+            margin-bottom: 16px;
+            color: var(--ink);
         }
 
-        /* Section label */
-        .section-label {
-            display: inline-block;
-            font-family: 'Zen Kaku Gothic New', sans-serif;
-            font-size: 0.75rem;
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-header p {
+            color: var(--slate);
+            font-size: 0.95rem;
+            margin-top: 12px;
+            line-height: 1.8;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.7rem;
             font-weight: 700;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 20px;
-            position: relative;
-            padding-left: 36px;
+            color: var(--blue);
+            margin-bottom: 16px;
         }
 
-        .section-label::before {
+        .section-tag::before {
             content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            width: 24px;
-            height: 1px;
-            background: var(--accent);
+            width: 20px;
+            height: 2px;
+            background: var(--blue);
+            border-radius: 1px;
         }
 
         /* Animations */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(28px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-d1 { transition-delay: 0.08s; }
+        .reveal-d2 { transition-delay: 0.16s; }
+        .reveal-d3 { transition-delay: 0.24s; }
+        .reveal-d4 { transition-delay: 0.32s; }
 
         /* ============================
            Header
         ============================ */
         header {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             z-index: 1000;
-            padding: 24px 0;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 20px 0;
+            transition: all 0.35s ease;
         }
 
         header.scrolled {
-            background: rgba(244, 245, 247, 0.95);
-            backdrop-filter: blur(12px);
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            padding: 14px 0;
+            box-shadow: 0 1px 0 var(--border);
         }
 
-        .header-container {
+        .header-inner {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 32px;
@@ -167,77 +155,58 @@
         }
 
         .logo {
-            font-family: 'Shippori Mincho', serif;
-            font-size: 1.15rem;
+            font-size: 0.95rem;
             font-weight: 700;
-            color: var(--navy);
+            color: var(--ink);
             text-decoration: none;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.08em;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 40px;
+            gap: 36px;
         }
 
         nav a {
-            font-family: 'Zen Kaku Gothic New', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 500;
-            color: var(--text);
+            color: var(--slate);
             text-decoration: none;
-            letter-spacing: 0.06em;
-            transition: color 0.3s ease;
+            letter-spacing: 0.04em;
+            transition: color 0.25s;
             position: relative;
         }
 
         nav a::after {
             content: '';
             position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--navy);
+            bottom: -4px; left: 0;
+            width: 0; height: 1.5px;
+            background: var(--blue);
             transition: width 0.3s ease;
+            border-radius: 1px;
         }
 
-        nav a:hover {
-            color: var(--navy);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
+        nav a:hover { color: var(--ink); }
+        nav a:hover::after { width: 100%; }
 
         .hamburger {
             display: none;
             flex-direction: column;
-            gap: 6px;
+            gap: 5px;
             cursor: pointer;
-            padding: 5px;
+            padding: 6px;
         }
-
         .hamburger span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--navy);
+            display: block; width: 22px; height: 1.5px;
+            background: var(--ink);
             transition: all 0.3s ease;
+            border-radius: 1px;
         }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
         /* ============================
            Hero
@@ -246,939 +215,683 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: var(--navy);
+            background: var(--ink);
             position: relative;
-            padding: 140px 0 120px;
+            padding: 140px 0 100px;
             overflow: hidden;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 80%;
-            height: 200%;
-            background: radial-gradient(ellipse, rgba(61, 84, 120, 0.5) 0%, transparent 70%);
+            top: 0; right: 0;
+            width: 60%; height: 100%;
+            background: radial-gradient(ellipse at 70% 40%, rgba(59, 111, 173, 0.15) 0%, transparent 65%);
             pointer-events: none;
         }
 
+        /* Subtle grid pattern */
         .hero::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(244,245,247,0.2), transparent);
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 64px 64px;
+            pointer-events: none;
         }
 
-        .hero .container {
-            position: relative;
-            z-index: 1;
-        }
+        .hero .container { position: relative; z-index: 1; }
 
-        .hero-grid {
+        .hero-layout {
             display: grid;
-            grid-template-columns: 1fr 0.6fr;
-            gap: 60px;
+            grid-template-columns: 1fr 0.55fr;
+            gap: 80px;
             align-items: center;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 800;
-            color: var(--cream);
-            line-height: 1.3;
-            letter-spacing: 0.06em;
-            margin-bottom: 36px;
+            color: #fff;
+            line-height: 1.35;
+            letter-spacing: 0.04em;
+            margin-bottom: 32px;
         }
 
-        .hero h1 span {
-            display: inline-block;
+        .hero h1 .em {
+            color: var(--blue);
             position: relative;
         }
 
-        .hero h1 .accent {
-            color: var(--accent);
-            position: relative;
-        }
-
-        .hero h1 .accent::after {
-            content: '';
-            position: absolute;
-            bottom: 4px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--accent);
-            opacity: 0.4;
-        }
-
-        .hero-subtitle {
-            font-size: 1.1rem;
-            color: rgba(244, 245, 247, 0.75);
+        .hero-sub {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.6);
             line-height: 2;
-            margin-bottom: 24px;
-            max-width: 520px;
+            margin-bottom: 20px;
+            font-weight: 300;
+            max-width: 480px;
         }
 
         .hero-area {
-            font-size: 0.85rem;
-            color: rgba(244, 245, 247, 0.5);
-            margin-bottom: 48px;
+            font-family: 'Plus Jakarta Sans', 'Noto Sans JP', sans-serif;
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.35);
+            margin-bottom: 44px;
             letter-spacing: 0.1em;
         }
 
-        .hero-right {
+        .hero-stats {
             display: flex;
             flex-direction: column;
-            gap: 24px;
-            padding: 48px;
-            background: rgba(244, 245, 247, 0.06);
-            border: 1px solid rgba(244, 245, 247, 0.1);
-            border-radius: 2px;
+            gap: 1px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-md);
+            overflow: hidden;
         }
 
         .hero-stat {
             text-align: center;
-            padding: 20px 0;
+            padding: 28px 32px;
+            background: rgba(27, 36, 56, 0.7);
+            backdrop-filter: blur(8px);
         }
 
-        .hero-stat:not(:last-child) {
-            border-bottom: 1px solid rgba(244, 245, 247, 0.1);
-        }
-
-        .hero-stat-number {
-            font-family: 'Shippori Mincho', serif;
-            font-size: 3rem;
+        .hero-stat-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.6rem;
             font-weight: 800;
-            color: rgba(244, 245, 247, 0.95);
+            color: #fff;
             line-height: 1.1;
+            letter-spacing: -0.02em;
         }
 
-        .hero-stat-text {
-            font-size: 0.8rem;
-            color: rgba(244, 245, 247, 0.6);
-            margin-top: 8px;
-            letter-spacing: 0.05em;
+        .hero-stat-label {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 6px;
+            letter-spacing: 0.04em;
+            font-weight: 400;
         }
 
         /* CTA Button */
-        .cta-button {
-            display: inline-block;
-            padding: 18px 48px;
-            background: var(--accent);
-            color: var(--cream);
-            text-decoration: none;
-            font-family: 'Zen Kaku Gothic New', sans-serif;
-            font-weight: 700;
-            font-size: 0.95rem;
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 40px;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
             border: none;
             cursor: pointer;
-            letter-spacing: 0.08em;
-            border-radius: 4px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
+            letter-spacing: 0.06em;
+            border-radius: var(--radius-sm);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            gap: 8px;
         }
 
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.5s ease;
+        .btn-primary {
+            background: var(--blue);
+            color: #fff;
         }
-
-        .cta-button:hover {
-            background: var(--accent-dark);
+        .btn-primary:hover {
+            background: var(--blue-deep);
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(74, 127, 186, 0.3);
+            box-shadow: 0 8px 24px rgba(59, 111, 173, 0.3);
         }
 
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .cta-button.outline {
+        .btn-outline {
             background: transparent;
-            border: 1px solid var(--cream);
-            color: var(--cream);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+        }
+        .btn-outline:hover {
+            background: #fff;
+            color: var(--ink);
+            border-color: #fff;
         }
 
-        .cta-button.outline:hover {
-            background: var(--cream);
-            color: var(--navy);
-            box-shadow: 0 8px 24px rgba(244, 245, 247, 0.2);
+        .btn-dark {
+            background: var(--ink);
+            color: #fff;
+        }
+        .btn-dark:hover {
+            background: var(--ink-soft);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(27, 36, 56, 0.2);
         }
 
-        .cta-button.green {
-            background: var(--navy);
-            color: var(--cream);
+        .btn-arrow::after {
+            content: '→';
+            font-size: 1.1em;
+            transition: transform 0.25s ease;
         }
-
-        .cta-button.green:hover {
-            background: var(--navy-light);
-            box-shadow: 0 8px 24px rgba(44, 62, 90, 0.3);
+        .btn-arrow:hover::after {
+            transform: translateX(4px);
         }
 
         /* Fixed Mobile CTA */
         .fixed-cta {
             position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            bottom: 0; left: 0; right: 0;
             background: var(--white);
-            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
             padding: 12px 20px;
             z-index: 999;
             display: none;
             transform: translateY(100%);
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-        .fixed-cta.visible {
-            transform: translateY(0);
-        }
-
-        .fixed-cta .cta-button {
-            width: 100%;
-            text-align: center;
-            padding: 16px 30px;
-        }
+        .fixed-cta.visible { transform: translateY(0); }
+        .fixed-cta .btn { width: 100%; }
 
         /* ============================
-           MEO Explanation Section
+           MEO Explanation
         ============================ */
-        .meo-explanation {
+        .meo-section {
             background: var(--white);
-            padding: 120px 0;
         }
 
-        .meo-intro {
-            max-width: 720px;
+        .meo-lead {
+            max-width: 680px;
             margin-bottom: 80px;
         }
 
-        .meo-intro-text {
-            font-size: 1.05rem;
-            line-height: 2.2;
-            color: var(--text);
+        .meo-lead p {
+            font-size: 1rem;
+            line-height: 2.1;
+            color: var(--ink-soft);
         }
 
         /* Chart */
-        .meo-chart-section {
-            margin: 80px 0;
+        .chart-block {
+            margin: 72px 0;
         }
 
-        .meo-chart-section h3 {
-            font-size: 1.35rem;
-            margin-bottom: 48px;
-            color: var(--navy);
+        .chart-block h3 {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: var(--ink);
+            text-align: center;
+            line-height: 1.7;
         }
 
-        .meo-chart-container {
-            max-width: 640px;
-            margin: 0 auto 24px;
+        .chart-wrap {
+            max-width: 600px;
+            margin: 0 auto 20px;
         }
 
-        .meo-chart-bar {
+        .chart-row {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
-        .meo-chart-label {
-            width: 130px;
-            font-size: 0.85rem;
-            color: var(--text);
+        .chart-label {
+            width: 120px;
+            font-size: 0.8rem;
+            color: var(--slate);
             text-align: right;
-            padding-right: 16px;
+            padding-right: 14px;
             flex-shrink: 0;
             font-weight: 500;
         }
 
-        .meo-chart-bar-bg {
+        .chart-track {
             flex: 1;
-            height: 28px;
-            background: var(--cream);
+            height: 32px;
+            background: var(--mist);
+            border-radius: 4px;
             position: relative;
             overflow: hidden;
         }
 
-        .meo-chart-bar-fill {
+        .chart-fill {
             height: 100%;
             background: var(--border);
+            border-radius: 4px;
             position: relative;
-            transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .meo-chart-bar-fill.primary {
-            background: var(--navy);
+        .chart-fill.top {
+            background: var(--ink);
         }
 
-        .meo-chart-percentage {
+        .chart-val {
             position: absolute;
-            right: 8px;
+            right: 10px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 0.8rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.78rem;
             font-weight: 700;
             color: #fff;
         }
 
-        .meo-chart-source {
+        .chart-source {
             text-align: center;
-            font-size: 0.75rem;
-            color: var(--text-light);
-            margin-bottom: 16px;
+            font-size: 0.72rem;
+            color: var(--stone);
+            margin-bottom: 12px;
         }
 
-        .meo-chart-note {
+        .chart-note {
             text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-light);
+            font-size: 0.85rem;
+            color: var(--slate);
             line-height: 1.8;
         }
 
-        /* Stats */
-        .meo-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 48px;
-            max-width: 900px;
-            margin: 64px auto 40px;
-        }
-
-        .meo-stat-item {
-            text-align: center;
-            padding: 40px 24px;
-            border: 1px solid var(--border);
-            position: relative;
-        }
-
-        .meo-stat-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--navy);
-        }
-
-        .meo-stat-number {
-            font-family: 'Shippori Mincho', serif;
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: var(--navy);
-            line-height: 1.1;
-            margin-bottom: 16px;
-        }
-
-        .meo-stat-description {
-            font-size: 0.9rem;
-            color: var(--text);
-            line-height: 1.7;
-            margin-bottom: 8px;
-        }
-
-        .meo-stat-source {
-            font-size: 0.75rem;
-            color: var(--text-light);
-        }
-
-        .meo-stats-summary {
-            font-size: 1rem;
-            line-height: 2.2;
-            max-width: 780px;
-            margin: 48px auto 64px;
-            color: var(--text);
-        }
-
         /* Steps */
-        .meo-steps-section {
+        .steps-block {
             margin: 80px 0;
         }
 
-        .meo-steps-section h3 {
-            font-size: 1.35rem;
-            margin-bottom: 48px;
-            color: var(--navy);
+        .steps-block > h3 {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: var(--ink);
             text-align: center;
+            line-height: 1.7;
         }
 
-        .meo-steps {
+        .steps-row {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            max-width: 900px;
-            margin: 0 auto 40px;
-            position: relative;
+            gap: 20px;
+            max-width: 860px;
+            margin: 0 auto 36px;
         }
 
-        .meo-step {
+        .step-card {
             text-align: center;
+            padding: 32px 20px;
+            background: var(--mist);
+            border-radius: var(--radius-md);
             position: relative;
-            padding: 36px 24px;
-            background: var(--cream);
         }
 
-        .meo-step:not(:last-child)::after {
-            content: "→";
+        .step-card:not(:last-child)::after {
+            content: '';
             position: absolute;
-            right: -22px;
-            top: 28px;
-            font-size: 1.5rem;
-            color: var(--navy);
-            font-weight: 700;
+            right: -14px; top: 50%;
+            transform: translateY(-50%);
+            width: 8px; height: 8px;
+            border-right: 2px solid var(--stone);
+            border-bottom: 2px solid var(--stone);
+            transform: translateY(-50%) rotate(-45deg);
             z-index: 1;
         }
 
-        .meo-step-number {
-            width: 48px;
-            height: 48px;
-            background: var(--navy);
-            color: var(--cream);
+        .step-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #fff;
+            background: var(--ink);
+            width: 28px; height: 28px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-family: 'Shippori Mincho', serif;
-            font-size: 1.2rem;
-            font-weight: 700;
+            margin: 0 auto 16px;
+            letter-spacing: 0;
         }
 
-        .meo-step-text {
-            font-size: 0.95rem;
-            line-height: 1.8;
-            color: var(--text);
+        .step-card p {
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: var(--ink-soft);
         }
 
-        .meo-steps-note {
+        .steps-note {
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             line-height: 1.9;
-            max-width: 680px;
-            margin: 0 auto 64px;
-            color: var(--text-light);
+            max-width: 640px;
+            margin: 0 auto;
+            color: var(--slate);
         }
 
         /* AI Note */
-        .meo-ai-note {
-            margin: 80px auto 0;
-            max-width: 780px;
-            padding: 48px;
-            background: var(--navy);
-            color: var(--cream);
+        .ai-note {
+            margin: 72px auto 0;
+            max-width: 720px;
+            padding: 40px 44px;
+            background: var(--ink);
+            color: #fff;
+            border-radius: var(--radius-md);
             position: relative;
+            overflow: hidden;
         }
 
-        .meo-ai-note::before {
+        .ai-note::before {
             content: '';
             position: absolute;
-            top: -8px;
-            left: -8px;
-            right: -8px;
-            bottom: -8px;
-            border: 1px solid var(--navy);
-            opacity: 0.3;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(ellipse at 100% 0%, rgba(59, 111, 173, 0.2) 0%, transparent 50%);
             pointer-events: none;
         }
 
-        .meo-ai-note h3 {
-            font-size: 1.3rem;
-            margin-bottom: 24px;
-            color: var(--cream);
+        .ai-note h3 {
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            color: #fff;
+            position: relative;
+            line-height: 1.6;
         }
 
-        .meo-ai-note p {
-            font-size: 0.95rem;
+        .ai-note p {
+            font-size: 0.9rem;
             line-height: 2;
-            color: rgba(244, 245, 247, 0.85);
+            color: rgba(255, 255, 255, 0.75);
+            position: relative;
         }
 
-        .meo-ai-note strong {
-            color: var(--cream);
-        }
+        .ai-note strong { color: #fff; }
 
         .meo-closing {
             text-align: center;
-            font-family: 'Shippori Mincho', serif;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 600;
-            color: var(--navy);
-            margin-top: 80px;
+            color: var(--ink);
+            margin-top: 72px;
         }
 
         /* ============================
-           Problems Section
+           Problems
         ============================ */
-        .problems {
-            background: var(--cream);
+        .problems-section {
+            background: var(--cloud);
         }
 
         .problems-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2px;
-            background: var(--border);
-            max-width: 880px;
+            gap: 16px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .problem-item {
-            padding: 40px 36px;
+        .problem-card {
+            padding: 32px 28px;
             background: var(--white);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
             transition: all 0.3s ease;
             position: relative;
+            overflow: hidden;
         }
 
-        .problem-item::before {
+        .problem-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: var(--navy);
-            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            top: 0; left: 0;
+            width: 3px; height: 0;
+            background: var(--blue);
+            transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: 0 0 2px 0;
         }
 
-        .problem-item:hover::before {
-            width: 4px;
+        .problem-card:hover {
+            border-color: var(--blue);
+            box-shadow: var(--shadow-md);
         }
 
-        .problem-item:hover {
-            background: var(--cream);
-        }
+        .problem-card:hover::before { height: 100%; }
 
-        .problem-item p {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--text);
+        .problem-card p {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: var(--ink-soft);
             font-weight: 500;
-            position: relative;
-            z-index: 1;
         }
 
         /* ============================
-           Trust Section
+           Trust
         ============================ */
         .trust-section {
             background: var(--white);
         }
 
-        .trust-grid {
+        .trust-row {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 0;
-            max-width: 960px;
+            gap: 24px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        .trust-card {
-            padding: 56px 40px;
+        .trust-item {
             text-align: center;
-            border-right: 1px solid var(--border);
+            padding: 48px 28px;
+            border-radius: var(--radius-md);
+            background: var(--cloud);
             transition: all 0.3s ease;
         }
 
-        .trust-card:last-child {
-            border-right: none;
+        .trust-item:hover {
+            background: var(--blue-pale);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
         }
 
-        .trust-card:hover {
-            background: var(--cream);
+        .trust-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: var(--ink);
         }
 
-        .trust-icon {
-            font-family: 'Shippori Mincho', serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--navy);
-            margin-bottom: 24px;
-            display: block;
-        }
-
-        .trust-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 16px;
-            color: var(--navy);
-        }
-
-        .trust-card p {
-            font-size: 0.9rem;
-            line-height: 1.8;
-            color: var(--text-light);
+        .trust-item p {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: var(--slate);
         }
 
         /* ============================
-           Comparison Section
+           Comparison
         ============================ */
-        .comparison {
-            background: var(--cream);
+        .compare-section {
+            background: var(--cloud);
         }
 
-        .comparison-table-wrapper {
-            max-width: 800px;
+        .compare-table-wrap {
+            max-width: 780px;
             margin: 0 auto;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
         }
 
-        .comparison-table {
+        .compare-table {
             width: 100%;
             border-collapse: collapse;
             background: var(--white);
         }
 
-        .comparison-table th,
-        .comparison-table td {
-            padding: 24px 20px;
+        .compare-table th,
+        .compare-table td {
+            padding: 20px 18px;
             text-align: center;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.95rem;
+            font-size: 0.88rem;
         }
 
-        .comparison-table th {
-            background: var(--navy);
-            color: var(--cream);
-            font-family: 'Zen Kaku Gothic New', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            letter-spacing: 0.06em;
+        .compare-table thead th {
+            background: var(--ink);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.82rem;
+            letter-spacing: 0.04em;
         }
 
-        .comparison-table tr td:first-child {
-            text-align: left;
-            font-weight: 700;
-            background: rgba(44, 62, 90, 0.03);
-            color: var(--navy);
-            font-size: 0.9rem;
+        .compare-table tbody tr {
+            border-bottom: 1px solid var(--mist);
         }
 
-        .comparison-table tr td:last-child {
-            background: rgba(74, 127, 186, 0.06);
-            font-weight: 500;
-            color: var(--navy);
-        }
-
-        .comparison-table tr:last-child td {
+        .compare-table tbody tr:last-child {
             border-bottom: none;
         }
 
-        .comparison-note {
+        .compare-table tbody td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: var(--ink);
+            font-size: 0.84rem;
+            background: rgba(241, 243, 248, 0.4);
+        }
+
+        .compare-table tbody td:last-child {
+            background: var(--blue-ghost);
+            color: var(--blue-deep);
+            font-weight: 500;
+        }
+
+        .compare-table .check {
+            color: var(--blue);
+            font-weight: 700;
+        }
+
+        .compare-note {
             text-align: center;
-            margin-top: 48px;
-            padding: 32px;
-            border: 1px solid var(--border);
+            margin-top: 40px;
+            padding: 28px 32px;
             background: var(--white);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            max-width: 780px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .comparison-note p {
-            font-size: 0.95rem;
-            line-height: 2;
-            color: var(--text);
+        .compare-note p {
+            font-size: 0.9rem;
+            line-height: 1.9;
+            color: var(--ink-soft);
         }
 
-        .comparison-explanation {
+        /* Comparison Explanation */
+        .compare-detail {
             margin-top: 80px;
         }
 
-        .comparison-explanation > h3 {
-            font-size: 1.5rem;
-            margin-bottom: 48px;
-            color: var(--navy);
+        .compare-detail > h3 {
+            font-size: 1.35rem;
+            margin-bottom: 40px;
+            color: var(--ink);
             text-align: center;
+            line-height: 1.6;
         }
 
-        .comparison-points {
-            max-width: 780px;
+        .compare-points {
+            max-width: 720px;
             margin: 0 auto 48px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        .comparison-point {
-            margin-bottom: 32px;
-            padding: 32px 36px;
+        .compare-point {
+            padding: 28px 32px;
             background: var(--white);
-            border-left: 3px solid var(--navy);
-            transition: all 0.3s ease;
-        }
-
-        .comparison-point:hover {
-            border-left-color: var(--accent);
-            transform: translateX(4px);
-        }
-
-        .comparison-point h4 {
-            font-size: 1.15rem;
-            color: var(--navy);
-            margin-bottom: 12px;
-        }
-
-        .comparison-point p {
-            font-size: 0.95rem;
-            line-height: 2;
-            color: var(--text);
-        }
-
-        /* ============================
-           Services Section
-        ============================ */
-        .services {
-            background: var(--navy);
-            color: var(--cream);
-        }
-
-        .services h2 {
-            color: var(--cream);
-        }
-
-        .services .section-label {
-            color: var(--accent);
-        }
-
-        .services .section-label::before {
-            background: var(--accent);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
-            background: rgba(244, 245, 247, 0.1);
-        }
-
-        .service-item {
-            padding: 56px 36px;
-            background: var(--navy);
-            transition: all 0.3s ease;
-        }
-
-        .service-item:hover {
-            background: var(--navy-light);
-        }
-
-        .service-label {
-            display: inline-block;
-            padding: 6px 20px;
-            border: 1px solid rgba(244, 245, 247, 0.3);
-            color: var(--cream);
-            font-weight: 500;
-            font-size: 0.8rem;
-            margin-bottom: 28px;
-            letter-spacing: 0.08em;
-        }
-
-        .service-item h3 {
-            color: var(--cream);
-            font-size: 1.5rem;
-            margin-bottom: 24px;
-        }
-
-        .service-item p {
-            font-size: 0.95rem;
-            line-height: 2;
-            color: rgba(244, 245, 247, 0.7);
-        }
-
-        /* ============================
-           Pricing Section
-        ============================ */
-        .pricing {
-            background: var(--white);
-        }
-
-        .pricing-single {
-            max-width: 640px;
-            margin: 0 auto;
-            padding: 64px 56px;
-            border: 2px solid var(--navy);
-            position: relative;
-            text-align: center;
-        }
-
-        .pricing-single::before {
-            content: '';
-            position: absolute;
-            top: -6px;
-            left: -6px;
-            right: -6px;
-            bottom: -6px;
+            border-radius: var(--radius-md);
             border: 1px solid var(--border);
-            pointer-events: none;
+            transition: all 0.3s ease;
         }
 
-        .pricing-badge {
-            position: absolute;
-            top: -14px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--navy);
-            color: var(--cream);
-            padding: 8px 28px;
-            font-family: 'Zen Kaku Gothic New', sans-serif;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 0.08em;
+        .compare-point:hover {
+            border-color: var(--blue);
+            box-shadow: var(--shadow-sm);
         }
 
-        .pricing-free-text {
-            font-family: 'Shippori Mincho', serif;
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--red);
-            margin: 16px 0;
-            line-height: 1.2;
+        .compare-point h4 {
+            font-size: 1.05rem;
+            color: var(--ink);
+            margin-bottom: 10px;
+            font-weight: 600;
         }
 
-        .pricing-price {
-            font-family: 'Shippori Mincho', serif;
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: var(--navy);
-            margin: 24px 0;
-        }
-
-        .price-tax {
-            font-family: 'Zen Kaku Gothic New', sans-serif;
+        .compare-point p {
             font-size: 0.9rem;
-            font-weight: 400;
-            color: var(--text-light);
-        }
-
-        .pricing-subtitle {
-            font-size: 1.3rem;
-            margin: 36px 0 20px;
-            color: var(--charcoal);
-        }
-
-        .pricing-features {
-            list-style: none;
-            text-align: left;
-            margin-bottom: 36px;
-        }
-
-        .pricing-features li {
-            padding: 16px 0;
-            border-bottom: 1px solid var(--cream-dark);
-            position: relative;
-            padding-left: 28px;
-            font-size: 0.95rem;
-            color: var(--text);
-        }
-
-        .pricing-features li::before {
-            content: "—";
-            position: absolute;
-            left: 0;
-            color: var(--navy);
-            font-weight: 700;
-        }
-
-        .pricing-notes {
-            margin-top: 36px;
-            padding-top: 28px;
-            border-top: 1px solid var(--border);
-            text-align: left;
-        }
-
-        .pricing-notes p {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            line-height: 1.9;
-            margin-bottom: 8px;
-        }
-
-        .pricing-campaign {
-            color: var(--red) !important;
-            font-weight: 500;
-        }
-
-        .strike-price {
-            text-decoration: line-through;
-            color: var(--text-light);
+            line-height: 1.95;
+            color: var(--ink-soft);
         }
 
         /* ============================
-           Services & Pricing Section
+           Services & Pricing
         ============================ */
-        .services-pricing {
-            background: var(--cream);
+        .sp-section {
+            background: var(--white);
         }
 
         .sp-card {
-            max-width: 640px;
+            max-width: 600px;
             margin: 0 auto;
-            background: var(--white);
-            border-radius: 16px;
+            background: var(--cloud);
+            border-radius: var(--radius-lg);
             padding: 56px 48px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
             text-align: center;
             position: relative;
+            border: 1px solid var(--border);
         }
 
         .sp-badge {
             display: inline-block;
-            background: var(--red);
+            background: var(--red-warm);
             color: #fff;
-            font-family: 'Zen Kaku Gothic New', sans-serif;
             font-weight: 700;
-            font-size: 0.9rem;
-            padding: 8px 28px;
+            font-size: 0.82rem;
+            padding: 7px 24px;
             border-radius: 999px;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.06em;
             margin-bottom: 28px;
         }
 
         .sp-price {
-            font-family: 'Shippori Mincho', serif;
-            font-size: 2.5rem;
+            font-family: 'Plus Jakarta Sans', 'Noto Sans JP', sans-serif;
+            font-size: 2.4rem;
             font-weight: 800;
-            color: var(--navy);
-            margin-bottom: 8px;
+            color: var(--ink);
+            margin-bottom: 6px;
+            letter-spacing: -0.01em;
         }
 
         .sp-tax {
-            font-family: 'Zen Kaku Gothic New', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 400;
-            color: var(--text-light);
+            color: var(--slate);
         }
 
-        .sp-plan-name {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            letter-spacing: 0.06em;
-            margin-bottom: 36px;
+        .sp-plan-label {
+            font-size: 0.85rem;
+            color: var(--slate);
+            letter-spacing: 0.04em;
+            margin-bottom: 32px;
         }
 
         .sp-divider {
             display: flex;
             align-items: center;
-            gap: 16px;
-            margin: 32px 0 24px;
+            gap: 14px;
+            margin: 28px 0 20px;
         }
-
         .sp-divider::before,
         .sp-divider::after {
             content: '';
-            flex: 1;
-            height: 1px;
+            flex: 1; height: 1px;
             background: var(--border);
         }
-
         .sp-divider span {
-            font-family: 'Zen Kaku Gothic New', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.72rem;
             font-weight: 700;
-            color: var(--text-light);
-            letter-spacing: 0.1em;
+            color: var(--slate);
+            letter-spacing: 0.12em;
             white-space: nowrap;
+            text-transform: uppercase;
         }
 
         .sp-features {
@@ -1188,119 +901,98 @@
         }
 
         .sp-features li {
-            padding: 14px 0;
-            border-bottom: 1px solid var(--cream-dark);
+            padding: 13px 0;
+            border-bottom: 1px solid var(--border);
             position: relative;
-            padding-left: 28px;
-            font-size: 0.95rem;
-            color: var(--text);
+            padding-left: 26px;
+            font-size: 0.9rem;
+            color: var(--ink-soft);
         }
 
         .sp-features li::before {
-            content: "✔";
+            content: "✓";
             position: absolute;
             left: 0;
-            color: var(--accent);
+            color: var(--blue);
             font-weight: 700;
+            font-size: 0.85rem;
         }
 
-        .sp-features li:last-child {
-            border-bottom: none;
-        }
+        .sp-features li:last-child { border-bottom: none; }
 
         .sp-notes {
             text-align: left;
         }
-
         .sp-notes p {
-            font-size: 0.83rem;
-            color: var(--text-light);
+            font-size: 0.8rem;
+            color: var(--slate);
             line-height: 1.8;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
-        .sp-cta {
-            margin-top: 40px;
-        }
+        .sp-cta { margin-top: 36px; }
 
-        @media (max-width: 768px) {
-            .sp-card {
-                padding: 40px 24px;
-            }
-
-            .sp-price {
-                font-size: 2rem;
-            }
+        .strike-price {
+            text-decoration: line-through;
+            color: var(--stone);
         }
 
         /* ============================
-           Flow Section
+           Flow
         ============================ */
-        .flow {
-            background: var(--cream);
+        .flow-section {
+            background: var(--cloud);
         }
 
-        .flow-steps {
+        .flow-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 0;
+            gap: 20px;
             position: relative;
         }
 
-        .flow-steps::before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 10%;
-            right: 10%;
-            height: 1px;
-            background: var(--border);
-            z-index: 0;
-        }
-
-        .flow-step {
+        .flow-item {
             text-align: center;
             position: relative;
-            padding: 0 20px;
             z-index: 1;
         }
 
-        .flow-number {
+        .flow-num {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 80px;
-            height: 80px;
+            width: 56px; height: 56px;
             background: var(--white);
-            border: 2px solid var(--navy);
-            color: var(--navy);
-            font-family: 'Shippori Mincho', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 28px;
-        }
-
-        .flow-step h3 {
+            border: 2px solid var(--ink);
+            color: var(--ink);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 1.1rem;
-            margin-bottom: 16px;
-            color: var(--navy);
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-radius: var(--radius-sm);
         }
 
-        .flow-step p {
-            font-size: 0.88rem;
-            line-height: 1.8;
-            color: var(--text-light);
+        .flow-item h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--ink);
+        }
+
+        .flow-item p {
+            font-size: 0.82rem;
+            line-height: 1.7;
+            color: var(--slate);
         }
 
         /* ============================
-           FAQ Section
+           FAQ
         ============================ */
-        .faq {
+        .faq-section {
             background: var(--white);
         }
 
         .faq-list {
-            max-width: 780px;
+            max-width: 720px;
             margin: 0 auto;
         }
 
@@ -1308,61 +1000,58 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .faq-question {
-            padding: 28px 48px 28px 0;
+        .faq-q {
+            padding: 24px 40px 24px 0;
             cursor: pointer;
             position: relative;
-            font-family: 'Shippori Mincho', serif;
             font-weight: 600;
-            font-size: 1.05rem;
-            color: var(--charcoal);
-            transition: color 0.3s ease;
+            font-size: 0.95rem;
+            color: var(--ink);
+            transition: color 0.25s;
+            line-height: 1.6;
         }
 
-        .faq-question:hover {
-            color: var(--navy);
-        }
+        .faq-q:hover { color: var(--blue); }
 
-        .faq-question::after {
+        .faq-q::after {
             content: "+";
             position: absolute;
-            right: 0;
-            top: 50%;
+            right: 0; top: 50%;
             transform: translateY(-50%);
-            font-family: 'Zen Kaku Gothic New', sans-serif;
-            font-size: 1.5rem;
-            color: var(--navy);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.3rem;
+            color: var(--stone);
             transition: transform 0.3s ease;
             font-weight: 300;
         }
 
-        .faq-question.active::after {
+        .faq-q.active::after {
             transform: translateY(-50%) rotate(45deg);
         }
 
-        .faq-answer {
+        .faq-a {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .faq-answer.active {
+        .faq-a.active {
             max-height: 600px;
-            padding-bottom: 28px;
+            padding-bottom: 24px;
         }
 
-        .faq-answer p {
-            font-size: 0.95rem;
-            line-height: 2.1;
-            color: var(--text);
+        .faq-a p {
+            font-size: 0.9rem;
+            line-height: 2;
+            color: var(--ink-soft);
         }
 
         /* ============================
-           CTA Section
+           CTA
         ============================ */
         .cta-section {
-            background: var(--navy);
-            color: var(--cream);
+            background: var(--ink);
+            color: #fff;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -1371,350 +1060,213 @@
         .cta-section::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at 30% 50%, rgba(61, 84, 120, 0.4) 0%, transparent 60%);
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 30% 50%, rgba(59, 111, 173, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(59, 111, 173, 0.08) 0%, transparent 40%);
             pointer-events: none;
         }
 
-        .cta-section h2 {
-            color: var(--cream);
-            position: relative;
-            z-index: 1;
-        }
+        .cta-section h2 { color: #fff; position: relative; z-index: 1; }
+        .cta-section .section-tag { color: rgba(255,255,255,0.4); }
+        .cta-section .section-tag::before { background: rgba(255,255,255,0.2); }
 
-        .cta-content {
-            max-width: 640px;
+        .cta-body {
+            max-width: 560px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
         }
 
-        .cta-content > p {
-            font-size: 1.05rem;
+        .cta-body > p {
+            font-size: 0.95rem;
             line-height: 2;
-            margin-bottom: 48px;
-            color: rgba(244, 245, 247, 0.8);
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 300;
         }
 
-        .cta-info {
-            margin: 48px 0;
-            padding: 40px;
-            border: 1px solid rgba(244, 245, 247, 0.15);
-            background: rgba(244, 245, 247, 0.05);
+        .cta-contact {
+            margin: 40px 0;
+            padding: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.03);
         }
 
         .cta-phone {
-            font-family: 'Shippori Mincho', serif;
-            font-size: 2.2rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
             font-weight: 700;
-            margin: 20px 0;
-            letter-spacing: 0.08em;
+            margin: 16px 0;
+            letter-spacing: 0.04em;
         }
 
         .cta-phone a {
-            color: var(--cream);
+            color: #fff;
             text-decoration: none;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s;
         }
-
-        .cta-phone a:hover {
-            opacity: 0.7;
-        }
+        .cta-phone a:hover { opacity: 0.7; }
 
         .cta-email {
-            font-size: 1.1rem;
-            margin: 20px 0;
-            letter-spacing: 0.05em;
+            font-size: 1rem;
+            margin: 16px 0;
         }
 
         .cta-email a {
-            color: rgba(244, 245, 247, 0.8);
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
-            border-bottom: 1px solid rgba(244, 245, 247, 0.3);
-            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
         }
-
         .cta-email a:hover {
-            color: var(--cream);
-            border-bottom-color: var(--cream);
+            color: #fff;
+            border-bottom-color: #fff;
         }
 
-        .cta-buttons {
+        .cta-btns { margin-top: 36px; }
+
+        .cta-area-note {
             margin-top: 40px;
-        }
-
-        .cta-area {
-            margin-top: 48px;
-            font-size: 0.9rem;
-            color: rgba(244, 245, 247, 0.5);
-            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 0.06em;
         }
 
         /* ============================
-           Contact Form Section
+           Contact Form
         ============================ */
-        .contact-form-section {
-            background: var(--cream);
+        .contact-section {
+            background: var(--cloud);
         }
 
-        .google-form-container {
-            max-width: 720px;
+        .form-wrap {
+            max-width: 680px;
             margin: 0 auto;
         }
 
-        .form-notice {
-            margin-top: 32px;
-            font-size: 0.85rem;
-            color: var(--text-light);
-            line-height: 1.9;
+        .form-footer {
+            margin-top: 28px;
+            font-size: 0.82rem;
+            color: var(--slate);
+            line-height: 1.8;
+            text-align: center;
         }
 
         /* ============================
            Footer
         ============================ */
         footer {
-            background: var(--charcoal);
-            color: var(--cream);
-            padding: 64px 0;
+            background: var(--ink);
+            color: #fff;
+            padding: 56px 0;
             text-align: center;
         }
 
-        .footer-title {
-            font-family: 'Shippori Mincho', serif;
-            font-size: 1.3rem;
+        .footer-name {
+            font-size: 1.05rem;
             font-weight: 700;
-            margin-bottom: 12px;
-            letter-spacing: 0.12em;
+            margin-bottom: 8px;
+            letter-spacing: 0.1em;
         }
 
-        .footer-subtitle {
-            font-size: 0.8rem;
-            margin-bottom: 32px;
-            opacity: 0.5;
-            letter-spacing: 0.08em;
-        }
-
-        .footer-copyright {
+        .footer-desc {
             font-size: 0.75rem;
-            opacity: 0.35;
-            letter-spacing: 0.05em;
+            margin-bottom: 28px;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.06em;
+        }
+
+        .footer-copy {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.2);
+            letter-spacing: 0.04em;
         }
 
         /* ============================
            Responsive
         ============================ */
         @media (max-width: 768px) {
-            .fixed-cta {
-                display: block;
-            }
+            .fixed-cta { display: block; }
 
             nav ul {
                 display: none;
                 position: absolute;
-                top: 56px;
-                left: 0;
-                right: 0;
-                background: var(--cream);
+                top: 52px; left: 0; right: 0;
+                background: var(--white);
                 flex-direction: column;
                 gap: 0;
                 border-bottom: 1px solid var(--border);
-                padding: 16px 0;
+                padding: 12px 0;
+                box-shadow: var(--shadow-md);
             }
+            nav ul.active { display: flex; }
+            nav li { padding: 12px 32px; }
+            .hamburger { display: flex; }
 
-            nav ul.active {
-                display: flex;
-            }
+            section { padding: 80px 0; }
+            h2 { font-size: 1.45rem; margin-bottom: 16px; }
+            .section-header { margin-bottom: 48px; }
 
-            nav li {
-                padding: 14px 32px;
-            }
+            .hero { padding: 120px 0 80px; min-height: auto; }
+            .hero-layout { grid-template-columns: 1fr; gap: 48px; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero-sub { font-size: 0.92rem; }
+            .hero-stats { display: none; }
 
-            .hamburger {
-                display: flex;
-            }
+            .btn { padding: 14px 32px; font-size: 0.85rem; }
 
-            section {
-                padding: 80px 0;
-            }
+            .meo-lead { max-width: 100%; }
 
-            h2 {
-                font-size: 1.6rem;
-                margin-bottom: 48px;
-            }
-
-            .hero {
-                padding: 120px 0 80px;
-                min-height: auto;
-            }
-
-            .hero-grid {
+            .steps-row {
                 grid-template-columns: 1fr;
-                gap: 48px;
+                gap: 12px;
             }
+            .step-card:not(:last-child)::after { display: none; }
 
-            .hero h1 {
-                font-size: 2.2rem;
-            }
+            .chart-label { width: 85px; font-size: 0.72rem; padding-right: 8px; }
+            .chart-val { font-size: 0.7rem; }
 
-            .hero-subtitle {
-                font-size: 1rem;
-            }
+            .ai-note { padding: 28px 24px; }
 
-            .hero-right {
-                display: none;
-            }
+            .problems-grid { grid-template-columns: 1fr; }
 
-            .cta-button {
-                padding: 16px 36px;
-                font-size: 0.9rem;
-            }
-
-            .meo-intro {
-                max-width: 100%;
-            }
-
-            .meo-stats {
+            .trust-row {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 12px;
             }
+            .trust-item { padding: 32px 24px; }
 
-            .meo-stat-item {
-                padding: 28px 20px;
-            }
+            .compare-table th,
+            .compare-table td { padding: 14px 10px; font-size: 0.8rem; }
 
-            .meo-stat-number {
-                font-size: 2.5rem;
-            }
+            .compare-point { padding: 24px; }
 
-            .meo-steps {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
+            .sp-card { padding: 40px 24px; }
+            .sp-price { font-size: 2rem; }
 
-            .meo-step:not(:last-child)::after {
-                content: "↓";
-                right: auto;
-                left: 50%;
-                top: auto;
-                bottom: -12px;
-                transform: translateX(-50%);
-                font-size: 1.2rem;
-            }
-
-            .meo-chart-label {
-                width: 90px;
-                font-size: 0.78rem;
-                padding-right: 10px;
-            }
-
-            .meo-chart-percentage {
-                font-size: 0.7rem;
-            }
-
-            .meo-ai-note {
-                padding: 32px 24px;
-            }
-
-            .problems-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .trust-grid {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-
-            .trust-card {
-                border-right: none;
-                border-bottom: 1px solid var(--border);
-                padding: 40px 32px;
-            }
-
-            .trust-card:last-child {
-                border-bottom: none;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .service-item {
-                padding: 40px 28px;
-            }
-
-            .comparison-table th,
-            .comparison-table td {
-                padding: 16px 12px;
-                font-size: 0.85rem;
-            }
-
-            .comparison-point {
-                padding: 24px;
-            }
-
-            .comparison-point h4 {
-                font-size: 1.05rem;
-            }
-
-            .pricing-single {
-                padding: 48px 28px;
-            }
-
-            .pricing-free-text {
-                font-size: 2.2rem;
-            }
-
-            .pricing-price {
-                font-size: 2rem;
-            }
-
-            .flow-steps {
+            .flow-row {
                 grid-template-columns: 1fr 1fr;
-                gap: 40px 24px;
+                gap: 28px 16px;
             }
 
-            .flow-steps::before {
-                display: none;
-            }
-
-            .flow-number {
-                width: 64px;
-                height: 64px;
-                font-size: 1.3rem;
-            }
-
-            .cta-phone {
-                font-size: 1.6rem;
-            }
-
-            .cta-email {
-                font-size: 0.95rem;
-            }
+            .cta-phone { font-size: 1.5rem; }
+            .cta-email { font-size: 0.9rem; }
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 0 20px;
-            }
-
-            .flow-steps {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .hero h1 {
-                font-size: 1.9rem;
-            }
+            .container { padding: 0 20px; }
+            .flow-row { grid-template-columns: 1fr; gap: 24px; }
+            .hero h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header id="header">
-        <div class="header-container">
+        <div class="header-inner">
             <a href="#" class="logo">マップサポート群馬</a>
             <nav>
                 <ul id="nav-menu">
@@ -1733,122 +1285,122 @@
 
     <!-- Fixed Mobile CTA -->
     <div class="fixed-cta" id="fixedCta">
-        <a href="#contact" class="cta-button">無料診断を受ける</a>
+        <a href="#contact" class="btn btn-primary">無料診断を受ける</a>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <h1>MEO対策、<br><span class="accent">まるごと代行。</span></h1>
-                    <p class="hero-subtitle">Googleマップに表示される貴院の情報を最適化し、選ばれる医院へ。<br>撮影も、口コミ対応も、投稿も。<br>ぜんぶ、やります。</p>
+            <div class="hero-layout">
+                <div>
+                    <h1>MEO対策、<br><span class="em">まるごと代行。</span></h1>
+                    <p class="hero-sub">Googleマップに表示される貴院の情報を最適化し、選ばれる医院へ。<br>撮影も、口コミ対応も、投稿も。<br>ぜんぶ、やります。</p>
                     <p class="hero-area">対応エリア：高崎・前橋を中心に群馬県全域</p>
-                    <a href="#contact" class="cta-button">無料診断を受ける</a>
+                    <a href="#contact" class="btn btn-primary btn-arrow">無料診断を受ける</a>
                 </div>
-                <div class="hero-right">
+                <div class="hero-stats">
                     <div class="hero-stat">
-                        <div class="hero-stat-number">79.5%</div>
-                        <div class="hero-stat-text">Google検索利用率</div>
+                        <div class="hero-stat-num">79.5%</div>
+                        <div class="hero-stat-label">Google検索利用率</div>
                     </div>
                     <div class="hero-stat">
-                        <div class="hero-stat-number">46%</div>
-                        <div class="hero-stat-text">地域関連検索の割合</div>
+                        <div class="hero-stat-num">46%</div>
+                        <div class="hero-stat-label">地域関連検索の割合</div>
                     </div>
                     <div class="hero-stat">
-                        <div class="hero-stat-number">76%</div>
-                        <div class="hero-stat-text">24h以内の来院率</div>
+                        <div class="hero-stat-num">76%</div>
+                        <div class="hero-stat-label">24h以内の来院率</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- MEO Explanation Section -->
-    <section class="meo-explanation">
+    <!-- MEO Explanation -->
+    <section class="meo-section">
         <div class="container">
-            <div class="meo-intro reveal">
-                <span class="section-label">Why MEO</span>
+            <div class="meo-lead reveal">
+                <span class="section-tag">Why MEO</span>
                 <h2>なぜ今、Googleマップ対策が<br>必要なのか</h2>
-                <p class="meo-intro-text">「高崎 歯医者」「前橋 整骨院」——患者さんがスマホで検索した時、最初に目に入るのはGoogleマップの検索結果です。写真・口コミ・営業時間など、ここに表示される情報を整え、貴院を「選ばれる状態」にするのがGoogleマップ対策（MEO対策）です。</p>
+                <p>「高崎 歯医者」「前橋 整骨院」——患者さんがスマホで検索した時、最初に目に入るのはGoogleマップの検索結果です。写真・口コミ・営業時間など、ここに表示される情報を整え、貴院を「選ばれる状態」にするのがGoogleマップ対策（MEO対策）です。</p>
             </div>
 
-            <div class="meo-chart-section reveal">
+            <div class="chart-block reveal">
                 <h3>「医院探し」に使われるのは、<br>圧倒的にGoogle検索です</h3>
-                <div class="meo-chart-container">
-                    <div class="meo-chart-bar">
-                        <div class="meo-chart-label">Google検索</div>
-                        <div class="meo-chart-bar-bg">
-                            <div class="meo-chart-bar-fill primary" style="width: 79.5%;">
-                                <div class="meo-chart-percentage">79.5%</div>
+                <div class="chart-wrap">
+                    <div class="chart-row">
+                        <div class="chart-label">Google検索</div>
+                        <div class="chart-track">
+                            <div class="chart-fill top" style="width: 79.5%;">
+                                <div class="chart-val">79.5%</div>
                             </div>
                         </div>
                     </div>
-                    <div class="meo-chart-bar">
-                        <div class="meo-chart-label">YouTube</div>
-                        <div class="meo-chart-bar-bg">
-                            <div class="meo-chart-bar-fill" style="width: 48.2%;">
-                                <div class="meo-chart-percentage">48.2%</div>
+                    <div class="chart-row">
+                        <div class="chart-label">YouTube</div>
+                        <div class="chart-track">
+                            <div class="chart-fill" style="width: 48.2%;">
+                                <div class="chart-val">48.2%</div>
                             </div>
                         </div>
                     </div>
-                    <div class="meo-chart-bar">
-                        <div class="meo-chart-label">Yahoo! JAPAN</div>
-                        <div class="meo-chart-bar-bg">
-                            <div class="meo-chart-bar-fill" style="width: 44.7%;">
-                                <div class="meo-chart-percentage">44.7%</div>
+                    <div class="chart-row">
+                        <div class="chart-label">Yahoo! JAPAN</div>
+                        <div class="chart-track">
+                            <div class="chart-fill" style="width: 44.7%;">
+                                <div class="chart-val">44.7%</div>
                             </div>
                         </div>
                     </div>
-                    <div class="meo-chart-bar">
-                        <div class="meo-chart-label">Instagram</div>
-                        <div class="meo-chart-bar-bg">
-                            <div class="meo-chart-bar-fill" style="width: 30%;">
-                                <div class="meo-chart-percentage">30%</div>
+                    <div class="chart-row">
+                        <div class="chart-label">Instagram</div>
+                        <div class="chart-track">
+                            <div class="chart-fill" style="width: 30%;">
+                                <div class="chart-val">30%</div>
                             </div>
                         </div>
                     </div>
-                    <div class="meo-chart-bar">
-                        <div class="meo-chart-label">X（旧Twitter）</div>
-                        <div class="meo-chart-bar-bg">
-                            <div class="meo-chart-bar-fill" style="width: 30%;">
-                                <div class="meo-chart-percentage">30%</div>
+                    <div class="chart-row">
+                        <div class="chart-label">X（旧Twitter）</div>
+                        <div class="chart-track">
+                            <div class="chart-fill" style="width: 30%;">
+                                <div class="chart-val">30%</div>
                             </div>
                         </div>
                     </div>
-                    <div class="meo-chart-bar">
-                        <div class="meo-chart-label">TikTok</div>
-                        <div class="meo-chart-bar-bg">
-                            <div class="meo-chart-bar-fill" style="width: 11.6%;">
-                                <div class="meo-chart-percentage">11.6%</div>
+                    <div class="chart-row">
+                        <div class="chart-label">TikTok</div>
+                        <div class="chart-track">
+                            <div class="chart-fill" style="width: 11.6%;">
+                                <div class="chart-val">11.6%</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <p class="meo-chart-source">LINEリサーチ「スマホでの検索行動に関する調査」</p>
-                <p class="meo-chart-note">InstagramやTikTokは若年層中心。医院を探す患者さんが使うのはGoogle検索です。</p>
+                <p class="chart-source">LINEリサーチ「スマホでの検索行動に関する調査」</p>
+                <p class="chart-note">InstagramやTikTokは若年層中心。医院を探す患者さんが使うのはGoogle検索です。</p>
             </div>
 
-            <div class="meo-steps-section reveal">
+            <div class="steps-block reveal">
                 <h3>紹介を受けた患者さんも、<br>来院前にGoogleで検索しています</h3>
-                <div class="meo-steps">
-                    <div class="meo-step reveal reveal-delay-1">
-                        <div class="meo-step-number">1</div>
-                        <div class="meo-step-text">知人から「あそこの歯医者いいよ」と紹介を受ける</div>
+                <div class="steps-row">
+                    <div class="step-card reveal reveal-d1">
+                        <div class="step-num">1</div>
+                        <p>知人から「あそこの歯医者いいよ」と紹介を受ける</p>
                     </div>
-                    <div class="meo-step reveal reveal-delay-2">
-                        <div class="meo-step-number">2</div>
-                        <div class="meo-step-text">スマホで医院名を検索し、Googleマップで写真・口コミを確認する</div>
+                    <div class="step-card reveal reveal-d2">
+                        <div class="step-num">2</div>
+                        <p>スマホで医院名を検索し、Googleマップで写真・口コミを確認する</p>
                     </div>
-                    <div class="meo-step reveal reveal-delay-3">
-                        <div class="meo-step-number">3</div>
-                        <div class="meo-step-text">「ここなら安心できそう」と感じたら、電話・予約をする</div>
+                    <div class="step-card reveal reveal-d3">
+                        <div class="step-num">3</div>
+                        <p>「ここなら安心できそう」と感じたら、電話・予約をする</p>
                     </div>
                 </div>
-                <p class="meo-steps-note">この2番目のステップで、写真が古い・口コミに返信がない・情報が不十分だと、せっかくの紹介が来院につながりません。</p>
+                <p class="steps-note">この2番目のステップで、写真が古い・口コミに返信がない・情報が不十分だと、せっかくの紹介が来院につながりません。</p>
             </div>
 
-            <div class="meo-ai-note reveal">
+            <div class="ai-note reveal">
                 <h3>さらに最近は、AIに「おすすめのクリニック」を聞く患者さんも</h3>
                 <p>ChatGPTやGoogle Geminiなどの生成AIに「高崎市でおすすめの歯医者は？」と質問する患者さんが出てきています。AIの回答は、Googleマップの上位表示店舗や口コミ評価の高い店舗を参考に生成される傾向があるため、Googleマップ対策は、従来の検索対策だけでなく、<strong>AI時代の患者獲得にも重要な役割</strong>を果たします。</p>
             </div>
@@ -1857,43 +1409,47 @@
         </div>
     </section>
 
-    <!-- Problems Section -->
-    <section class="problems">
+    <!-- Problems -->
+    <section class="problems-section">
         <div class="container">
-            <span class="section-label reveal">Pain Points</span>
-            <h2 class="reveal">こんなお悩み、ありませんか？</h2>
+            <div class="section-header">
+                <span class="section-tag reveal">Pain Points</span>
+                <h2 class="reveal">こんなお悩み、ありませんか？</h2>
+            </div>
             <div class="problems-grid">
-                <div class="problem-item reveal reveal-delay-1">
+                <div class="problem-card reveal reveal-d1">
                     <p>Googleマップの情報、放置してしまっている</p>
                 </div>
-                <div class="problem-item reveal reveal-delay-2">
+                <div class="problem-card reveal reveal-d2">
                     <p>東京の業者から営業電話が来るが、実態が見えず信用できない</p>
                 </div>
-                <div class="problem-item reveal reveal-delay-3">
+                <div class="problem-card reveal reveal-d3">
                     <p>「写真を送ってください」と言われても、良い写真がない</p>
                 </div>
-                <div class="problem-item reveal reveal-delay-4">
+                <div class="problem-card reveal reveal-d4">
                     <p>デジタルのトレンドについていけず、何から始めればいいかわからない</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Trust Section -->
+    <!-- Trust -->
     <section class="trust-section">
         <div class="container">
-            <span class="section-label reveal">Why Us</span>
-            <h2 class="reveal">選ばれる3つの理由</h2>
-            <div class="trust-grid">
-                <div class="trust-card reveal reveal-delay-1">
+            <div class="section-header">
+                <span class="section-tag reveal">Why Us</span>
+                <h2 class="reveal">選ばれる3つの理由</h2>
+            </div>
+            <div class="trust-row">
+                <div class="trust-item reveal reveal-d1">
                     <h3>群馬県内専門</h3>
                     <p>高崎・前橋を中心に、地域の特性を熟知した運用を実施</p>
                 </div>
-                <div class="trust-card reveal reveal-delay-2">
+                <div class="trust-item reveal reveal-d2">
                     <h3>現地訪問対応</h3>
                     <p>東京の業者と違い、実際に伺って撮影・ヒアリングを実施</p>
                 </div>
-                <div class="trust-card reveal reveal-delay-3">
+                <div class="trust-item reveal reveal-d3">
                     <h3>初月無料</h3>
                     <p>リスクなく始められる。効果を実感してから続けられます</p>
                 </div>
@@ -1901,13 +1457,15 @@
         </div>
     </section>
 
-    <!-- Comparison Section -->
-    <section class="comparison">
+    <!-- Comparison -->
+    <section class="compare-section">
         <div class="container">
-            <span class="section-label reveal">Comparison</span>
-            <h2 class="reveal">他のMEO業者との違い</h2>
-            <div class="comparison-table-wrapper reveal">
-                <table class="comparison-table">
+            <div class="section-header">
+                <span class="section-tag reveal">Comparison</span>
+                <h2 class="reveal">他のMEO業者との違い</h2>
+            </div>
+            <div class="compare-table-wrap reveal">
+                <table class="compare-table">
                     <thead>
                         <tr>
                             <th></th>
@@ -1919,71 +1477,73 @@
                         <tr>
                             <td>写真撮影</td>
                             <td>オーナー様が用意</td>
-                            <td>現地訪問して撮影 ✓</td>
+                            <td>現地訪問して撮影 <span class="check">✓</span></td>
                         </tr>
                         <tr>
                             <td>月次報告</td>
                             <td>メールのみ</td>
-                            <td>対面で訪問報告 ✓</td>
+                            <td>対面で訪問報告 <span class="check">✓</span></td>
                         </tr>
                         <tr>
                             <td>対応エリア</td>
                             <td>全国（オンライン完結）</td>
-                            <td>群馬県内に特化し現地訪問 ✓</td>
+                            <td>群馬県内に特化し現地訪問 <span class="check">✓</span></td>
                         </tr>
                         <tr>
                             <td>医療広告ガイドライン</td>
                             <td>業種問わず一律対応</td>
-                            <td>医療機関専門で熟知 ✓</td>
+                            <td>医療機関専門で熟知 <span class="check">✓</span></td>
                         </tr>
                         <tr>
                             <td>口コミ返信</td>
                             <td>月1〜2回</td>
-                            <td>週3回の確認体制 ✓</td>
+                            <td>週3回の確認体制 <span class="check">✓</span></td>
                         </tr>
                         <tr>
                             <td>契約期間</td>
                             <td>6〜12ヶ月縛りが多い</td>
-                            <td>最低2ヶ月・初月無料 ✓</td>
+                            <td>最低2ヶ月・初月無料 <span class="check">✓</span></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="comparison-note reveal">
+            <div class="compare-note reveal">
                 <p>群馬県内に特化しているからこそ、現地訪問が可能です。この「直接お会いして、現場を見る」というスタイルが、全国展開の業者にはない、私たちの最大の強みです。</p>
             </div>
-            <div class="comparison-explanation reveal">
+            <div class="compare-detail reveal">
                 <h3>MEO対策だけではなく、<br>何でも相談できるパートナーでありたい</h3>
-                <div class="comparison-points">
-                    <div class="comparison-point reveal">
+                <div class="compare-points">
+                    <div class="compare-point reveal">
                         <h4>直接訪問するから、現場の課題が見える</h4>
                         <p>月次報告で実際に伺うことで、「最近、新しいスタッフが入ったので写真を更新したい」「看板を新しくしたので撮り直してほしい」といった、メールでは伝わりにくい現場のニーズにも気づくことができます。</p>
                     </div>
-                    <div class="comparison-point reveal">
+                    <div class="compare-point reveal">
                         <h4>顔の見える関係だから、気軽に相談できる</h4>
                         <p>「こういう投稿はどうですか?」「競合院の動向が気になる」「ホームページのことも相談したい」——MEO以外のデジタル施策についても、気軽にご相談いただけます。遠方の業者では実現できない、地域密着ならではの関係性を大切にしています。</p>
                     </div>
-                    <div class="comparison-point reveal">
+                    <div class="compare-point reveal">
                         <h4>長く、一緒に成長していけるパートナーへ</h4>
                         <p>私たちは単なる「MEO代行業者」ではなく、貴院の集客を長期的に支えるパートナーでありたいと考えています。直接お会いして対話を重ねることで、信頼関係を築き、貴院の成長を一緒に喜び合える——そんな関係を目指しています。</p>
                     </div>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 64px;" class="reveal">
-                <a href="#contact" class="cta-button green">無料診断を受ける</a>
+            <div style="text-align: center; margin-top: 56px;" class="reveal">
+                <a href="#contact" class="btn btn-dark btn-arrow">無料診断を受ける</a>
             </div>
         </div>
     </section>
 
-    <!-- Services & Pricing Section -->
-    <section id="services-pricing" class="services-pricing">
+    <!-- Services & Pricing -->
+    <section id="services-pricing" class="sp-section">
         <div class="container">
-            <span class="section-label reveal">Services & Pricing</span>
-            <h2 class="reveal">サービス内容・料金</h2>
+            <div class="section-header">
+                <span class="section-tag reveal">Services & Pricing</span>
+                <h2 class="reveal">サービス内容・料金</h2>
+            </div>
             <div class="sp-card reveal">
                 <div class="sp-badge">初月無料</div>
                 <div class="sp-price">月額 ¥25,000<span class="sp-tax">（税込）</span></div>
-                <div class="sp-plan-name">シンプルなワンプラン</div>
+                <div class="sp-plan-label">シンプルなワンプラン</div>
                 <div class="sp-divider"><span>サービス内容</span></div>
                 <ul class="sp-features">
                     <li>口コミ管理・返信代行（週3回確認）</li>
@@ -1999,35 +1559,37 @@
                     <p>順位保証なし（表示回数・アクション数の改善にコミット）</p>
                 </div>
                 <div class="sp-cta">
-                    <a href="#contact" class="cta-button">無料診断を受ける</a>
+                    <a href="#contact" class="btn btn-primary btn-arrow">無料診断を受ける</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Flow Section -->
-    <section class="flow">
+    <!-- Flow -->
+    <section class="flow-section">
         <div class="container">
-            <span class="section-label reveal">Flow</span>
-            <h2 class="reveal">ご利用の流れ</h2>
-            <div class="flow-steps">
-                <div class="flow-step reveal reveal-delay-1">
-                    <div class="flow-number">1</div>
+            <div class="section-header">
+                <span class="section-tag reveal">Flow</span>
+                <h2 class="reveal">ご利用の流れ</h2>
+            </div>
+            <div class="flow-row">
+                <div class="flow-item reveal reveal-d1">
+                    <div class="flow-num">1</div>
                     <h3>お問い合わせ</h3>
                     <p>まずはお気軽にご相談ください</p>
                 </div>
-                <div class="flow-step reveal reveal-delay-2">
-                    <div class="flow-number">2</div>
+                <div class="flow-item reveal reveal-d2">
+                    <div class="flow-num">2</div>
                     <h3>無料診断</h3>
                     <p>貴院のGoogleマップの現状を診断し、改善点をレポートにまとめます</p>
                 </div>
-                <div class="flow-step reveal reveal-delay-3">
-                    <div class="flow-number">3</div>
+                <div class="flow-item reveal reveal-d3">
+                    <div class="flow-num">3</div>
                     <h3>ご契約・初期設定</h3>
                     <p>写真撮影（30枚）、GBP最適化、口コミ促進ポップの設置を実施</p>
                 </div>
-                <div class="flow-step reveal reveal-delay-4">
-                    <div class="flow-number">4</div>
+                <div class="flow-item reveal reveal-d4">
+                    <div class="flow-num">4</div>
                     <h3>運用開始</h3>
                     <p>定期的な投稿・口コミ対応・訪問報告で集客を支えます</p>
                 </div>
@@ -2035,45 +1597,47 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="faq">
+    <!-- FAQ -->
+    <section id="faq" class="faq-section">
         <div class="container">
-            <span class="section-label reveal">FAQ</span>
-            <h2 class="reveal">よくある質問</h2>
+            <div class="section-header">
+                <span class="section-tag reveal">FAQ</span>
+                <h2 class="reveal">よくある質問</h2>
+            </div>
             <div class="faq-list">
                 <div class="faq-item reveal">
-                    <div class="faq-question">成果が出るまでどのくらいかかりますか？</div>
-                    <div class="faq-answer">
+                    <div class="faq-q">成果が出るまでどのくらいかかりますか？</div>
+                    <div class="faq-a">
                         <p>GBPの最適化効果は通常2〜4週間で表示回数に変化が現れます。安定した成果には2〜3ヶ月をいただいています。</p>
                     </div>
                 </div>
                 <div class="faq-item reveal">
-                    <div class="faq-question">順位保証はありますか？</div>
-                    <div class="faq-answer">
+                    <div class="faq-q">順位保証はありますか？</div>
+                    <div class="faq-a">
                         <p>順位保証は行っておりません。Googleのアルゴリズムは非公開のため、順位保証は技術的に不可能です。「表示回数」「電話タップ数」「ルート検索数」など、集客に直結する指標の改善にコミットします。</p>
                     </div>
                 </div>
                 <div class="faq-item reveal">
-                    <div class="faq-question">契約期間の縛りはありますか？</div>
-                    <div class="faq-answer">
+                    <div class="faq-q">契約期間の縛りはありますか？</div>
+                    <div class="faq-a">
                         <p>初月無料の条件として2ヶ月の最低利用期間を設けています。3ヶ月目以降はいつでも解約可能です。</p>
                     </div>
                 </div>
                 <div class="faq-item reveal">
-                    <div class="faq-question">初期費用はかかりますか？</div>
-                    <div class="faq-answer">
+                    <div class="faq-q">初期費用はかかりますか？</div>
+                    <div class="faq-a">
                         <p>現在、立ち上げキャンペーン中のため初期費用は無料です。通常はGBP構築・写真撮影・口コミ促進POP作成に20,000円をいただいていますが、キャンペーン期間中は月額25,000円のみでご利用いただけます。</p>
                     </div>
                 </div>
                 <div class="faq-item reveal">
-                    <div class="faq-question">他のMEO業者との違いは何ですか？</div>
-                    <div class="faq-answer">
+                    <div class="faq-q">他のMEO業者との違いは何ですか？</div>
+                    <div class="faq-a">
                         <p>最大の違いは「現地訪問・現地撮影」です。多くの業者はオンライン完結型で写真はオーナー様にご用意いただく形式ですが、私たちは実際に貴院を訪問して撮影します。また医療機関に特化しているため、医療広告ガイドラインを理解した上での運用が可能です。</p>
                     </div>
                 </div>
                 <div class="faq-item reveal">
-                    <div class="faq-question">スタッフの撮影を嫌がる場合はどうなりますか？</div>
-                    <div class="faq-answer">
+                    <div class="faq-q">スタッフの撮影を嫌がる場合はどうなりますか？</div>
+                    <div class="faq-a">
                         <p>スタッフ様の撮影は任意です。ご本人の同意が得られた方のみ撮影します。スタッフ写真なしでも、院内・設備の写真で十分に魅力を伝えることが可能です。</p>
                     </div>
                 </div>
@@ -2081,33 +1645,38 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA -->
     <section class="cta-section">
         <div class="container">
-            <h2 class="reveal">まずは無料診断から</h2>
-            <div class="cta-content">
+            <div class="section-header">
+                <span class="section-tag reveal">Contact</span>
+                <h2 class="reveal">まずは無料診断から</h2>
+            </div>
+            <div class="cta-body">
                 <p class="reveal">現在のGoogleマップ対策状況を無料で診断いたします。<br>お電話またはメールでお気軽にお問い合わせください。</p>
-                <div class="cta-info reveal">
+                <div class="cta-contact reveal">
                     <div class="cta-phone"><a href="tel:07023506245">070-2350-6245</a></div>
                     <div class="cta-email"><a href="mailto:info@gunma-meo.com">info@gunma-meo.com</a></div>
                 </div>
-                <div class="cta-buttons reveal">
-                    <a href="#contact" class="cta-button outline">無料診断を受ける</a>
+                <div class="cta-btns reveal">
+                    <a href="#contact" class="btn btn-outline btn-arrow">無料診断を受ける</a>
                 </div>
-                <div class="cta-area reveal">対応エリア：群馬県全域（高崎・前橋を中心に）</div>
+                <div class="cta-area-note reveal">対応エリア：群馬県全域（高崎・前橋を中心に）</div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section id="contact" class="contact-form-section">
+    <!-- Contact Form -->
+    <section id="contact" class="contact-section">
         <div class="container">
-            <span class="section-label reveal">Contact</span>
-            <h2 class="reveal" id="contact-form">お問い合わせフォーム</h2>
-            <div class="google-form-container reveal">
+            <div class="section-header">
+                <span class="section-tag reveal">Form</span>
+                <h2 class="reveal" id="contact-form">お問い合わせフォーム</h2>
+            </div>
+            <div class="form-wrap reveal">
                 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfTzOb5_8V3KsDoV7p3RgeA9j9Audo5cG_Lo9djK83SS9Y87A/viewform?embedded=true" width="100%" height="1374" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
             </div>
-            <div class="form-notice" style="text-align: center; margin-top: 32px;">
+            <div class="form-footer">
                 お送りいただいた情報は、プライバシーポリシーに基づき適切に管理いたします。<br>
                 通常1営業日以内にご返信いたします。
             </div>
@@ -2117,33 +1686,26 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-title">マップサポート群馬</div>
-            <div class="footer-subtitle">群馬県特化型MEO代行サービス</div>
-            <div class="footer-copyright">&copy; <script>document.write(new Date().getFullYear())</script> マップサポート群馬. All rights reserved.</div>
+            <div class="footer-name">マップサポート群馬</div>
+            <div class="footer-desc">群馬県特化型MEO代行サービス</div>
+            <div class="footer-copy">&copy; <script>document.write(new Date().getFullYear())</script> マップサポート群馬. All rights reserved.</div>
         </div>
     </footer>
 
     <script>
-        // Header scroll effect
+        // Header scroll
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+            header.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Hamburger menu
+        // Hamburger
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
-
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
-
-        // Close menu when clicking a link
         document.querySelectorAll('#nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
@@ -2151,114 +1713,41 @@
             });
         });
 
-        // Intersection Observer for reveal animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -60px 0px'
-        };
-
+        // Reveal on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-        document.querySelectorAll('.reveal').forEach(element => {
-            observer.observe(element);
-        });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isActive = question.classList.contains('active');
-
-                document.querySelectorAll('.faq-question').forEach(q => {
-                    if (q !== question) {
-                        q.classList.remove('active');
-                        q.nextElementSibling.classList.remove('active');
-                    }
+        // FAQ
+        document.querySelectorAll('.faq-q').forEach(q => {
+            q.addEventListener('click', () => {
+                const a = q.nextElementSibling;
+                const wasActive = q.classList.contains('active');
+                document.querySelectorAll('.faq-q').forEach(oq => {
+                    if (oq !== q) { oq.classList.remove('active'); oq.nextElementSibling.classList.remove('active'); }
                 });
-
-                if (!isActive) {
-                    question.classList.add('active');
-                    answer.classList.add('active');
-                } else {
-                    question.classList.remove('active');
-                    answer.classList.remove('active');
-                }
+                q.classList.toggle('active', !wasActive);
+                a.classList.toggle('active', !wasActive);
             });
         });
 
-        // Smooth scroll for anchor links
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Contact Form Submission
-        const contactForm = document.getElementById('contactForm');
-        const formMessage = document.getElementById('formMessage');
-
-        if (contactForm) {
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-
-                const submitButton = contactForm.querySelector('.submit-button');
-                submitButton.disabled = true;
-                submitButton.textContent = '送信中...';
-
-                try {
-                    const formData = new FormData(contactForm);
-                    const response = await fetch(contactForm.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-
-                    if (response.ok) {
-                        formMessage.textContent = 'お問い合わせありがとうございます。内容を確認次第、担当者よりご連絡させていただきます。';
-                        formMessage.className = 'form-message success';
-                        contactForm.reset();
-                    } else {
-                        formMessage.textContent = '送信に失敗しました。お手数ですが、お電話（070-2350-6245）またはメール（info@gunma-meo.com）で直接お問い合わせください。';
-                        formMessage.className = 'form-message error';
-                    }
-                } catch (error) {
-                    formMessage.textContent = '送信中にエラーが発生しました。お手数ですが、お電話（070-2350-6245）またはメール（info@gunma-meo.com）で直接お問い合わせください。';
-                    formMessage.className = 'form-message error';
-                } finally {
-                    submitButton.disabled = false;
-                    submitButton.textContent = '送信する';
-
-                    setTimeout(() => {
-                        formMessage.className = 'form-message';
-                    }, 5000);
-                }
-            });
-        }
-
-        // Fixed CTA Button visibility on scroll
+        // Fixed CTA
         const fixedCta = document.getElementById('fixedCta');
-
         window.addEventListener('scroll', () => {
-            if (window.scrollY > window.innerHeight && window.innerWidth <= 768) {
-                fixedCta.classList.add('visible');
-            } else {
-                fixedCta.classList.remove('visible');
-            }
+            fixedCta.classList.toggle('visible', window.scrollY > window.innerHeight && window.innerWidth <= 768);
         });
     </script>
 </body>
