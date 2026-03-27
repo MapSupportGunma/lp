@@ -653,8 +653,8 @@
             right: 30px;
         }
         .local-pack-demo .lp-annot-bottom {
-            bottom: 20px;
-            right: 40px;
+            bottom: 5px;
+            right: 30px;
         }
         .local-pack-demo .lp-annot-label {
             background: rgba(239,68,68,0.15);
@@ -667,8 +667,8 @@
             text-shadow: 0 1px 3px rgba(0,0,0,0.4);
             backdrop-filter: blur(6px);
         }
-        .local-pack-demo .lp-annot-top .lp-annot-label { font-size: 14px; }
-        .local-pack-demo .lp-annot-bottom .lp-annot-label { font-size: 12.5px; }
+        .local-pack-demo .lp-annot-top .lp-annot-label { font-size: 28px; padding: 14px 28px; }
+        .local-pack-demo .lp-annot-bottom .lp-annot-label { font-size: 24px; padding: 12px 24px; }
 
         @media (max-width: 768px) {
             .local-pack-demo .lp-content { flex-direction: column; }
@@ -723,8 +723,14 @@
             box-shadow: var(--shadow-md);
         }
         .ranking-factor-icon {
-            font-size: 1.6rem;
             margin-bottom: 12px;
+            display: flex;
+            justify-content: center;
+        }
+        .ranking-factor-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--ink);
         }
         .ranking-factor-name {
             font-size: 0.85rem;
@@ -1865,25 +1871,25 @@
                 <p class="ranking-bridge-text">この上位3件に入れるかどうかは、口コミへの返信をちゃんとしているか、写真が新しいか、投稿を続けているか。<br>こうした日々の積み重ねで決まります。</p>
                 <div class="ranking-factors">
                     <div class="ranking-factor reveal reveal-d1">
-                        <div class="ranking-factor-icon">💬</div>
+                        <div class="ranking-factor-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/><path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/></svg></div>
                         <div class="ranking-factor-name">口コミの返信</div>
                         <div class="ranking-factor-arrow">▼</div>
                         <div class="ranking-factor-service">口コミ管理・返信代行<br>（週3回確認）</div>
                     </div>
                     <div class="ranking-factor reveal reveal-d2">
-                        <div class="ranking-factor-icon">📷</div>
+                        <div class="ranking-factor-icon"><svg viewBox="0 0 24 24"><path d="M12 15.2a3.2 3.2 0 100-6.4 3.2 3.2 0 000 6.4z"/><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg></div>
                         <div class="ranking-factor-name">写真の質・鮮度</div>
                         <div class="ranking-factor-arrow">▼</div>
                         <div class="ranking-factor-service">現地訪問して撮影<br>（初回30枚+随時更新）</div>
                     </div>
                     <div class="ranking-factor reveal reveal-d3">
-                        <div class="ranking-factor-icon">📝</div>
+                        <div class="ranking-factor-icon"><svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 000-1.42l-2.34-2.34a1.003 1.003 0 00-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/></svg></div>
                         <div class="ranking-factor-name">投稿の継続</div>
                         <div class="ranking-factor-arrow">▼</div>
                         <div class="ranking-factor-service">GBP投稿運用<br>（月2本）</div>
                     </div>
                     <div class="ranking-factor reveal reveal-d4">
-                        <div class="ranking-factor-icon">🏥</div>
+                        <div class="ranking-factor-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/><path d="M11 7h2v4h4v2h-4v4h-2v-4H7v-2h4z"/></svg></div>
                         <div class="ranking-factor-name">プロフィールの充実</div>
                         <div class="ranking-factor-arrow">▼</div>
                         <div class="ranking-factor-service">初期構築・<br>GBP最適化</div>
