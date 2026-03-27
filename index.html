@@ -480,6 +480,9 @@
             display: flex; gap: 3px;
             padding: 10px 20px 0 72px;
             border-bottom: 1px solid #3c4043;
+            flex-wrap: nowrap;
+            overflow: hidden;
+            white-space: nowrap;
         }
         .local-pack-demo .lp-tab {
             padding: 6px 12px; font-size: 11.5px; color: #9aa0a6; position: relative;
@@ -673,17 +676,18 @@
         @media (max-width: 768px) {
             .local-pack-demo .lp-content { flex-direction: column; }
             .local-pack-demo .lp-listings { padding-right: 0; }
-            .local-pack-demo .lp-map { width: 100%; margin-top: 12px; }
+            .local-pack-demo .lp-map { display: none; }
             .local-pack-demo .lp-annot { display: none; }
             .local-pack-demo .lp-annot-mobile {
                 display: block;
                 text-align: center;
-                padding: 10px 16px 14px;
+                padding: 16px 12px 18px;
                 background: rgba(239,68,68,0.08);
-                border-top: 2px solid #ef4444;
+                border-top: 2.5px solid #ef4444;
                 color: #ef4444;
-                font-size: 12px;
+                font-size: 18px;
                 font-weight: 700;
+                line-height: 1.6;
             }
             .local-pack-demo .lp-search-header { gap: 10px; }
             .local-pack-demo .lp-search-bar { max-width: none; }
