@@ -2440,7 +2440,7 @@
                     <p>3営業日以内にご連絡いたします。<br>しばらくお待ちください。</p>
                 </div>
             </div>
-            <iframe name="hidden_iframe" style="display:none;" onload="if(this.contentWindow.location.href !== 'about:blank') window.formSubmitted && window.formSubmitted();"></iframe>
+            <iframe name="hidden_iframe" style="display:none;"></iframe>
             <div class="form-footer">
                 お送りいただいた情報は、プライバシーポリシーに基づき適切に管理いたします。<br>
                 通常3営業日以内にご返信いたします。
@@ -2518,13 +2518,12 @@
         // Contact Form
         const contactForm = document.getElementById('contactForm');
         const formSuccess = document.getElementById('formSuccess');
-        window.formSubmitted = function() {
-            contactForm.style.display = 'none';
-            formSuccess.classList.add('visible');
-            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        };
         contactForm.addEventListener('submit', function() {
-            setTimeout(window.formSubmitted, 1000);
+            setTimeout(function() {
+                contactForm.style.display = 'none';
+                formSuccess.classList.add('visible');
+                formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 1500);
         });
     </script>
 </body>
