@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git --version)",
+      "Bash(git add)",
+      "Bash(git commit)",
+      "Bash(git push origin main)",
+      "Bash(git pull origin main)",
+      "Bash(git pull origin main --allow-unrelated-histories)",
+      "Bash(git add index.html package.json server.js)",
+      "Bash(git commit -m \"Update local changes\")",
+      "Bash(git add index.html)",
+      "Bash(git commit -m \"Update pricing section: simplify to single plan\")",
+      "Bash(git commit -m \"Update pricing and content based on requirements\")",
+      "Bash(git commit -m \"Apply v3 improvements: enhance CTA links, pricing display, and footer\")",
+      "Bash(git commit -m \"Update pricing to 25,000 yen per month\")",
+      "Bash(git commit -m \"Add MEO explanation section and enhance hero subtitle\")",
+      "Bash(git commit -m \"Add horizontal bar chart showing search platform usage\")",
+      "Bash(git commit -m \"Update service descriptions in pricing section\")",
+      "Bash(git commit -m \"Add detailed explanation for why on-site visits are important\")",
+      "Bash(git commit -m \"$(cat <<''EOF''\nAdd AI era section highlighting ChatGPT and AI-driven patient search\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git commit -m \"$(cat <<''EOF''\n表現を改善: 「足で稼ぐ」→「直接お会いして、現場を見る」\n\nより洗練された表現に変更し、プロフェッショナルな印象を強化\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nパートナー関係の価値を訴求するセクションを追加\n\n比較セクションに「MEO対策だけではなく、何でも相談できるパートナーでありたい」という\nセクションを追加。以下3つのポイントで地域密着型サービスの価値を強調:\n- 直接訪問するから、現場の課題が見える\n- 顔の見える関係だから、気軽に相談できる\n- 長く、一緒に成長していけるパートナーへ\n\n単なるMEO代行業者ではなく、長期的なパートナーシップを重視する姿勢を明確化\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git commit -m \"サービスセクション後の「料金プランを見る」ボタンを削除\")",
+      "Bash(git commit -m \"$(cat <<''EOF''\n「選ばれる3つの理由」セクションのレスポンシブ対応を改善\n\nスマホ表示時に3カラムが1カラムに切り替わるよう修正:\n- 専用のCSSクラス(.trust-grid, .trust-card)を追加\n- メディアクエリで768px以下は1カラム表示に\n- インラインスタイルをクラスベースに整理\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
