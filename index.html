@@ -2385,7 +2385,64 @@
                 <h2 class="reveal" id="contact-form">お問い合わせフォーム</h2>
             </div>
             <div class="form-wrap reveal">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfTzOb5_8V3KsDoV7p3RgeA9j9Audo5cG_Lo9djK83SS9Y87A/viewform?embedded=true" width="100%" height="1400" frameborder="0" marginheight="0" marginwidth="0" style="border-radius:8px;background:#fff;">読み込んでいます…</iframe>
+                <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="68fb3a41-73f0-4af5-a8fa-d7f61f9d3b9c">
+                    <input type="hidden" name="subject" value="マップサポート群馬 お問い合わせ">
+                    <input type="hidden" name="from_name" value="マップサポート群馬 LP">
+                    <input type="checkbox" name="botcheck" style="display:none;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>クリニック・医院名<span class="req">*</span></label>
+                            <input type="text" name="clinic_name" required placeholder="例：〇〇歯科クリニック">
+                        </div>
+                        <div class="form-group">
+                            <label>お名前<span class="req">*</span></label>
+                            <input type="text" name="name" required placeholder="例：山田 太郎">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>電話番号<span class="req">*</span></label>
+                            <input type="tel" name="phone" required placeholder="例：027-xxx-xxxx">
+                        </div>
+                        <div class="form-group">
+                            <label>メールアドレス<span class="req">*</span></label>
+                            <input type="email" name="email" required placeholder="例：info@example.com">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>所在地（市町村）</label>
+                            <input type="text" name="location" placeholder="例：高崎市">
+                        </div>
+                        <div class="form-group">
+                            <label>お問い合わせ内容<span class="req">*</span></label>
+                            <select name="inquiry_type" required>
+                                <option value="" disabled selected>選択してください</option>
+                                <option value="無料診断希望">無料診断希望</option>
+                                <option value="サービス内容について">サービス内容について</option>
+                                <option value="料金について">料金について</option>
+                                <option value="その他">その他</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label>メッセージ</label>
+                            <textarea name="message" placeholder="ご質問やご要望がありましたらご記入ください"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary btn-arrow">送信する</button>
+                    </div>
+                </form>
+                <div class="form-success" id="formSuccess">
+                    <div class="form-success-icon">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                    <h3>お問い合わせありがとうございます</h3>
+                    <p>3営業日以内にご連絡いたします。<br>しばらくお待ちください。</p>
+                </div>
             </div>
             <div class="form-footer">
                 お送りいただいた情報は、プライバシーポリシーに基づき適切に管理いたします。<br>
@@ -2459,6 +2516,34 @@
         const fixedCta = document.getElementById('fixedCta');
         window.addEventListener('scroll', () => {
             fixedCta.classList.toggle('visible', window.scrollY > window.innerHeight && window.innerWidth <= 768);
+        });
+
+        // Contact Form (Web3Forms)
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = contactForm.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.textContent = '送信中...';
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: new FormData(contactForm)
+            }).then(r => r.json()).then(data => {
+                if (data.success) {
+                    contactForm.style.display = 'none';
+                    formSuccess.classList.add('visible');
+                    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    btn.disabled = false;
+                    btn.textContent = '送信する →';
+                    alert('送信に失敗しました。お手数ですがお電話でお問い合わせください。');
+                }
+            }).catch(() => {
+                btn.disabled = false;
+                btn.textContent = '送信する →';
+                alert('送信に失敗しました。お手数ですがお電話でお問い合わせください。');
+            });
         });
 
     </script>
