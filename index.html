@@ -694,6 +694,71 @@
             .local-pack-demo .lp-annot-mobile { display: none; }
         }
 
+        /* Ranking Factors Bridge */
+        .ranking-bridge {
+            margin: 0 auto 80px;
+            max-width: 860px;
+        }
+        .ranking-bridge-text {
+            text-align: center;
+            font-size: 1.05rem;
+            line-height: 2;
+            color: var(--ink-soft);
+            margin-bottom: 40px;
+        }
+        .ranking-factors {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        .ranking-factor {
+            text-align: center;
+            padding: 28px 16px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            transition: box-shadow 0.3s;
+        }
+        .ranking-factor:hover {
+            box-shadow: var(--shadow-md);
+        }
+        .ranking-factor-icon {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
+        .ranking-factor-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+        .ranking-factor-arrow {
+            color: var(--stone);
+            font-size: 0.7rem;
+            margin-bottom: 8px;
+        }
+        .ranking-factor-service {
+            font-size: 0.75rem;
+            color: var(--blue);
+            font-weight: 500;
+            line-height: 1.5;
+        }
+        .ranking-bridge-closing {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 0.95rem;
+            color: var(--ink);
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            .ranking-factors {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .ranking-factor { padding: 20px 12px; }
+            .ranking-bridge-text { font-size: 0.95rem; }
+        }
+
         /* Chart */
         .chart-block {
             margin: 72px 0;
@@ -1582,7 +1647,7 @@
             <div class="hero-layout">
                 <div>
                     <h1>MEO対策、<br><span class="em">まるごと代行。</span></h1>
-                    <p class="hero-sub">Googleマップに表示される貴院の情報を最適化し、選ばれる医院へ。<br>撮影も、口コミ対応も、投稿も。<br>ぜんぶ、やります。</p>
+                    <p class="hero-sub">Googleマップの情報を整えて、患者さんに選ばれる医院へ。<br>撮影も、口コミ対応も、投稿も。<br>ぜんぶ、やります。</p>
                     <p class="hero-area">対応エリア：高崎・前橋を中心に群馬県全域</p>
                     <a href="#contact" class="btn btn-primary btn-arrow">無料診断を受ける</a>
                 </div>
@@ -1795,6 +1860,38 @@
                 </div>
             </div>
 
+            <!-- Ranking Factors Bridge -->
+            <div class="ranking-bridge reveal">
+                <p class="ranking-bridge-text">この上位3件に入れるかどうかは、口コミへの返信をちゃんとしているか、写真が新しいか、投稿を続けているか。<br>こうした日々の積み重ねで決まります。</p>
+                <div class="ranking-factors">
+                    <div class="ranking-factor reveal reveal-d1">
+                        <div class="ranking-factor-icon">💬</div>
+                        <div class="ranking-factor-name">口コミの返信</div>
+                        <div class="ranking-factor-arrow">▼</div>
+                        <div class="ranking-factor-service">口コミ管理・返信代行<br>（週3回確認）</div>
+                    </div>
+                    <div class="ranking-factor reveal reveal-d2">
+                        <div class="ranking-factor-icon">📷</div>
+                        <div class="ranking-factor-name">写真の質・鮮度</div>
+                        <div class="ranking-factor-arrow">▼</div>
+                        <div class="ranking-factor-service">現地訪問して撮影<br>（初回30枚+随時更新）</div>
+                    </div>
+                    <div class="ranking-factor reveal reveal-d3">
+                        <div class="ranking-factor-icon">📝</div>
+                        <div class="ranking-factor-name">投稿の継続</div>
+                        <div class="ranking-factor-arrow">▼</div>
+                        <div class="ranking-factor-service">GBP投稿運用<br>（月2本）</div>
+                    </div>
+                    <div class="ranking-factor reveal reveal-d4">
+                        <div class="ranking-factor-icon">🏥</div>
+                        <div class="ranking-factor-name">プロフィールの充実</div>
+                        <div class="ranking-factor-arrow">▼</div>
+                        <div class="ranking-factor-service">初期構築・<br>GBP最適化</div>
+                    </div>
+                </div>
+                <p class="ranking-bridge-closing">手間はかかる。でも、やれば確実に差がつく。<br>その運用を、まるごと引き受けます。</p>
+            </div>
+
             <div class="chart-block reveal">
                 <h3>「医院探し」に使われるのは、<br>圧倒的にGoogle検索です</h3>
                 <div class="chart-wrap">
@@ -1867,15 +1964,15 @@
                         <p>「ここなら安心できそう」と感じたら、電話・予約をする</p>
                     </div>
                 </div>
-                <p class="steps-note">この2番目のステップで、写真が古い・口コミに返信がない・情報が不十分だと、せっかくの紹介が来院につながりません。</p>
+                <p class="steps-note">ここで写真が古かったり、口コミに返信がなかったりすると、せっかくの紹介が来院につながりません。</p>
             </div>
 
             <div class="ai-note reveal">
                 <h3>さらに最近は、AIに「おすすめのクリニック」を聞く患者さんも</h3>
-                <p>ChatGPTやGoogle Geminiなどの生成AIに「高崎市でおすすめの歯医者は？」と質問する患者さんが出てきています。AIの回答は、Googleマップの上位表示店舗や口コミ評価の高い店舗を参考に生成される傾向があるため、Googleマップ対策は、従来の検索対策だけでなく、<strong>AI時代の患者獲得にも重要な役割</strong>を果たします。</p>
+                <p>ChatGPTやGeminiに「高崎市でおすすめの歯医者は？」と聞く患者さんが増えています。AIの回答は、Googleマップの上位店舗や口コミ評価を参考に作られる傾向があります。つまり、Googleマップ対策をしっかりやっておけば、<strong>AIからの集客にもそのまま効く</strong>。一石二鳥です。</p>
             </div>
 
-            <p class="meo-closing reveal">しかし、多くの医院ではGoogleマップの運用にまで手が回っていません。</p>
+            <p class="meo-closing reveal">とはいえ、日々の診療が忙しい中で、Googleマップの運用まで手が回る医院はほとんどありません。</p>
         </div>
     </section>
 
@@ -1978,7 +2075,7 @@
                 </table>
             </div>
             <div class="compare-note reveal">
-                <p>群馬県内に特化しているからこそ、現地訪問が可能です。この「直接お会いして、現場を見る」というスタイルが、全国展開の業者にはない、私たちの最大の強みです。</p>
+                <p>群馬県内に特化しているから、現地訪問ができる。直接お会いして、現場を見る。全国展開の業者にはできないことです。</p>
             </div>
             <div class="compare-detail reveal">
                 <h3>MEO対策だけではなく、<br>何でも相談できるパートナーでありたい</h3>
@@ -1989,11 +2086,11 @@
                     </div>
                     <div class="compare-point reveal">
                         <h4>顔の見える関係だから、気軽に相談できる</h4>
-                        <p>「こういう投稿はどうですか?」「競合院の動向が気になる」「ホームページのことも相談したい」——MEO以外のデジタル施策についても、気軽にご相談いただけます。遠方の業者では実現できない、地域密着ならではの関係性を大切にしています。</p>
+                        <p>「こういう投稿はどうですか?」「競合院の動向が気になる」「ホームページのことも相談したい」。MEO以外のデジタル施策についても、気軽にご相談ください。遠方の業者にはできない、地域密着だからこその距離感です。</p>
                     </div>
                     <div class="compare-point reveal">
                         <h4>長く、一緒に成長していけるパートナーへ</h4>
-                        <p>私たちは単なる「MEO代行業者」ではなく、貴院の集客を長期的に支えるパートナーでありたいと考えています。直接お会いして対話を重ねることで、信頼関係を築き、貴院の成長を一緒に喜び合える——そんな関係を目指しています。</p>
+                        <p>「MEO代行業者」で終わるつもりはありません。直接お会いして対話を重ねる中で、貴院の集客を長く支えていく。成長を一緒に喜べる関係を目指しています。</p>
                     </div>
                 </div>
             </div>
