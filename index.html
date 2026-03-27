@@ -2385,7 +2385,7 @@
                 <h2 class="reveal" id="contact-form">お問い合わせフォーム</h2>
             </div>
             <div class="form-wrap reveal">
-                <form id="contactForm" action="https://docs.google.com/forms/d/e/1FAIpQLSfTzOb5_8V3KsDoV7p3RgeA9j9Audo5cG_Lo9djK83SS9Y87A/formResponse" target="hidden_iframe" method="POST">
+                <form id="contactForm" action="https://docs.google.com/forms/d/e/1FAIpQLSfTzOb5_8V3KsDoV7p3RgeA9j9Audo5cG_Lo9djK83SS9Y87A/formResponse" method="POST">
                     <div class="form-row">
                         <div class="form-group">
                             <label>クリニック・医院名<span class="req">*</span></label>
@@ -2437,13 +2437,12 @@
                         <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                     </div>
                     <h3>お問い合わせありがとうございます</h3>
-                    <p>1営業日以内にご連絡いたします。<br>しばらくお待ちください。</p>
+                    <p>3営業日以内にご連絡いたします。<br>しばらくお待ちください。</p>
                 </div>
-                <iframe name="hidden_iframe" style="display:none;"></iframe>
             </div>
             <div class="form-footer">
                 お送りいただいた情報は、プライバシーポリシーに基づき適切に管理いたします。<br>
-                通常1営業日以内にご返信いたします。
+                通常3営業日以内にご返信いたします。
             </div>
         </div>
     </section>
@@ -2518,12 +2517,22 @@
         // Contact Form
         const contactForm = document.getElementById('contactForm');
         const formSuccess = document.getElementById('formSuccess');
-        contactForm.addEventListener('submit', function() {
-            setTimeout(() => {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            }).then(() => {
                 contactForm.style.display = 'none';
                 formSuccess.classList.add('visible');
                 formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 500);
+            }).catch(() => {
+                contactForm.style.display = 'none';
+                formSuccess.classList.add('visible');
+                formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
         });
     </script>
 </body>
