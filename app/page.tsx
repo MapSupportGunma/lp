@@ -700,7 +700,7 @@ function Plans() {
             必要なサービスを<span className="font-bold text-fg">1つから</span>選べます。
             <br className="md:hidden" />
             <span className="hidden md:inline"> </span>
-            <span className="font-bold text-fg">組み合わせは自由</span>。バンドルでの割引もご相談OKです。
+            <span className="font-bold text-fg">組み合わせは自由</span>です。
           </p>
           <p className="mt-4 inline-flex items-center bg-accent px-3 py-1 text-[11px] font-bold tracking-[0.12em] text-bg md:text-[12px]">
             FOUNDING PARTNERS / 立ち上げ期 先着3軒 限定 40% OFF
