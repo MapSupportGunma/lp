@@ -17,46 +17,74 @@ const geistSans = Geist({
   display: "swap",
 });
 
+const SITE_TITLE =
+  "マップサポート群馬 — あなたの店を、選ばれる場所へ。";
+const SITE_DESCRIPTION =
+  "個人サロン・地域事業者のためのマーケティング一気通貫支援。LP制作 立ち上げ期 ¥30,000 / 最短3日納品から、LINE公式 構築・運用、MEO代行、SNS運用まで、必要なサービスを1つから自由に組み合わせ可能。AI活用で従来の半額以下、群馬発・全国対応。";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://mapsupportgunma.com"),
-  title: "マップサポート群馬 — あなたの店への、道しるべを。",
-  description:
-    "群馬発、全国の個人サロン・地域事業者向けマーケティング支援。AIで一気通貫の集客支援。LP制作¥30,000・最短3日納品から、LINE・MEO・SNSまでひとつの窓口で。",
+  title: {
+    default: SITE_TITLE,
+    template: "%s — マップサポート群馬",
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: "マップサポート群馬",
+  authors: [{ name: "マップサポート群馬" }],
   keywords: [
-    "群馬",
-    "個人サロン",
-    "LP制作",
-    "LINE構築",
+    "マップサポート群馬",
+    "群馬 マーケティング",
+    "個人サロン マーケティング",
+    "LP制作 群馬",
+    "LINE公式 構築",
     "MEO代行",
-    "SNS運用",
-    "AI",
+    "SNS運用代行",
+    "Instagram 運用代行",
+    "AI マーケティング",
     "前橋",
     "高崎",
+    "美容サロン",
+    "ネイルサロン",
+    "整体院",
+    "エステサロン",
   ],
   openGraph: {
     type: "website",
     locale: "ja_JP",
     url: "https://mapsupportgunma.com/",
     siteName: "マップサポート群馬",
-    title: "マップサポート群馬 — あなたの店への、道しるべを。",
+    title: SITE_TITLE,
     description:
-      "群馬発、全国の個人サロンに、AIで一気通貫の集客支援。LP・LINE・MEO・SNSをひとつに。",
+      "LP制作 立ち上げ期 ¥30,000 から、LINE公式・MEO・SNS まで個人サロンの集客を一気通貫で。AI活用で従来の半額以下、必要なサービスを1つから自由に組み合わせ可能。",
     images: [
       {
         url: "/lp/hero-main.png",
         width: 1280,
         height: 720,
-        alt: "マップサポート群馬",
+        alt: "マップサポート群馬 — マーケティング一気通貫支援",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "マップサポート群馬 — あなたの店への、道しるべを。",
-    description: "群馬発、全国の個人サロン・地域事業者に、AIで一気通貫のマーケティング支援を。",
+    title: SITE_TITLE,
+    description:
+      "LP・LINE・MEO・SNS を1つから自由に組み合わせ。AI活用で従来の半額以下、群馬発の個人サロン特化マーケ支援。",
     images: ["/lp/hero-main.png"],
   },
-  robots: { index: true, follow: true },
+  alternates: {
+    canonical: "https://mapsupportgunma.com/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
