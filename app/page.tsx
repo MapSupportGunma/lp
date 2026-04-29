@@ -581,9 +581,9 @@ function FoundingOffer() {
 }
 
 /* ──────────────────────────────────────────────
- * Plans — 3 cards, Standard featured (navy bg)
+ * Plans — option-style menu (pick any service, combine freely)
  * ────────────────────────────────────────────── */
-type PlanPricing =
+type ServicePricing =
   | {
       kind: "oneTime";
       originalInitial: string;
@@ -591,68 +591,101 @@ type PlanPricing =
     }
   | {
       kind: "subscription";
-      originalInitial: string;
+      originalInitial?: string;
       originalMonthly: string;
-      currentInitial: string;
+      currentInitial?: string;
       currentMonthly: string;
     };
 
-type Plan = {
-  mark: string;
+type ServiceOption = {
+  slug: string;
+  number: string;
+  title: string;
   tagline: string;
-  pricing: PlanPricing;
-  features: string[];
-  featured: boolean;
+  pricing: ServicePricing;
+  highlights: string[];
+  href: string;
 };
 
 function Plans() {
-  const plans: Plan[] = [
+  const services: ServiceOption[] = [
     {
-      mark: "スタートプラン",
-      tagline: "まずは小さく始めたい方へ",
+      slug: "lp",
+      number: "01",
+      title: "LP 制作",
+      tagline: "申し込みを生む 1枚の販売ページ",
       pricing: {
         kind: "oneTime",
-        originalInitial: "¥80,000",
-        currentInitial: "¥48,000",
+        originalInitial: "¥50,000",
+        currentInitial: "¥30,000",
       },
-      features: ["LP 制作", "LINE 公式構築", "公開・基本設定", "修正2回まで"],
-      featured: false,
+      highlights: ["最短3日納品", "修正2回まで込み", "スマホ最適化"],
+      href: "/services/lp",
     },
     {
-      mark: "スタンダードプラン",
-      tagline: "バランスよく成果を出したい方へ",
+      slug: "line",
+      number: "02",
+      title: "LINE 公式 構築・運用",
+      tagline: "再来店を仕組み化する継続支援",
       pricing: {
         kind: "subscription",
-        originalInitial: "¥100,000",
+        originalInitial: "¥30,000",
+        originalMonthly: "¥15,000",
+        currentInitial: "¥18,000",
+        currentMonthly: "¥9,000",
+      },
+      highlights: ["アカウント設計+リッチメニュー", "月4本の配信代行", "開封率レポート"],
+      href: "/services/line",
+    },
+    {
+      slug: "meo",
+      number: "03",
+      title: "MEO 代行",
+      tagline: "Googleマップ「業種+地域」上位を継続",
+      pricing: {
+        kind: "subscription",
+        originalInitial: "¥20,000",
+        originalMonthly: "¥15,000",
+        currentInitial: "¥12,000",
+        currentMonthly: "¥9,000",
+      },
+      highlights: ["プロフィール最適化", "口コミ返信代行", "月2本の投稿運用"],
+      href: "/services/meo",
+    },
+    {
+      slug: "sns",
+      number: "04",
+      title: "SNS 運用",
+      tagline: "Instagram でブランドを育てる",
+      pricing: {
+        kind: "subscription",
         originalMonthly: "¥30,000",
-        currentInitial: "¥60,000",
         currentMonthly: "¥18,000",
       },
-      features: [
-        "LP 制作",
-        "LINE 公式 構築 + 月次配信運用",
-        "MEO 代行(初期 + 月次運用)",
-        "月次レポート",
-      ],
+      highlights: ["月4本の投稿企画・制作", "リール 月2本", "月次分析レポート"],
+      href: "/services/sns",
+    },
+  ];
+
+  const bundles = [
+    {
+      mark: "ライト",
+      label: "LP + LINE",
+      detail: "まず1枚と再来店の仕組みを",
+      saving: "立ち上げ期 計 ¥48,000(初期) + ¥9,000 / 月",
+    },
+    {
+      mark: "スタンダード",
+      label: "LP + LINE + MEO",
+      detail: "新規獲得と再来店を両輪で",
+      saving: "立ち上げ期 計 ¥60,000(初期) + ¥18,000 / 月",
       featured: true,
     },
     {
-      mark: "プレミアムプラン",
-      tagline: "本気で事業を伸ばしたい方へ",
-      pricing: {
-        kind: "subscription",
-        originalInitial: "¥100,000",
-        originalMonthly: "¥60,000",
-        currentInitial: "¥60,000",
-        currentMonthly: "¥36,000",
-      },
-      features: [
-        "LP / LINE / MEO 一括",
-        "LINE + MEO + SNS 月次運用",
-        "月次レポート & 改善提案",
-        "戦略ミーティング(月1回)",
-      ],
-      featured: false,
+      mark: "フル",
+      label: "LP + LINE + MEO + SNS",
+      detail: "集客のすべてを一気通貫で",
+      saving: "立ち上げ期 計 ¥60,000(初期) + ¥36,000 / 月",
     },
   ];
 
@@ -663,124 +696,160 @@ function Plans() {
           <h2 className="text-[26px] font-bold leading-[1.3] tracking-tight text-fg md:text-[36px] lg:text-[40px]">
             料金プラン
           </h2>
-          <p className="mt-4 text-[12px] font-medium tracking-[0.12em] text-accent md:text-[13px]">
+          <p className="mt-5 text-[14px] leading-[1.85] text-fg-soft md:text-[15px]">
+            必要なサービスを<span className="font-bold text-fg">1つから</span>選べます。
+            <br className="md:hidden" />
+            <span className="hidden md:inline"> </span>
+            <span className="font-bold text-fg">組み合わせは自由</span>。バンドルでの割引もご相談OKです。
+          </p>
+          <p className="mt-4 inline-flex items-center bg-accent px-3 py-1 text-[11px] font-bold tracking-[0.12em] text-bg md:text-[12px]">
             FOUNDING PARTNERS / 立ち上げ期 先着3軒 限定 40% OFF
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {plans.map((p) => (
-            <article
-              key={p.mark}
-              className={`relative flex flex-col gap-5 rounded-md border p-7 md:p-9 ${
-                p.featured
-                  ? "border-primary bg-primary text-bg shadow-[0_12px_40px_hsl(var(--primary)/0.18)]"
-                  : "border-line bg-bg-elev text-fg"
-              }`}
-            >
-              {p.featured && (
-                <p className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center bg-accent px-4 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-bg">
-                  おすすめ
-                </p>
-              )}
-
-              <div className="text-center">
-                <p className={`text-[16px] font-bold tracking-tight md:text-[18px] ${p.featured ? "text-bg" : "text-fg"}`}>
-                  {p.mark}
-                </p>
-                <p className={`mt-1 text-[12px] ${p.featured ? "text-bg/75" : "text-fg-mute"}`}>
-                  {p.tagline}
-                </p>
-              </div>
-
-              <PlanPriceBlock pricing={p.pricing} featured={p.featured} />
-
-              <ul className="flex-1 space-y-2 text-[13px] md:text-[14px]">
-                {p.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5">
-                    <span
-                      aria-hidden
-                      className={`mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center ${p.featured ? "text-bg" : "text-primary"}`}
-                    >
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3"><polyline points="20 6 9 17 4 12" /></svg>
-                    </span>
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-
-            </article>
+        {/* Service options grid */}
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:gap-6">
+          {services.map((s) => (
+            <ServiceOptionCard key={s.slug} service={s} />
           ))}
         </div>
 
-        <p className="mt-8 text-center text-[11px] text-fg-mute md:text-[12px]">
-          ※ 料金はすべて税抜表示。立ち上げ期価格は先着3軒限定。ご予算やご希望に合わせてカスタマイズも可能です。
+        {/* Recommended bundles */}
+        <div className="mt-16 border-t border-line pt-12">
+          <div className="text-center">
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-fg-mute md:text-[12px]">
+              よく組み合わされるプラン例
+            </p>
+            <h3 className="mt-3 text-[18px] font-bold tracking-tight text-fg md:text-[22px]">
+              迷ったら、この組み合わせから
+            </h3>
+          </div>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {bundles.map((b) => (
+              <div
+                key={b.mark}
+                className={`relative flex flex-col gap-3 rounded-md border p-6 ${
+                  b.featured
+                    ? "border-primary bg-bg-elev shadow-[0_8px_28px_hsl(var(--primary)/0.10)]"
+                    : "border-line bg-bg-elev"
+                }`}
+              >
+                {b.featured && (
+                  <p className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-bg">
+                    おすすめ
+                  </p>
+                )}
+                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-fg-mute">
+                  {b.mark}
+                </p>
+                <p className="text-[16px] font-bold tracking-tight text-fg md:text-[17px]">
+                  {b.label}
+                </p>
+                <p className="text-[12px] leading-[1.7] text-fg-soft md:text-[13px]">
+                  {b.detail}
+                </p>
+                <p className="mt-auto text-[12px] font-medium text-primary md:text-[13px]">
+                  {b.saving}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p className="mt-10 text-center text-[11px] text-fg-mute md:text-[12px]">
+          ※ 料金はすべて税抜表示。立ち上げ期価格は先着3軒限定。ご予算・ご希望に合わせて自由に組み合わせ可能です。
         </p>
       </div>
     </section>
   );
 }
 
-function PlanPriceBlock({ pricing, featured }: { pricing: PlanPricing; featured: boolean }) {
-  const borderCls = featured ? "border-bg/15" : "border-line";
-  const labelCls = featured ? "text-bg/85" : "text-fg-mute";
-  const subLabelCls = featured ? "text-bg/65" : "text-fg-mute";
-  const originalCls = featured ? "text-bg/55" : "text-fg-mute";
-  const currentCls = featured ? "text-bg" : "text-fg";
-  const accentBadgeCls = featured
-    ? "bg-bg/15 text-bg"
-    : "bg-accent text-bg";
-
-  if (pricing.kind === "oneTime") {
-    return (
-      <div className={`text-center border-y py-5 ${borderCls}`}>
-        <p className={`text-[11px] font-medium tracking-[0.08em] ${labelCls}`}>
-          一括(税抜)
-        </p>
-        <p className={`mt-2 text-[12px] line-through ${originalCls}`}>
-          通常 {pricing.originalInitial}
-        </p>
-        <div className="mt-1 flex items-baseline justify-center gap-2">
-          <p className={`text-[36px] font-bold leading-none tracking-tight md:text-[42px] ${currentCls}`}>
-            {pricing.currentInitial}
-          </p>
-        </div>
-        <p className={`mt-2 inline-flex items-center px-2 py-0.5 text-[10px] font-bold tracking-[0.08em] ${accentBadgeCls}`}>
-          立ち上げ期 40% OFF
-        </p>
-      </div>
-    );
-  }
-
+function ServiceOptionCard({ service }: { service: ServiceOption }) {
+  const { pricing } = service;
   return (
-    <div className={`border-y py-5 ${borderCls}`}>
-      <div className="grid grid-cols-2 divide-x divide-current/10">
-        <div className="px-2 text-center">
-          <p className={`text-[11px] font-medium tracking-[0.08em] ${labelCls}`}>初期費用</p>
-          <p className={`mt-1.5 text-[11px] line-through ${originalCls}`}>
-            {pricing.originalInitial}
+    <article className="group relative flex flex-col gap-5 rounded-md border border-line bg-bg-elev p-6 transition hover:border-primary md:p-7">
+      {/* Header: number + title */}
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex-1">
+          <p className="text-[10px] font-bold tracking-[0.18em] text-primary">
+            OPTION {service.number}
           </p>
-          <p className={`mt-0.5 text-[24px] font-bold leading-none tracking-tight md:text-[26px] ${currentCls}`}>
-            {pricing.currentInitial}
-          </p>
-        </div>
-        <div className="px-2 text-center">
-          <p className={`text-[11px] font-medium tracking-[0.08em] ${labelCls}`}>月額</p>
-          <p className={`mt-1.5 text-[11px] line-through ${originalCls}`}>
-            {pricing.originalMonthly}
-          </p>
-          <p className={`mt-0.5 text-[24px] font-bold leading-none tracking-tight md:text-[26px] ${currentCls}`}>
-            {pricing.currentMonthly}
+          <h3 className="mt-1.5 text-[18px] font-bold tracking-tight text-fg md:text-[20px]">
+            {service.title}
+          </h3>
+          <p className="mt-1 text-[12px] leading-[1.7] text-fg-soft md:text-[13px]">
+            {service.tagline}
           </p>
         </div>
+        <span className="inline-flex items-center bg-accent/15 px-2 py-1 text-[10px] font-bold tracking-[0.08em] text-accent">
+          40% OFF
+        </span>
       </div>
-      <div className="mt-3 text-center">
-        <p className={`inline-flex items-center px-2 py-0.5 text-[10px] font-bold tracking-[0.08em] ${accentBadgeCls}`}>
-          立ち上げ期 40% OFF
-        </p>
-        <p className={`mt-2 text-[10px] ${subLabelCls}`}>(税抜 / 月額は2ヶ月目以降)</p>
+
+      {/* Pricing */}
+      <div className="border-y border-line py-4">
+        {pricing.kind === "oneTime" ? (
+          <div className="text-center">
+            <p className="text-[10px] font-medium tracking-[0.08em] text-fg-mute">一括(税抜)</p>
+            <p className="mt-1 text-[11px] line-through text-fg-mute">
+              通常 {pricing.originalInitial}
+            </p>
+            <p className="mt-0.5 text-[30px] font-bold leading-none tracking-tight text-fg md:text-[34px]">
+              {pricing.currentInitial}
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 divide-x divide-line">
+            <div className="px-2 text-center">
+              <p className="text-[10px] font-medium tracking-[0.08em] text-fg-mute">初期費用</p>
+              {pricing.currentInitial ? (
+                <>
+                  {pricing.originalInitial && (
+                    <p className="mt-1 text-[10px] line-through text-fg-mute">
+                      {pricing.originalInitial}
+                    </p>
+                  )}
+                  <p className="mt-0.5 text-[22px] font-bold leading-none tracking-tight text-fg md:text-[24px]">
+                    {pricing.currentInitial}
+                  </p>
+                </>
+              ) : (
+                <p className="mt-2 text-[16px] font-medium text-fg-mute md:text-[17px]">なし</p>
+              )}
+            </div>
+            <div className="px-2 text-center">
+              <p className="text-[10px] font-medium tracking-[0.08em] text-fg-mute">月額</p>
+              <p className="mt-1 text-[10px] line-through text-fg-mute">
+                {pricing.originalMonthly}
+              </p>
+              <p className="mt-0.5 text-[22px] font-bold leading-none tracking-tight text-fg md:text-[24px]">
+                {pricing.currentMonthly}
+              </p>
+            </div>
+          </div>
+        )}
       </div>
-    </div>
+
+      {/* Highlights */}
+      <ul className="flex-1 space-y-2 text-[12px] md:text-[13px]">
+        {service.highlights.map((h) => (
+          <li key={h} className="flex items-start gap-2.5 text-fg-soft">
+            <span aria-hidden className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center text-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3"><polyline points="20 6 9 17 4 12" /></svg>
+            </span>
+            <span>{h}</span>
+          </li>
+        ))}
+      </ul>
+
+      <Link
+        href={service.href}
+        className="inline-flex items-center justify-center gap-1.5 rounded-full border border-line bg-bg px-5 py-2 text-[12px] font-medium text-fg-soft transition hover:border-primary hover:text-primary md:text-[13px]"
+      >
+        <span>このサービスを詳しく</span>
+        <span aria-hidden>→</span>
+      </Link>
+    </article>
   );
 }
 
