@@ -75,6 +75,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://mapsupportgunma.com/",
   },
+  verification: {
+    google: "ExMXpCoHajN6GjZQDNaR6mk2zoy31Y8Q2oYmT3jxPmw",
+  },
   robots: {
     index: true,
     follow: true,
