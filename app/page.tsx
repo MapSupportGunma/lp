@@ -1,663 +1,692 @@
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "./components/ContactForm";
+import { StickyTop, SiteFooter } from "./components/SiteChrome";
 
 export default function Home() {
   return (
     <>
       <StickyTop />
       <Hero />
+      <IndustryStrip />
+      <PainPoints />
+      <Services />
+      <Process />
       <FoundingOffer />
-      <Catalog />
-      <Comparison />
-      <Flow />
       <Plans />
-      <Notes />
-      <Address />
-      <Footer />
+      <BottomCTA />
+      <Contact />
+      <FAQ />
+      <SiteFooter />
     </>
   );
 }
 
 /* ──────────────────────────────────────────────
- * StickyTop — Founding banner + Header (always visible)
- * ────────────────────────────────────────────── */
-function StickyTop() {
-  return (
-    <div className="sticky top-0 z-50">
-      <FoundingBanner />
-      <Header />
-    </div>
-  );
-}
-
-function FoundingBanner() {
-  return (
-    <a
-      href="#offer"
-      className="block border-b border-fg/20 bg-accent text-bg transition hover:bg-fg"
-    >
-      <div className="container-mod flex flex-col items-center justify-between gap-1 py-2 text-center md:flex-row md:py-2.5 md:text-left">
-        <p className="flex flex-wrap items-center justify-center gap-2 text-[11.5px] font-medium md:text-[13px]">
-          <span className="inline-flex h-1.5 w-1.5 shrink-0 rounded-full bg-bg" />
-          <span className="font-display tracking-wide">Founding Partners</span>
-          <span className="text-bg/85">
-            / 立ち上げ期につき<span className="whitespace-nowrap">先着3軒</span>、通常価格の <span className="whitespace-nowrap">40% OFF</span>
-          </span>
-        </p>
-        <p className="hidden text-[11px] font-medium uppercase tracking-[0.2em] text-bg/90 md:block">
-          詳しく → Offer
-        </p>
-      </div>
-    </a>
-  );
-}
-
-/* ──────────────────────────────────────────────
- * Header — minimal catalog mark
- * ────────────────────────────────────────────── */
-function Header() {
-  return (
-    <header className="border-b border-line/70 bg-bg/90 backdrop-blur-md">
-      <div className="container-mod flex items-center justify-between py-4">
-        <Link href="/" className="flex items-baseline gap-2.5">
-          <span className="font-display text-[20px] font-medium leading-none tracking-tight text-fg">
-            Mapsupport
-          </span>
-          <span className="text-[12px] font-medium text-fg-mute">群馬</span>
-        </Link>
-        <nav className="flex items-center gap-6">
-          <a
-            href="#offer"
-            className="hidden text-[13px] font-medium text-accent transition hover:text-fg md:inline"
-          >
-            Offer
-          </a>
-          <a
-            href="#catalog"
-            className="hidden text-[13px] text-fg-soft transition hover:text-fg md:inline"
-          >
-            Catalog
-          </a>
-          <a
-            href="#compare"
-            className="hidden text-[13px] text-fg-soft transition hover:text-fg md:inline"
-          >
-            Compare
-          </a>
-          <a
-            href="#flow"
-            className="hidden text-[13px] text-fg-soft transition hover:text-fg md:inline"
-          >
-            Flow
-          </a>
-          <a
-            href="#plans"
-            className="hidden text-[13px] text-fg-soft transition hover:text-fg md:inline"
-          >
-            Plans
-          </a>
-          <a
-            href="#notes"
-            className="hidden text-[13px] text-fg-soft transition hover:text-fg md:inline"
-          >
-            Notes
-          </a>
-          <Link href="#address" className="btn-primary">
-            <span>無料相談</span>
-            <span aria-hidden>→</span>
-          </Link>
-        </nav>
-      </div>
-    </header>
-  );
-}
-
-/* ──────────────────────────────────────────────
- * Hero — masthead + ToC
+ * Hero — Bridge-style: bold sans, photo right, 2 CTAs
  * ────────────────────────────────────────────── */
 function Hero() {
-  const toc = [
-    { num: "No. 01", label: "LP 制作", price: "¥30,000", original: "¥50,000" },
-    { num: "No. 02", label: "LINE 公式構築", price: "¥18,000", original: "¥30,000" },
-    { num: "No. 03", label: "MEO 代行", price: "¥12,000~", original: "¥20,000~" },
-    { num: "No. 04", label: "SNS 運用", price: "月 ¥18,000~", original: "月 ¥30,000~" },
-  ];
   return (
-    <section className="relative border-b border-line/70">
-      <div className="container-mod py-12 md:py-16 lg:py-20">
-        {/* Masthead row */}
-        <div className="grid grid-cols-12 items-baseline gap-6 border-b border-line/70 pb-8 md:pb-10">
-          <p className="col-span-6 text-[11px] font-medium uppercase tracking-[0.2em] text-fg-mute md:col-span-4">
-            Issue 001 · Spring 2026
-          </p>
-          <p className="col-span-6 text-right text-[11px] font-medium uppercase tracking-[0.2em] text-fg-mute md:col-span-4 md:text-center">
-            For local businesses
-          </p>
-          <p className="col-span-12 text-[11px] font-medium uppercase tracking-[0.2em] text-fg-mute md:col-span-4 md:text-right">
-            群馬発 · 全国対応
-          </p>
-        </div>
-
-        {/* Title + image grid */}
-        <div className="mt-10 grid grid-cols-12 items-end gap-8 md:mt-14 md:gap-10">
-          <div className="col-span-12 min-w-0 md:col-span-7 lg:col-span-8">
-            <h1 className="animate-rise font-display text-[44px] font-medium leading-[0.98] tracking-tight text-fg sm:text-[60px] md:text-[76px] lg:text-[88px]">
-              <span className="whitespace-nowrap">
-                <span>あなたの店</span>
-                <span className="font-display-italic text-fg-soft">への、</span>
-              </span>
+    <section className="relative bg-bg">
+      <div className="container-mod py-14 md:py-20 lg:py-24">
+        <div className="grid grid-cols-12 items-center gap-10 lg:gap-12">
+          <div className="col-span-12 min-w-0 lg:col-span-6 xl:col-span-7">
+            <h1 className="animate-rise text-[44px] font-bold leading-[1.1] tracking-tight text-fg sm:text-[60px] md:text-[72px] lg:text-[80px]">
+              あなたの店を、
               <br />
-              <span className="whitespace-nowrap">
-                <span>道しるべ</span>
-                <span className="font-display-italic text-accent">を。</span>
-              </span>
+              選ばれる
+              <span className="text-primary">場所</span>
+              へ。
             </h1>
-            <p className="animate-rise-1 mt-7 max-w-xl text-pretty text-[15px] leading-[1.7] text-fg-soft md:text-[17px]">
-              個人サロン・地域事業者のマーケティング支援。
-              <br className="md:hidden" />
-              <span className="whitespace-nowrap">LP・LINE・MEO・SNS</span>
-              {" "}をひとつの窓口で。
+
+            <p className="animate-rise-1 mt-7 text-[18px] font-semibold tracking-tight text-fg md:text-[22px]">
+              マーケティング一気通貫支援サービス
+            </p>
+
+            <p className="animate-rise-2 mt-5 max-w-xl text-[14px] leading-[1.85] text-fg-soft md:text-[15px]">
+              LP制作 / LINE構築 / MEO対策 / SNS運用 まで、
+              すべてお任せください。
+            </p>
+
+            <div className="animate-rise-3 mt-8 flex flex-wrap items-center gap-3">
+              <Link href="#contact" className="btn-primary">
+                <span>無料で相談してみる</span>
+                <span aria-hidden>→</span>
+              </Link>
+              <a
+                href="mailto:info@gunma-meo.com?subject=マップサポート群馬%20資料請求&body=以下の項目をご記入のうえ、ご送信ください。%0D%0A%0D%0A・お店の名前(ある場合):%0D%0A・業種:%0D%0A・所在地:%0D%0A・ご担当者様お名前:"
+                className="btn-secondary"
+              >
+                <span>資料をダウンロード</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="h-4 w-4"
+                  aria-hidden
+                >
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                </svg>
+              </a>
+            </div>
+
+            <p className="animate-rise-4 mt-6 flex items-center gap-2 text-[12px] text-fg-mute md:text-[13px]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="h-4 w-4 text-primary/70"
+                aria-hidden
+              >
+                <path d="M12 1L3 5v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V5l-9-4z" />
+              </svg>
+              <span>無理な営業は一切しません。お気軽にご相談ください。</span>
             </p>
           </div>
 
-          <div className="animate-rise-1 col-span-12 min-w-0 md:col-span-5 lg:col-span-4">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
+          <div className="animate-rise-2 col-span-12 min-w-0 lg:col-span-6 xl:col-span-5">
+            <div className="relative aspect-[5/4] overflow-hidden rounded-md">
               <Image
-                src="/lp/hero-main.png"
-                alt="作業風景"
+                src="/lp/hero-workspace.png"
+                alt="マップサポート群馬"
                 fill
                 priority
-                sizes="(max-width: 1024px) 100vw, 30vw"
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>
           </div>
         </div>
-
-        {/* Inside / ToC */}
-        <div className="mt-12 grid grid-cols-12 gap-6 border-t border-line/70 pt-8 md:mt-16 md:gap-10 md:pt-10">
-          <div className="col-span-12 md:col-span-3">
-            <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-fg-mute">
-              Inside this issue
-            </p>
-            <p className="mt-3 font-display text-[15px] italic text-fg-soft">
-              4つのサービスと、3つの料金プラン。
-            </p>
-          </div>
-          <ul className="col-span-12 grid grid-cols-1 gap-px overflow-hidden rounded-sm border border-line/80 bg-line md:col-span-9 md:grid-cols-2">
-            {toc.map((t) => (
-              <li key={t.num}>
-                <a
-                  href={`#${t.num.toLowerCase().replace(/\W+/g, "-")}`}
-                  className="flex items-baseline justify-between bg-bg-elev px-5 py-4 transition hover:bg-bg"
-                >
-                  <span className="flex items-baseline gap-3">
-                    <span className="section-num text-[12px] text-fg-mute">
-                      {t.num}
-                    </span>
-                    <span className="text-[14px] font-medium text-fg md:text-[15px]">
-                      {t.label}
-                    </span>
-                  </span>
-                  <span className="flex items-baseline gap-2">
-                    <span className="text-[11px] text-fg-faint line-through">
-                      {t.original}
-                    </span>
-                    <span className="font-display text-[14px] tracking-tight text-accent md:text-[15px]">
-                      {t.price}
-                    </span>
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Primary CTA row */}
-        <div className="animate-rise-2 mt-10 flex flex-wrap items-center justify-between gap-5 border-t border-line/70 pt-8 md:mt-14">
-          <p className="text-[13px] text-fg-mute">
-            初回は <span className="text-fg">30分の無料相談</span> から。
-          </p>
-          <div className="flex items-center gap-3">
-            <Link href="#address" className="btn-primary">
-              <span>無料相談を申し込む</span>
-              <span aria-hidden>→</span>
-            </Link>
-          </div>
-        </div>
       </div>
     </section>
   );
 }
 
 /* ──────────────────────────────────────────────
- * Founding Offer — limited-time launch pricing
+ * Industry Strip — wide audience
  * ────────────────────────────────────────────── */
-function FoundingOffer() {
+function IndustryStrip() {
+  const industries = [
+    { label: "美容サロン", image: "/lp/ind-beauty.png" },
+    { label: "ネイル", image: "/lp/ind-nail.png" },
+    { label: "整体・治療院", image: "/lp/ind-massage.png" },
+    { label: "エステ", image: "/lp/ind-esthetic.png" },
+    { label: "飲食店", image: "/lp/ind-restaurant.png" },
+    { label: "教室・スクール", image: "/lp/ind-school.png" },
+    { label: "士業・コンサル", image: "/lp/ind-shigyo.png" },
+  ];
   return (
-    <section
-      id="offer"
-      className="relative border-b border-line/70 bg-fg py-20 text-bg md:py-28"
-    >
+    <section className="border-t border-line bg-bg-alt py-10 md:py-14">
       <div className="container-mod max-w-6xl">
-        <div className="grid grid-cols-12 items-baseline gap-6 border-b border-bg/15 pb-6">
-          <p className="col-span-12 text-[11px] font-medium uppercase tracking-[0.2em] text-bg/60 md:col-span-3">
-            01 / Founding Offer
-          </p>
-          <h2 className="col-span-12 font-display text-[32px] font-medium leading-[1.1] tracking-tight md:col-span-9 md:text-[44px] lg:text-[56px]">
-            立ち上げ期につき、
-            <br className="md:hidden" />
-            <span className="text-bg/70">特別価格でお迎えしています。</span>
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-12 gap-6 py-10 md:gap-10 md:py-14">
-          <div className="col-span-12 md:col-span-7">
-            <p className="font-display text-[20px] leading-[1.7] tracking-tight md:text-[22px]">
-              2026年4月、群馬大学医学部の学生事業として立ち上げました。
-              <span className="text-bg/65">
-                公開できる事例はまだありません。
-              </span>
-              だからこそ、第一歩を一緒に踏み出してくださる
-              <span className="font-display-italic text-accent">
-                初期パートナー
-              </span>
-              さまを、通常価格の <span className="text-accent">40% OFF</span>{" "}
-              でお迎えしています。
-            </p>
-
-            <ul className="mt-8 space-y-3 border-t border-bg/15 pt-6 text-[14px] leading-[1.85] text-bg/85 md:text-[15px]">
-              <li className="flex gap-3">
-                <span className="font-display text-accent">·</span>
-                <span>
-                  全サービス・全パッケージで{" "}
-                  <span className="font-medium text-bg">通常価格の 40% OFF</span>。
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="font-display text-accent">·</span>
-                <span>
-                  <span className="font-medium text-bg">
-                    永年同価格保証
-                  </span>
-                  。ご契約継続中、価格を引き上げません。
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="font-display text-accent">·</span>
-                <span>
-                  納品後、当社LP内に事例として掲載させていただいた場合、
-                  <span className="font-medium text-bg">追加で10% OFF</span>。
-                </span>
-              </li>
-            </ul>
-
-            <p className="mt-8 max-w-xl text-[13px] leading-[1.85] text-bg/55">
-              実績のあるベテランをお求めの方には、本サービスはお勧めしません。
-              立ち上げ期の若い事業と、共に育てていただける方を募集しています。
-            </p>
-          </div>
-
-          <aside className="col-span-12 md:col-span-5">
-            <div className="rounded-sm border border-bg/20 p-6 md:p-8">
-              <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-bg/60">
-                Limited slots
-              </p>
-              <p className="mt-3 font-display text-[64px] font-medium leading-none tracking-tight md:text-[88px]">
-                3<span className="text-[28px] text-bg/60 md:text-[36px]">軒</span>
-              </p>
-              <p className="mt-3 text-[13px] text-bg/75">
-                先着・お申込み順
-              </p>
-
-              <div className="mt-6 border-t border-bg/15 pt-6">
-                <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-bg/60">
-                  Application deadline
-                </p>
-                <p className="mt-3 font-display text-[28px] font-medium leading-tight tracking-tight md:text-[36px]">
-                  2026年6月末日
-                </p>
-                <p className="mt-2 text-[13px] text-bg/75">
-                  または 3軒に達し次第
-                </p>
-              </div>
-
-              <a
-                href="#address"
-                className="mt-8 inline-flex w-full items-center justify-center gap-2 bg-accent px-6 py-3 text-[14px] font-medium text-bg transition hover:bg-bg hover:text-fg"
-              >
-                <span>初期パートナーに応募する</span>
-                <span aria-hidden>→</span>
-              </a>
-            </div>
-          </aside>
-        </div>
-
-        <p className="border-t border-bg/15 pt-6 text-[12px] text-bg/55">
-          ※ 立ち上げ期価格は本サイト掲載中のみ有効。期間または軒数到達後は通常価格に戻ります。
+        <p className="text-center text-[12px] font-medium text-fg-mute md:text-[13px]">
+          得意領域 / 対応可能な業種
         </p>
-      </div>
-    </section>
-  );
-}
-
-/* ──────────────────────────────────────────────
- * Catalog — service entries
- * ────────────────────────────────────────────── */
-function Catalog() {
-  const items = [
-    {
-      num: "No. 01",
-      heading: "LP 制作",
-      caption: "新規のお客さまに渡す入口",
-      image: "/lp/service-lp.png",
-      body: "1ページ完結の高品質LP を 3日 で。レスポンシブ対応・お問い合わせフォーム1つ・修正2回まで含む。",
-      specs: [
-        ["納期", "3日"],
-        ["立ち上げ期価格", "¥30,000(通常 ¥50,000)"],
-        ["含む", "LP / フォーム / ドメイン設定"],
-        ["対応", "PC + スマホ"],
-      ],
-    },
-    {
-      num: "No. 02",
-      heading: "LINE 公式構築",
-      caption: "再来店の道を、滑らかに",
-      image: "/lp/service-line.png",
-      body: "LINE 公式アカウントの基本設定・リッチメニュー設計・あいさつメッセージ・友だち追加導線まで一括で。",
-      specs: [
-        ["納期", "1週間"],
-        ["立ち上げ期価格", "¥18,000(通常 ¥30,000)"],
-        ["含む", "アカウント設定 / リッチメニュー / 自動化"],
-        ["運用", "月¥9,000 から(別契約)"],
-      ],
-    },
-    {
-      num: "No. 03",
-      heading: "MEO 代行",
-      caption: "Googleマップから、店までの最短ルート",
-      image: "/lp/service-meo.png",
-      body: "Googleビジネスプロフィール整備・口コミ返信・週次の投稿運用までを継続代行。",
-      specs: [
-        ["着手", "¥12,000(通常 ¥20,000)"],
-        ["月額", "¥9,000 から(通常 ¥15,000)"],
-        ["含む", "口コミ返信 / 週次投稿 / 月次レポート"],
-        ["想定効果", "Googleマップ経由の流入"],
-      ],
-    },
-    {
-      num: "No. 04",
-      heading: "SNS 運用",
-      caption: "事業の世界観を、毎週、編む",
-      image: "/lp/service-sns.png",
-      body: "Instagram を中心に、事業の世界観に合わせた投稿企画・画像作成・キャプション執筆を継続代行。",
-      specs: [
-        ["月額", "¥18,000 から(通常 ¥30,000)"],
-        ["内容", "投稿企画 / 画像 / キャプション"],
-        ["リール", "30秒以内 / 月数本まで"],
-        ["対象", "Instagram メイン"],
-      ],
-    },
-  ];
-  return (
-    <section id="catalog" className="border-b border-line/70 py-20 md:py-28">
-      <div className="container-mod">
-        <div className="grid grid-cols-12 items-baseline gap-6 border-b border-line/70 pb-6">
-          <p className="col-span-12 text-[11px] font-medium uppercase tracking-[0.2em] text-fg-mute md:col-span-3">
-            02 / Catalog
-          </p>
-          <h2 className="col-span-12 font-display text-[28px] font-medium tracking-tight text-fg md:col-span-9 md:text-[36px]">
-            4つのサービス。
-            <br className="md:hidden" />
-            <span className="text-fg-soft">単品でも、組み合わせても。</span>
-          </h2>
-        </div>
-
-        <div className="space-y-0">
-          {items.map((it, i) => {
-            const id = it.num.toLowerCase().replace(/\W+/g, "-");
-            const reversed = i % 2 === 1;
-            return (
-              <article
-                key={it.num}
-                id={id}
-                className="grid grid-cols-12 gap-6 border-b border-line/70 py-12 md:gap-10 md:py-16"
-              >
-                <div className={`col-span-12 md:col-span-5 ${reversed ? "md:order-2" : ""}`}>
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-line/70">
-                    <Image
-                      src={it.image}
-                      alt={it.heading}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 40vw"
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="col-span-12 md:col-span-7">
-                  <div className="flex items-baseline gap-4">
-                    <span className="section-num text-[13px] font-medium text-accent">
-                      {it.num}
-                    </span>
-                    <span className="font-display text-[12px] italic uppercase tracking-[0.2em] text-fg-mute">
-                      {it.caption}
-                    </span>
-                  </div>
-                  <h3 className="mt-3 font-display text-[36px] font-medium leading-[1.05] tracking-tight text-fg md:text-[48px]">
-                    {it.heading}
-                  </h3>
-                  <p className="mt-5 max-w-xl text-[15px] leading-[1.85] text-fg-soft md:text-[16px]">
-                    {it.body}
-                  </p>
-                  <dl className="mt-7 grid grid-cols-1 gap-x-6 sm:grid-cols-2">
-                    {it.specs.map(([k, v]) => (
-                      <div
-                        key={k}
-                        className="flex items-baseline justify-between gap-4 border-b border-line/70 py-2.5 text-[13px] md:text-[14px]"
-                      >
-                        <dt className="text-fg-mute">{k}</dt>
-                        <dd className="text-right font-medium text-fg">{v}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ──────────────────────────────────────────────
- * Comparison — vs other options
- * ────────────────────────────────────────────── */
-function Comparison() {
-  const cols = [
-    { mark: "大手代理店", note: "総合代理店・大手制作会社" },
-    { mark: "HP制作会社", note: "地場の Web 制作会社" },
-    { mark: "フリーランス", note: "個人受注の制作者" },
-    { mark: "Mapsupport", note: "当社・立ち上げ期", featured: true },
-  ];
-  const rows: Array<[string, string[]]> = [
-    [
-      "LP制作費用",
-      ["¥500,000〜", "¥200,000〜", "¥50,000〜150,000", "¥30,000(立上期)"],
-    ],
-    [
-      "納期(LP)",
-      ["1〜2ヶ月", "1〜2ヶ月", "2〜4週間", "最短3日"],
-    ],
-    [
-      "LP以外の対応",
-      ["◎ 全領域", "△ 別業者連携", "△ 別契約", "◎ 1窓口で全部"],
-    ],
-    [
-      "個人・小規模対応",
-      ["× 対応外", "△ 案件次第", "○ 可", "◎ 専門"],
-    ],
-    [
-      "連絡対応",
-      ["△ 担当経由", "○ 営業窓口", "△ 途絶リスク", "◎ 直通"],
-    ],
-  ];
-  return (
-    <section id="compare" className="border-b border-line/70 py-20 md:py-28">
-      <div className="container-mod max-w-6xl">
-        <div className="grid grid-cols-12 items-baseline gap-6 border-b border-line/70 pb-6">
-          <p className="col-span-12 text-[11px] font-medium uppercase tracking-[0.2em] text-fg-mute md:col-span-3">
-            03 / Comparison
-          </p>
-          <h2 className="col-span-12 font-display text-[28px] font-medium tracking-tight text-fg md:col-span-9 md:text-[36px]">
-            他の選択肢との違い。
-            <br className="md:hidden" />
-            <span className="text-fg-soft">客観的にお比べください。</span>
-          </h2>
-        </div>
-
-        <div className="overflow-x-auto">
-          <div className="min-w-[640px] overflow-hidden rounded-sm border border-line">
-            {/* Header row */}
-            <div className="grid grid-cols-[1.4fr_repeat(4,1fr)] divide-x divide-line border-b border-line bg-bg-sunken/60">
-              <div className="px-5 py-4 text-[11px] uppercase tracking-[0.2em] text-fg-mute">
-                項目
+        <ul className="mt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-6 md:gap-x-10">
+          {industries.map((it) => (
+            <li
+              key={it.label}
+              className="flex flex-col items-center gap-2.5 text-center"
+            >
+              <div className="relative h-14 w-14 overflow-hidden md:h-16 md:w-16">
+                <Image
+                  src={it.image}
+                  alt=""
+                  fill
+                  sizes="64px"
+                  className="object-contain"
+                />
               </div>
-              {cols.map((c) => (
-                <div
-                  key={c.mark}
-                  className={`px-3 py-4 text-center md:px-5 ${
-                    c.featured ? "bg-accent text-bg" : "text-fg"
-                  }`}
-                >
-                  <p className="font-display text-[15px] font-medium tracking-tight md:text-[17px]">
-                    {c.mark}
-                  </p>
-                  <p
-                    className={`mt-1 text-[10px] tracking-wide md:text-[11px] ${
-                      c.featured ? "text-bg/80" : "text-fg-mute"
-                    }`}
-                  >
-                    {c.note}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Body rows */}
-            {rows.map(([label, vals]) => (
-              <div
-                key={label}
-                className="grid grid-cols-[1.4fr_repeat(4,1fr)] divide-x divide-line border-b border-line bg-bg-elev last:border-b-0"
-              >
-                <div className="px-5 py-4 text-[13px] text-fg md:text-[14px]">
-                  {label}
-                </div>
-                {vals.map((v, i) => (
-                  <div
-                    key={i}
-                    className={`flex items-center justify-center px-3 py-4 text-center text-[12px] md:px-5 md:text-[13px] ${
-                      cols[i].featured
-                        ? "font-medium text-accent"
-                        : "text-fg-soft"
-                    }`}
-                  >
-                    {v}
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <ul className="mt-6 space-y-1 text-[12px] text-fg-mute">
-          <li>※ 他社の価格・納期は、各業界の公開情報をもとにした一般的な目安です。実際の見積もりは個別に異なります。</li>
-          <li>※ 当社「立上期価格」は先着3軒・2026年6月末日まで(早期到達次第終了)。</li>
+              <span className="text-[12px] font-medium text-fg-soft md:text-[13px]">
+                {it.label}
+              </span>
+            </li>
+          ))}
         </ul>
       </div>
     </section>
   );
 }
 
+/* SVG icon set (monoline) */
+function Icon({ name }: { name: string }) {
+  const common = {
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.6,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    className: "h-5 w-5",
+  };
+  switch (name) {
+    case "scissors":
+      return (
+        <svg {...common}>
+          <circle cx="6" cy="6" r="3" />
+          <circle cx="6" cy="18" r="3" />
+          <line x1="20" y1="4" x2="8.12" y2="15.88" />
+          <line x1="14.47" y1="14.48" x2="20" y2="20" />
+          <line x1="8.12" y1="8.12" x2="12" y2="12" />
+        </svg>
+      );
+    case "sparkles":
+      return (
+        <svg {...common}>
+          <path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" />
+          <path d="M19 15l1 2 2 1-2 1-1 2-1-2-2-1 2-1z" />
+        </svg>
+      );
+    case "leaf":
+      return (
+        <svg {...common}>
+          <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+          <path d="M2 21c0-3 1.85-5.36 5.08-6" />
+        </svg>
+      );
+    case "shield-check":
+      return (
+        <svg {...common}>
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          <path d="M9 12l2 2 4-4" />
+        </svg>
+      );
+    case "utensils":
+      return (
+        <svg {...common}>
+          <path d="M3 2v7c0 1.1.9 2 2 2h4V2" />
+          <path d="M7 2v20" />
+          <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3z" />
+          <path d="M21 22v-7" />
+        </svg>
+      );
+    case "book":
+      return (
+        <svg {...common}>
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+        </svg>
+      );
+    case "briefcase":
+      return (
+        <svg {...common}>
+          <rect x="2" y="7" width="20" height="14" rx="2" />
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+        </svg>
+      );
+    case "lightbulb":
+      return (
+        <svg {...common}>
+          <path d="M9 18h6" />
+          <path d="M10 22h4" />
+          <path d="M12 2a7 7 0 0 0-4 12c1 1 2 2 2 4h4c0-2 1-3 2-4a7 7 0 0 0-4-12z" />
+        </svg>
+      );
+    case "target":
+      return (
+        <svg {...common}>
+          <circle cx="12" cy="12" r="10" />
+          <circle cx="12" cy="12" r="6" />
+          <circle cx="12" cy="12" r="2" />
+        </svg>
+      );
+    case "settings":
+      return (
+        <svg {...common}>
+          <circle cx="12" cy="12" r="3" />
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+        </svg>
+      );
+    case "chart":
+      return (
+        <svg {...common}>
+          <line x1="12" y1="20" x2="12" y2="10" />
+          <line x1="18" y1="20" x2="18" y2="4" />
+          <line x1="6" y1="20" x2="6" y2="16" />
+          <line x1="3" y1="20" x2="21" y2="20" />
+        </svg>
+      );
+    case "rocket":
+      return (
+        <svg {...common}>
+          <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+          <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+          <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+          <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+        </svg>
+      );
+    case "monitor":
+      return (
+        <svg {...common}>
+          <rect x="2" y="3" width="20" height="14" rx="2" />
+          <line x1="8" y1="21" x2="16" y2="21" />
+          <line x1="12" y1="17" x2="12" y2="21" />
+        </svg>
+      );
+    case "message":
+      return (
+        <svg {...common}>
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        </svg>
+      );
+    case "edit":
+      return (
+        <svg {...common}>
+          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+        </svg>
+      );
+    case "map-pin":
+      return (
+        <svg {...common}>
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+          <circle cx="12" cy="10" r="3" />
+        </svg>
+      );
+    case "search":
+      return (
+        <svg {...common}>
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+      );
+    case "phone":
+      return (
+        <svg {...common}>
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+        </svg>
+      );
+    default:
+      return <span>•</span>;
+  }
+}
+
 /* ──────────────────────────────────────────────
- * Flow — 5 steps from consultation to delivery
+ * Pain Points — 5 cards
  * ────────────────────────────────────────────── */
-function Flow() {
-  const steps = [
-    {
-      no: "01",
-      title: "無料相談",
-      duration: "最短当日〜",
-      body: "Zoom等のオンラインで30分。事業の状況・お悩み・目指したい方向を伺います。この時点では費用は一切かかりません。",
-    },
-    {
-      no: "02",
-      title: "お見積・ご契約",
-      duration: "最短1日〜",
-      body: "ご相談内容をもとに、お見積書とご提案書をお送りします。ご納得いただいてからのご契約となります。",
-    },
-    {
-      no: "03",
-      title: "ヒアリング",
-      duration: "最短1日〜",
-      body: "Googleフォームと打合せで、事業の世界観・お客さま像・盛り込みたい要素を細部まで詰めていきます。",
-    },
-    {
-      no: "04",
-      title: "制作",
-      duration: "最短3日〜",
-      body: "AI支援の開発環境を活用し、構成案 → 実装を一気に進めます。LP制作の場合、最短 3日 で初稿が完成します。",
-    },
-    {
-      no: "05",
-      title: "ご確認・納品",
-      duration: "最短2日〜",
-      body: "ご確認 → 修正(2回まで料金内)→ 納品。ドメイン設定や公開作業もこちらでサポートいたします。",
-    },
+function PainPoints() {
+  const pains = [
+    { image: "/lp/pain-sns.png", title: "SNSを頑張っているのに集客や売上につながらない" },
+    { image: "/lp/pain-overwhelm.png", title: "何から手をつければいいのか分からず時間だけが過ぎていく" },
+    { image: "/lp/pain-website.png", title: "広告を出してみたけど効果がよく分からない・費用対効果が不安" },
+    { image: "/lp/pain-line.png", title: "LPを作ったけど問い合わせや購入につながらない" },
+    { image: "/lp/pain-map.png", title: "分析や改善の方法が分からず、いつも場当たり的になってしまう" },
   ];
   return (
-    <section id="flow" className="border-b border-line/70 py-20 md:py-28">
+    <section className="border-t border-line py-20 md:py-28">
       <div className="container-mod max-w-6xl">
-        <div className="grid grid-cols-12 items-baseline gap-6 border-b border-line/70 pb-6">
-          <p className="col-span-12 text-[11px] font-medium uppercase tracking-[0.2em] text-fg-mute md:col-span-3">
-            04 / Flow
-          </p>
-          <h2 className="col-span-12 font-display text-[28px] font-medium tracking-tight text-fg md:col-span-9 md:text-[36px]">
-            ご相談から納品まで。
-            <br className="md:hidden" />
-            <span className="text-fg-soft">LP制作なら最短 8日 で運用開始。</span>
+        <div className="text-center">
+          <h2 className="title-underline text-[26px] font-bold leading-[1.3] tracking-tight text-fg md:text-[36px] lg:text-[40px]">
+            こんなお悩み、ありませんか?
           </h2>
         </div>
 
-        <ol className="space-y-0">
-          {steps.map((s) => (
-            <li
-              key={s.no}
-              className="grid grid-cols-12 items-start gap-4 border-b border-line/70 py-7 md:gap-8 md:py-8"
+        <div className="mt-12 grid gap-4 md:grid-cols-3 lg:grid-cols-5 lg:gap-5">
+          {pains.map((p) => (
+            <article
+              key={p.title}
+              className="card flex flex-col items-center gap-4 p-5 text-center md:p-6"
             >
-              <div className="col-span-2 md:col-span-1">
-                <p className="font-display text-[28px] font-medium leading-none tracking-tight text-accent md:text-[40px]">
-                  {s.no}
-                </p>
+              <div className="relative aspect-square w-full max-w-[180px] overflow-hidden">
+                <Image
+                  src={p.image}
+                  alt=""
+                  fill
+                  sizes="180px"
+                  className="object-contain"
+                />
               </div>
-              <div className="col-span-10 md:col-span-3">
-                <p className="font-display text-[18px] font-medium tracking-tight text-fg md:text-[22px]">
-                  {s.title}
-                </p>
-                <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.2em] text-fg-mute">
-                  {s.duration}
-                </p>
+              <p className="text-[13px] font-medium leading-[1.7] text-fg md:text-[14px]">
+                {p.title}
+              </p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ──────────────────────────────────────────────
+ * Process — 5 steps in dark navy section
+ * ────────────────────────────────────────────── */
+function Process() {
+  const steps = [
+    { image: "/lp/process-01-listen.png", title: "ヒアリング・戦略設計", body: "事業の強みや課題を整理し、最適な戦略を設計します" },
+    { image: "/lp/process-02-design.png", title: "集客導線設計", body: "ユーザーの行動を設計し、成果につながる導線を構築" },
+    { image: "/lp/process-03-build.png", title: "制作・運用", body: "LP制作 / SNS運用 / LINE構築 / MEO対策などを実行" },
+    { image: "/lp/process-04-analyze.png", title: "分析・改善", body: "データをもとに効果を分析し、改善施策を継続的に実施" },
+    { image: "/lp/process-05-grow.png", title: "成果の最大化", body: "継続的な改善で売上・集客の最大化を目指します" },
+  ];
+  return (
+    <section id="process" className="bg-bg-deep py-20 text-bg md:py-28">
+      <div className="container-mod max-w-6xl">
+        <div className="text-center">
+          <h2 className="text-[26px] font-bold leading-[1.3] tracking-tight md:text-[36px] lg:text-[40px]">
+            マップサポート群馬の一気通貫支援
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-[13px] leading-[1.85] text-bg/75 md:text-[15px]">
+            戦略設計から実行・改善まで、すべてワンストップでサポートします。
+          </p>
+        </div>
+
+        <ol className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 md:gap-8 lg:grid-cols-5">
+          {steps.map((s, i) => (
+            <li
+              key={s.title}
+              className="relative flex flex-col items-center text-center"
+            >
+              {i < steps.length - 1 && (
+                <span
+                  aria-hidden
+                  className="absolute right-[-1.5rem] top-12 hidden text-[24px] text-bg/30 lg:block"
+                >
+                  →
+                </span>
+              )}
+              <div className="relative h-28 w-28 overflow-hidden rounded-full bg-bg p-3 md:h-32 md:w-32 md:p-4">
+                <Image
+                  src={s.image}
+                  alt=""
+                  fill
+                  sizes="128px"
+                  className="object-contain p-2"
+                />
               </div>
-              <p className="col-span-12 text-[14px] leading-[1.85] text-fg-soft md:col-span-8 md:text-[15px]">
+              <h3 className="mt-5 text-[15px] font-bold leading-snug md:text-[17px]">
+                {s.title}
+              </h3>
+              <p className="mt-3 max-w-[200px] text-[12px] leading-[1.7] text-bg/70 md:text-[13px]">
                 {s.body}
               </p>
             </li>
           ))}
         </ol>
+      </div>
+    </section>
+  );
+}
 
-        <p className="mt-6 text-[12px] text-fg-mute">
-          ※ 「最短」は制作キャパシティに余裕がある場合の目安です。混雑時はお見積時にご案内いたします。LINE構築・MEO・SNS の納期は別途ご案内。
+/* ──────────────────────────────────────────────
+ * Services — 4 services in 2x2 + About-us card on right
+ * ────────────────────────────────────────────── */
+function Services() {
+  const services = [
+    {
+      slug: "lp",
+      icon: "monitor",
+      title: "LP 制作",
+      body: "成果につながるLPを、デザインから構成・コピーライティングまで一貫して制作します。",
+    },
+    {
+      slug: "line",
+      icon: "message",
+      title: "LINE 公式構築",
+      body: "LINE公式アカウントの設計から運用までサポートし、リピーター獲得を支援します。",
+    },
+    {
+      slug: "meo",
+      icon: "map-pin",
+      title: "MEO 代行",
+      body: "Googleビジネスプロフィール整備・口コミ返信・週次投稿で地域検索を強化します。",
+    },
+    {
+      slug: "sns",
+      icon: "edit",
+      title: "SNS 運用",
+      body: "Instagram を中心とした投稿企画・画像制作・キャプション執筆を継続代行します。",
+    },
+  ];
+
+  return (
+    <section id="services" className="border-t border-line py-20 md:py-28">
+      <div className="container-mod max-w-6xl">
+        <div className="text-center">
+          <h2 className="text-[26px] font-bold leading-[1.3] tracking-tight text-fg md:text-[36px] lg:text-[40px]">
+            支援サービス一覧
+          </h2>
+        </div>
+
+        <div className="mt-14 grid grid-cols-12 gap-6 md:gap-8">
+          {/* 4 services 2x2 left */}
+          <div className="col-span-12 grid grid-cols-1 gap-5 md:col-span-7 md:grid-cols-2">
+            {services.map((s) => (
+              <Link
+                key={s.slug}
+                href={`/services/${s.slug}`}
+                className="card group flex flex-col gap-4 p-6 transition md:p-7"
+              >
+                <span
+                  aria-hidden
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-primary-soft text-primary"
+                >
+                  <Icon name={s.icon} />
+                </span>
+                <h3 className="text-[16px] font-bold tracking-tight text-fg md:text-[17px]">
+                  {s.title}
+                </h3>
+                <p className="text-[12px] leading-[1.75] text-fg-soft md:text-[13px]">
+                  {s.body}
+                </p>
+                <div
+                  aria-hidden
+                  className="mt-auto inline-flex items-center justify-center gap-2 self-start rounded-full border-[1.5px] border-primary px-5 py-2 text-[12px] font-semibold text-primary transition group-hover:bg-primary group-hover:text-bg md:text-[13px]"
+                >
+                  <span>詳しく見る</span>
+                  <span aria-hidden>→</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* About-us card right */}
+          <aside className="col-span-12 md:col-span-5">
+            <div className="card flex h-full flex-col p-6 md:p-7">
+              <h3 className="text-[16px] font-bold tracking-tight text-fg md:text-[17px]">
+                私たちについて
+              </h3>
+              <div className="relative mt-5 aspect-[4/3] overflow-hidden rounded-md">
+                <Image
+                  src="/lp/portrait-spot.png"
+                  alt="運営者の机"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-cover"
+                />
+              </div>
+              <p className="mt-6 text-[14px] font-semibold leading-relaxed text-fg md:text-[15px]">
+                私たちは、現役の学生事業主です。
+              </p>
+              <p className="mt-4 text-[12px] leading-[1.85] text-fg-soft md:text-[13px]">
+                群馬大学医学部に在籍する学生が、AI支援の最新開発環境を武器に運営しています。「若さ」×「行動力」×「本気」で、お店の成長にコミットします。
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ──────────────────────────────────────────────
+ * Founding Offer — light section
+ * ────────────────────────────────────────────── */
+function FoundingOffer() {
+  return (
+    <section
+      id="offer"
+      className="border-t border-line bg-bg-alt py-16 md:py-20"
+    >
+      <div className="container-mod max-w-6xl">
+        <div className="card grid grid-cols-12 gap-8 p-8 md:gap-12 md:p-12">
+          <div className="col-span-12 md:col-span-7">
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-accent">
+              Founding Partners
+            </p>
+            <h2 className="mt-4 text-[24px] font-bold leading-[1.3] tracking-tight text-fg md:text-[32px]">
+              立ち上げ期につき、
+              <br className="md:hidden" />
+              特別価格でお迎えしています。
+            </h2>
+
+            <ul className="mt-7 space-y-3 text-[13px] leading-[1.7] text-fg-soft md:text-[14px]">
+              <li className="flex items-start gap-3">
+                <span
+                  aria-hidden
+                  className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-bg"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
+                <span><span className="font-semibold text-fg">先着 3軒限定</span></span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span
+                  aria-hidden
+                  className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-bg"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
+                <span>通常価格の <span className="font-semibold text-fg">40% OFF</span></span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span
+                  aria-hidden
+                  className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-bg"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3"><polyline points="20 6 9 17 4 12" /></svg>
+                </span>
+                <span>制作後も <span className="font-semibold text-fg">永年同価格</span> でサポート</span>
+              </li>
+            </ul>
+          </div>
+
+          <aside className="col-span-12 flex flex-col justify-center border-t border-line pt-8 md:col-span-5 md:border-l md:border-t-0 md:pl-12 md:pt-0">
+            <p className="text-[64px] font-bold leading-none tracking-tight text-fg md:text-[88px]">
+              3<span className="text-[24px] text-fg-mute md:text-[32px]">軒</span>
+            </p>
+            <p className="mt-3 text-[12px] uppercase tracking-[0.18em] text-fg-mute">
+              2026年6月末日まで
+            </p>
+            <p className="mt-5 inline-block self-start border-b-2 border-accent pb-1 text-[14px] font-semibold text-fg md:text-[15px]">
+              永年同価格保証
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ──────────────────────────────────────────────
+ * Plans — 3 cards, Standard featured (navy bg)
+ * ────────────────────────────────────────────── */
+function Plans() {
+  const plans = [
+    {
+      mark: "スタートプラン",
+      tagline: "まずは小さく始めたい方へ",
+      price: "¥48,000",
+      priceNote: "一括(税抜)",
+      features: ["LP 制作", "LINE 公式構築", "公開・基本設定", "修正2回まで"],
+      featured: false,
+    },
+    {
+      mark: "スタンダードプラン",
+      tagline: "バランスよく成果を出したい方へ",
+      price: "¥78,000~",
+      priceNote: "初月(初期 ¥60,000 + 月 ¥18,000)",
+      features: [
+        "LP 制作",
+        "LINE 公式構築",
+        "MEO 代行(初期 + 月次)",
+        "公開後1ヶ月サポート",
+      ],
+      featured: true,
+    },
+    {
+      mark: "プレミアムプラン",
+      tagline: "本気で事業を伸ばしたい方へ",
+      price: "¥96,000~",
+      priceNote: "初月(初期 ¥60,000 + 月 ¥36,000)",
+      features: [
+        "LP / LINE / MEO 一括",
+        "SNS 運用代行",
+        "月次レポート & 改善提案",
+        "戦略ミーティング(月1回)",
+      ],
+      featured: false,
+    },
+  ];
+
+  return (
+    <section id="plans" className="border-t border-line py-20 md:py-28">
+      <div className="container-mod max-w-6xl">
+        <div className="text-center">
+          <h2 className="text-[26px] font-bold leading-[1.3] tracking-tight text-fg md:text-[36px] lg:text-[40px]">
+            料金プラン
+          </h2>
+        </div>
+
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {plans.map((p) => (
+            <article
+              key={p.mark}
+              className={`relative flex flex-col gap-5 rounded-md border p-7 md:p-9 ${
+                p.featured
+                  ? "border-primary bg-primary text-bg shadow-[0_12px_40px_hsl(var(--primary)/0.18)]"
+                  : "border-line bg-bg-elev text-fg"
+              }`}
+            >
+              {p.featured && (
+                <p className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center bg-accent px-4 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-bg">
+                  おすすめ
+                </p>
+              )}
+
+              <div className="text-center">
+                <p className={`text-[16px] font-bold tracking-tight md:text-[18px] ${p.featured ? "text-bg" : "text-fg"}`}>
+                  {p.mark}
+                </p>
+                <p className={`mt-1 text-[12px] ${p.featured ? "text-bg/75" : "text-fg-mute"}`}>
+                  {p.tagline}
+                </p>
+              </div>
+
+              <div className={`text-center border-y py-5 ${p.featured ? "border-bg/15" : "border-line"}`}>
+                <p className={`text-[12px] font-medium ${p.featured ? "text-bg/85" : "text-fg-mute"}`}>
+                  月額
+                </p>
+                <p className={`mt-1 text-[36px] font-bold leading-none tracking-tight md:text-[42px] ${p.featured ? "text-bg" : "text-fg"}`}>
+                  {p.price}
+                </p>
+                <p className={`mt-2 text-[10px] md:text-[11px] ${p.featured ? "text-bg/65" : "text-fg-mute"}`}>
+                  {p.priceNote}
+                </p>
+              </div>
+
+              <ul className="flex-1 space-y-2 text-[13px] md:text-[14px]">
+                {p.features.map((f) => (
+                  <li key={f} className="flex items-start gap-2.5">
+                    <span
+                      aria-hidden
+                      className={`mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center ${p.featured ? "text-bg" : "text-primary"}`}
+                    >
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3"><polyline points="20 6 9 17 4 12" /></svg>
+                    </span>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+
+            </article>
+          ))}
+        </div>
+
+        <p className="mt-8 text-center text-[11px] text-fg-mute md:text-[12px]">
+          ※ 料金はすべて税抜表示。ご予算やご希望に合わせてカスタマイズも可能です。
         </p>
       </div>
     </section>
@@ -665,227 +694,102 @@ function Flow() {
 }
 
 /* ──────────────────────────────────────────────
- * Plans — comparison matrix
+ * Bottom CTA — light section with 3 trust signals
  * ────────────────────────────────────────────── */
-function Plans() {
-  const plans = [
-    {
-      mark: "Lite",
-      initial: "¥48,000",
-      initialOriginal: "¥80,000",
-      monthly: "—",
-      monthlyOriginal: null,
-      note: "まずは入り口",
-    },
-    {
-      mark: "Standard",
-      initial: "¥60,000",
-      initialOriginal: "¥100,000",
-      monthly: "¥18,000",
-      monthlyOriginal: "¥30,000",
-      note: "新規 × リピート × Google",
-      featured: true,
-    },
-    {
-      mark: "Full",
-      initial: "¥60,000",
-      initialOriginal: "¥100,000",
-      monthly: "¥36,000",
-      monthlyOriginal: "¥60,000",
-      note: "全方位、まるごと",
-    },
-  ];
-  const matrix: Array<[string, boolean[]]> = [
-    ["LP 制作", [true, true, true]],
-    ["LINE 公式構築", [true, true, true]],
-    ["MEO 代行", [false, true, true]],
-    ["SNS 運用", [false, false, true]],
+function BottomCTA() {
+  const trusts = [
+    { icon: "message", label: "相談無料" },
+    { icon: "shield-check", label: "無理な営業なし" },
+    { icon: "monitor", label: "オンライン対応可能" },
   ];
   return (
-    <section id="plans" className="border-b border-line/70 py-20 md:py-28">
+    <section className="border-t border-line bg-bg-alt py-16 md:py-20">
       <div className="container-mod max-w-6xl">
-        <div className="grid grid-cols-12 items-baseline gap-6 border-b border-line/70 pb-6">
-          <p className="col-span-12 text-[11px] font-medium uppercase tracking-[0.2em] text-fg-mute md:col-span-3">
-            05 / Plans
-          </p>
-          <h2 className="col-span-12 font-display text-[28px] font-medium tracking-tight text-fg md:col-span-9 md:text-[36px]">
-            3つの料金プラン。
-            <br className="md:hidden" />
-            <span className="text-fg-soft">単品でのご依頼も承ります。</span>
-          </h2>
-        </div>
-
-        {/* Matrix table */}
-        <div className="mt-10 overflow-hidden rounded-sm border border-line">
-          {/* Header row */}
-          <div className="grid grid-cols-[1.4fr_repeat(3,1fr)] divide-x divide-line border-b border-line bg-bg-sunken/60 text-[12px]">
-            <div className="px-5 py-4 text-[11px] uppercase tracking-[0.2em] text-fg-mute">
-              Plan
-            </div>
-            {plans.map((p) => (
-              <div
-                key={p.mark}
-                className={`px-5 py-4 text-center ${
-                  p.featured ? "bg-accent text-bg" : "text-fg"
-                }`}
-              >
-                <p className="font-display text-[18px] font-medium tracking-tight">
-                  {p.mark}
-                </p>
-                <p
-                  className={`mt-1 font-display text-[11px] italic ${
-                    p.featured ? "text-bg/80" : "text-fg-mute"
-                  }`}
-                >
-                  {p.note}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Service rows */}
-          {matrix.map(([label, vals]) => (
-            <div
-              key={label}
-              className="grid grid-cols-[1.4fr_repeat(3,1fr)] divide-x divide-line border-b border-line bg-bg-elev"
+        <div className="grid grid-cols-12 items-center gap-8 md:gap-12">
+          <div className="col-span-12 md:col-span-7">
+            <h2 className="text-[24px] font-bold leading-[1.3] tracking-tight text-fg md:text-[32px] lg:text-[36px]">
+              まずは無料相談から始めてみませんか?
+            </h2>
+            <p className="mt-4 text-[13px] leading-[1.85] text-fg-soft md:text-[14px]">
+              現状の課題整理から、最適な解決策をご提案します。
+            </p>
+            <Link
+              href="#contact"
+              className="btn-primary mt-7"
             >
-              <div className="px-5 py-4 text-[14px] text-fg">{label}</div>
-              {vals.map((v, i) => (
-                <div
-                  key={i}
-                  className="flex items-center justify-center px-5 py-4 text-[18px]"
+              <span>無料で相談してみる</span>
+              <span aria-hidden>→</span>
+            </Link>
+          </div>
+
+          <ul className="col-span-12 grid grid-cols-3 gap-4 md:col-span-5">
+            {trusts.map((t) => (
+              <li key={t.label} className="flex flex-col items-center gap-3 text-center">
+                <span
+                  aria-hidden
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-bg text-primary md:h-14 md:w-14"
                 >
-                  {v ? (
-                    <span className="font-display text-fg">●</span>
-                  ) : (
-                    <span className="text-fg-faint">—</span>
-                  )}
-                </div>
-              ))}
-            </div>
-          ))}
-
-          {/* Initial cost row */}
-          <div className="grid grid-cols-[1.4fr_repeat(3,1fr)] divide-x divide-line border-b border-line bg-bg-elev">
-            <div className="px-5 py-4 text-[12px] uppercase tracking-[0.2em] text-fg-mute">
-              Initial
-              <span className="ml-1 text-fg-faint">(立上期)</span>
-            </div>
-            {plans.map((p) => (
-              <div key={p.mark} className="px-5 py-4 text-center">
-                {p.initialOriginal && (
-                  <p className="text-[11px] text-fg-faint line-through">
-                    {p.initialOriginal}
-                  </p>
-                )}
-                <p className="font-display text-[18px] font-medium tracking-tight text-accent md:text-[20px]">
-                  {p.initial}
-                </p>
-              </div>
+                  <Icon name={t.icon} />
+                </span>
+                <span className="text-[11px] font-medium leading-tight text-fg-soft md:text-[12px]">
+                  {t.label}
+                </span>
+              </li>
             ))}
-          </div>
-
-          {/* Monthly cost row */}
-          <div className="grid grid-cols-[1.4fr_repeat(3,1fr)] divide-x divide-line border-b border-line bg-bg-elev">
-            <div className="px-5 py-4 text-[12px] uppercase tracking-[0.2em] text-fg-mute">
-              Monthly
-              <span className="ml-1 text-fg-faint">(立上期)</span>
-            </div>
-            {plans.map((p) => (
-              <div key={p.mark} className="px-5 py-4 text-center">
-                {p.monthlyOriginal && (
-                  <p className="text-[11px] text-fg-faint line-through">
-                    {p.monthlyOriginal}
-                  </p>
-                )}
-                <p className="font-display text-[18px] font-medium tracking-tight text-accent md:text-[20px]">
-                  {p.monthly}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA row */}
-          <div className="grid grid-cols-[1.4fr_repeat(3,1fr)] divide-x divide-line bg-bg-sunken/40">
-            <div className="px-5 py-4 text-[11px] uppercase tracking-[0.2em] text-fg-mute">
-              Apply
-            </div>
-            {plans.map((p) => (
-              <div key={p.mark} className="px-3 py-3 text-center">
-                <Link
-                  href="#address"
-                  className={`inline-flex items-center justify-center gap-1 rounded-sm px-3 py-2 text-[12px] transition ${
-                    p.featured
-                      ? "bg-accent text-bg hover:bg-fg"
-                      : "border border-line-strong text-fg hover:bg-fg hover:text-bg"
-                  }`}
-                >
-                  相談する <span aria-hidden>→</span>
-                </Link>
-              </div>
-            ))}
-          </div>
+          </ul>
         </div>
-
-        {/* Notes about pricing */}
-        <ul className="mt-6 space-y-1 text-[12px] text-fg-mute">
-          <li>
-            <span className="text-accent">※</span>{" "}
-            <span className="text-fg">立ち上げ期価格(40% OFF)</span>{" "}
-            は先着3軒・2026年6月末日まで。詳細は
-            <a href="#offer" className="ml-1 underline-offset-4 hover:underline">
-              Founding Offer
-            </a>
-            。
-          </li>
-          <li>※ 価格はすべて税抜表示。法人さまの場合は個別見積もり。</li>
-          <li>※ Standard / Full は最低契約期間 3ヶ月。</li>
-        </ul>
       </div>
     </section>
   );
 }
 
 /* ──────────────────────────────────────────────
- * Notes — FAQ + brief about, compact
+ * Contact — left invitation + right form
  * ────────────────────────────────────────────── */
-function Notes() {
+function Contact() {
+  return (
+    <section id="contact" className="border-t border-line py-20 md:py-28">
+      <div className="container-mod max-w-6xl">
+        <div className="text-center">
+          <h2 className="text-[26px] font-bold leading-[1.3] tracking-tight text-fg md:text-[36px] lg:text-[40px]">
+            無料相談はこちら
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-[13px] leading-[1.85] text-fg-soft md:text-[14px]">
+            Zoom 等のオンラインで30分。お気軽にお話を伺います。
+          </p>
+        </div>
+        <div className="mt-12">
+          <ContactForm />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ──────────────────────────────────────────────
+ * FAQ — clean, centered
+ * ────────────────────────────────────────────── */
+function FAQ() {
   const qas = [
     {
-      q: "立ち上げ期価格(40% OFF)はいつまで適用されますか?",
-      a: "2026年6月末日まで、または先着3軒に達した時点までの、いずれか早いほうです。本サイト掲載中のみ有効で、期間または軒数到達後は通常価格に戻ります。お申込み時点で適用判定いたしますので、お早めにご相談ください。なお、立ち上げ期価格でご契約いただいた方には永年同価格保証(契約継続中の値上げなし)もお付けいたします。",
+      q: "本当に3日でLPは完成しますか?",
+      a: "AI支援の最新開発環境を活用し、従来3週間かかっていた作業を最短3日に短縮しています。ヒアリング後、構成 → 実装 → ご確認 → 修正 までを通常3-5日でお届けします。混雑時はお見積時にご案内します。",
     },
     {
-      q: "サロン以外の業種でも依頼できますか?",
-      a: "はい、地域の個人事業者・小規模事業者であれば業種を問わずご相談承ります。具体的には、飲食店・小売・教室・整体・治療院・士業・工房など、お客さまとの接点が必要な事業全般が対象です。「うちの業種でも合うか?」とご不安な場合も、無料相談でお話しいただければご判断材料をお出しします。",
-    },
-    {
-      q: "群馬県外でも依頼できますか?",
+      q: "群馬県外の事業者でも依頼できますか?",
       a: "はい、全国対応しております。打合せはZoom等のオンラインで完結しますので、所在地は問いません。屋号に「群馬」と入れているのは、群馬発・群馬大学から始めた事業という意味合いです。",
     },
     {
-      q: "なぜこの価格でできるのですか?",
-      a: "AI支援の最新開発環境を活用し、従来 3週間 ほどかかった作業を 3日 に短縮しているためです。安さの理由は品質の妥協ではなく、技術で効率化できた分を、価格にそのまま反映しています。",
+      q: "写真や文章の準備は必要ですか?",
+      a: "お持ちの素材があれば最大限活かします(スマホ撮影でも充分なクオリティのことが多いです)。撮影のコツや構図のご案内、コピー案のご提案もこちらで行いますので、何もない状態からでもご相談いただけます。",
     },
     {
-      q: "契約期間や途中解約はどうなりますか?",
-      a: "単品ご依頼(LP制作 / LINE構築)は1回完結のため契約期間はありません。月額契約(MEO / SNS / LINE運用)は最低3ヶ月から、それ以降は月単位で解約可能です(日割り返金なし)。最低期間内でも、特別な事情がある場合はご相談ください。",
+      q: "制作後の修正や運用サポートはありますか?",
+      a: "LP制作の場合、料金内で 2回 まで修正を承ります。3回目以降は1回 ¥10,000(税抜)。月額のLINE運用・MEO代行・SNS運用 をご契約いただければ、継続的なサポート・改善提案も可能です。",
     },
     {
-      q: "初期費用以外にかかる費用はありますか?",
-      a: "原則ありません。ドメイン取得料・サーバー代・LINE公式アカウント有料プラン等の外部サービス費用は別途お客さま負担となりますが、ご契約前にすべてご案内いたします。「あとから追加費用」が出ないよう、ご見積で全体像をお示しします。",
-    },
-    {
-      q: "成果(集客数や売上UP)は保証されますか?",
-      a: "申し訳ございませんが、成果保証はいたしかねます。集客や売上は、お客さまの業種・立地・既存の顧客基盤など多くの要素に依存するためです。私どもはお店の世界観を整え、お客さまに見つけていただく動線を整える「土台づくり」を担当します。継続的な改善のお手伝いも可能ですので、長期視点でご一緒できれば幸いです。",
-    },
-    {
-      q: "ロゴや写真撮影はお願いできますか?",
-      a: "対応外です。お持ちの素材を活かす方向でご提案するか、必要に応じて撮影できる業者さまをご紹介します。",
-    },
-    {
-      q: "修正は何回までできますか?",
-      a: "LP制作の場合、料金内で 2回 まで。3回目以降は1回 ¥10,000(税抜)で承ります。",
+      q: "立ち上げ期価格(40% OFF)はいつまで適用されますか?",
+      a: "2026年6月末日まで、または先着3軒に達した時点までの、いずれか早いほうです。期間または軒数到達後は通常価格に戻ります。立ち上げ期価格でご契約いただいた方には永年同価格保証(契約継続中の値上げなし)をお付けします。",
     },
     {
       q: "個人事業主との契約に不安があります",
@@ -893,37 +797,34 @@ function Notes() {
     },
   ];
   return (
-    <section id="notes" className="border-b border-line/70 py-20 md:py-28">
-      <div className="container-mod max-w-5xl">
-        <div className="grid grid-cols-12 items-baseline gap-6 border-b border-line/70 pb-6">
-          <p className="col-span-12 text-[11px] font-medium uppercase tracking-[0.2em] text-fg-mute md:col-span-3">
-            06 / Notes
-          </p>
-          <h2 className="col-span-12 font-display text-[28px] font-medium tracking-tight text-fg md:col-span-9 md:text-[36px]">
+    <section id="faq" className="border-t border-line bg-bg-alt py-20 md:py-28">
+      <div className="container-mod max-w-4xl">
+        <div className="text-center">
+          <h2 className="text-[26px] font-bold leading-[1.3] tracking-tight text-fg md:text-[36px] lg:text-[40px]">
             よくあるご質問
           </h2>
         </div>
 
-        <dl className="divide-y divide-line/70">
+        <dl className="mt-12 space-y-3">
           {qas.map(({ q, a }, i) => (
-            <details key={q} className="group py-5" open={i === 0}>
+            <details
+              key={q}
+              className="card group p-5 md:p-6"
+              open={i === 0}
+            >
               <summary className="flex cursor-pointer list-none items-start justify-between gap-6">
-                <div className="flex items-start gap-5">
-                  <span className="section-num pt-0.5 text-[12px] font-medium text-fg-mute">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-[15px] font-medium leading-snug text-fg md:text-[17px]">
-                    {q}
-                  </span>
-                </div>
+                <span className="flex items-start gap-4 text-[14px] font-semibold leading-snug text-fg md:text-[16px]">
+                  <span className="text-primary">Q.</span>
+                  {q}
+                </span>
                 <span
                   aria-hidden
-                  className="faq-icon mt-0.5 select-none font-display text-[20px] text-fg-mute"
+                  className="faq-icon mt-1 select-none text-[20px] font-bold text-primary"
                 >
                   +
                 </span>
               </summary>
-              <p className="mt-3 max-w-3xl pl-11 text-[14px] leading-[1.85] text-fg-soft md:text-[15px]">
+              <p className="mt-4 pl-6 text-[13px] leading-[1.85] text-fg-soft md:text-[14px]">
                 {a}
               </p>
             </details>
@@ -931,79 +832,5 @@ function Notes() {
         </dl>
       </div>
     </section>
-  );
-}
-
-/* ──────────────────────────────────────────────
- * Address — contact, compact
- * ────────────────────────────────────────────── */
-function Address() {
-  return (
-    <section id="address" className="py-20 md:py-28">
-      <div className="container-mod max-w-5xl">
-        <div className="grid grid-cols-12 items-baseline gap-6 border-b border-line/70 pb-6">
-          <p className="col-span-12 text-[11px] font-medium uppercase tracking-[0.2em] text-fg-mute md:col-span-3">
-            07 / Address
-          </p>
-          <h2 className="col-span-12 font-display text-[28px] font-medium tracking-tight text-fg md:col-span-9 md:text-[36px]">
-            ご相談はこちらから。
-            <br className="md:hidden" />
-            <span className="text-fg-soft">30分のオンライン無料相談。</span>
-          </h2>
-        </div>
-
-        <ContactForm />
-
-        <div className="mt-8 grid grid-cols-2 gap-4 border-t border-line/70 pt-6 text-[13px] md:grid-cols-4">
-          <div>
-            <p className="eyebrow">Origin</p>
-            <p className="mt-1 text-fg">群馬県(前橋・高崎)</p>
-          </div>
-          <div>
-            <p className="eyebrow">Service area</p>
-            <p className="mt-1 text-fg">群馬全域・全国対応</p>
-          </div>
-          <div>
-            <p className="eyebrow">Hours</p>
-            <p className="mt-1 text-fg">24h 受付(メール)</p>
-          </div>
-          <div>
-            <p className="eyebrow">Established</p>
-            <p className="mt-1 text-fg">2026</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ──────────────────────────────────────────────
- * Footer
- * ────────────────────────────────────────────── */
-function Footer() {
-  return (
-    <footer className="mt-auto border-t border-line/70 py-8">
-      <div className="container-mod flex flex-col items-center justify-between gap-4 md:flex-row">
-        <div className="text-center md:text-left">
-          <p className="font-display text-[16px] font-medium tracking-tight text-fg">
-            Mapsupport · 群馬
-          </p>
-          <p className="mt-0.5 text-[10px] uppercase tracking-[0.2em] text-fg-mute">
-            Marketing for local businesses / 群馬発・全国対応
-          </p>
-        </div>
-        <div className="flex flex-wrap items-center justify-center gap-3 text-[11px] text-fg-mute">
-          <Link href="/legal/tokushoho" className="transition hover:text-fg">
-            特定商取引法に基づく表記
-          </Link>
-          <span className="text-fg-faint">·</span>
-          <Link href="/legal/privacy" className="transition hover:text-fg">
-            プライバシーポリシー
-          </Link>
-          <span className="text-fg-faint">·</span>
-          <span>© 2026 マップサポート群馬</span>
-        </div>
-      </div>
-    </footer>
   );
 }

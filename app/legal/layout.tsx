@@ -11,7 +11,7 @@ export default function LegalLayout({
         <div className="container-mod flex items-center justify-between py-4">
           <Link href="/" className="flex items-baseline gap-2.5">
             <span className="font-display text-[22px] font-medium leading-none tracking-tight text-fg">
-              Mapsupport
+              マップサポート群馬
             </span>
             <span className="text-[13px] font-medium text-fg-mute">群馬</span>
           </Link>
