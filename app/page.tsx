@@ -583,21 +583,51 @@ function FoundingOffer() {
 /* ──────────────────────────────────────────────
  * Plans — 3 cards, Standard featured (navy bg)
  * ────────────────────────────────────────────── */
+type PlanPricing =
+  | {
+      kind: "oneTime";
+      originalInitial: string;
+      currentInitial: string;
+    }
+  | {
+      kind: "subscription";
+      originalInitial: string;
+      originalMonthly: string;
+      currentInitial: string;
+      currentMonthly: string;
+    };
+
+type Plan = {
+  mark: string;
+  tagline: string;
+  pricing: PlanPricing;
+  features: string[];
+  featured: boolean;
+};
+
 function Plans() {
-  const plans = [
+  const plans: Plan[] = [
     {
       mark: "スタートプラン",
       tagline: "まずは小さく始めたい方へ",
-      price: "¥48,000",
-      priceNote: "一括(税抜)",
+      pricing: {
+        kind: "oneTime",
+        originalInitial: "¥80,000",
+        currentInitial: "¥48,000",
+      },
       features: ["LP 制作", "LINE 公式構築", "公開・基本設定", "修正2回まで"],
       featured: false,
     },
     {
       mark: "スタンダードプラン",
       tagline: "バランスよく成果を出したい方へ",
-      price: "¥78,000~",
-      priceNote: "初月(初期 ¥60,000 + 月 ¥18,000)",
+      pricing: {
+        kind: "subscription",
+        originalInitial: "¥100,000",
+        originalMonthly: "¥30,000",
+        currentInitial: "¥60,000",
+        currentMonthly: "¥18,000",
+      },
       features: [
         "LP 制作",
         "LINE 公式 構築 + 月次配信運用",
@@ -609,8 +639,13 @@ function Plans() {
     {
       mark: "プレミアムプラン",
       tagline: "本気で事業を伸ばしたい方へ",
-      price: "¥96,000~",
-      priceNote: "初月(初期 ¥60,000 + 月 ¥36,000)",
+      pricing: {
+        kind: "subscription",
+        originalInitial: "¥100,000",
+        originalMonthly: "¥60,000",
+        currentInitial: "¥60,000",
+        currentMonthly: "¥36,000",
+      },
       features: [
         "LP / LINE / MEO 一括",
         "LINE + MEO + SNS 月次運用",
@@ -628,6 +663,9 @@ function Plans() {
           <h2 className="text-[26px] font-bold leading-[1.3] tracking-tight text-fg md:text-[36px] lg:text-[40px]">
             料金プラン
           </h2>
+          <p className="mt-4 text-[12px] font-medium tracking-[0.12em] text-accent md:text-[13px]">
+            FOUNDING PARTNERS / 立ち上げ期 先着3軒 限定 40% OFF
+          </p>
         </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
@@ -655,17 +693,7 @@ function Plans() {
                 </p>
               </div>
 
-              <div className={`text-center border-y py-5 ${p.featured ? "border-bg/15" : "border-line"}`}>
-                <p className={`text-[12px] font-medium ${p.featured ? "text-bg/85" : "text-fg-mute"}`}>
-                  月額
-                </p>
-                <p className={`mt-1 text-[36px] font-bold leading-none tracking-tight md:text-[42px] ${p.featured ? "text-bg" : "text-fg"}`}>
-                  {p.price}
-                </p>
-                <p className={`mt-2 text-[10px] md:text-[11px] ${p.featured ? "text-bg/65" : "text-fg-mute"}`}>
-                  {p.priceNote}
-                </p>
-              </div>
+              <PlanPriceBlock pricing={p.pricing} featured={p.featured} />
 
               <ul className="flex-1 space-y-2 text-[13px] md:text-[14px]">
                 {p.features.map((f) => (
@@ -686,10 +714,73 @@ function Plans() {
         </div>
 
         <p className="mt-8 text-center text-[11px] text-fg-mute md:text-[12px]">
-          ※ 料金はすべて税抜表示。ご予算やご希望に合わせてカスタマイズも可能です。
+          ※ 料金はすべて税抜表示。立ち上げ期価格は先着3軒限定。ご予算やご希望に合わせてカスタマイズも可能です。
         </p>
       </div>
     </section>
+  );
+}
+
+function PlanPriceBlock({ pricing, featured }: { pricing: PlanPricing; featured: boolean }) {
+  const borderCls = featured ? "border-bg/15" : "border-line";
+  const labelCls = featured ? "text-bg/85" : "text-fg-mute";
+  const subLabelCls = featured ? "text-bg/65" : "text-fg-mute";
+  const originalCls = featured ? "text-bg/55" : "text-fg-mute";
+  const currentCls = featured ? "text-bg" : "text-fg";
+  const accentBadgeCls = featured
+    ? "bg-bg/15 text-bg"
+    : "bg-accent text-bg";
+
+  if (pricing.kind === "oneTime") {
+    return (
+      <div className={`text-center border-y py-5 ${borderCls}`}>
+        <p className={`text-[11px] font-medium tracking-[0.08em] ${labelCls}`}>
+          一括(税抜)
+        </p>
+        <p className={`mt-2 text-[12px] line-through ${originalCls}`}>
+          通常 {pricing.originalInitial}
+        </p>
+        <div className="mt-1 flex items-baseline justify-center gap-2">
+          <p className={`text-[36px] font-bold leading-none tracking-tight md:text-[42px] ${currentCls}`}>
+            {pricing.currentInitial}
+          </p>
+        </div>
+        <p className={`mt-2 inline-flex items-center px-2 py-0.5 text-[10px] font-bold tracking-[0.08em] ${accentBadgeCls}`}>
+          立ち上げ期 40% OFF
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className={`border-y py-5 ${borderCls}`}>
+      <div className="grid grid-cols-2 divide-x divide-current/10">
+        <div className="px-2 text-center">
+          <p className={`text-[11px] font-medium tracking-[0.08em] ${labelCls}`}>初期費用</p>
+          <p className={`mt-1.5 text-[11px] line-through ${originalCls}`}>
+            {pricing.originalInitial}
+          </p>
+          <p className={`mt-0.5 text-[24px] font-bold leading-none tracking-tight md:text-[26px] ${currentCls}`}>
+            {pricing.currentInitial}
+          </p>
+        </div>
+        <div className="px-2 text-center">
+          <p className={`text-[11px] font-medium tracking-[0.08em] ${labelCls}`}>月額</p>
+          <p className={`mt-1.5 text-[11px] line-through ${originalCls}`}>
+            {pricing.originalMonthly}
+          </p>
+          <p className={`mt-0.5 text-[24px] font-bold leading-none tracking-tight md:text-[26px] ${currentCls}`}>
+            {pricing.currentMonthly}
+          </p>
+        </div>
+      </div>
+      <div className="mt-3 text-center">
+        <p className={`inline-flex items-center px-2 py-0.5 text-[10px] font-bold tracking-[0.08em] ${accentBadgeCls}`}>
+          立ち上げ期 40% OFF
+        </p>
+        <p className={`mt-2 text-[10px] ${subLabelCls}`}>(税抜 / 月額は2ヶ月目以降)</p>
+      </div>
+    </div>
   );
 }
 
