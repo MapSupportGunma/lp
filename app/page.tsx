@@ -424,14 +424,14 @@ function Services() {
     {
       slug: "line",
       icon: "message",
-      title: "LINE 公式構築",
-      body: "LINE公式アカウントの設計から運用までサポートし、リピーター獲得を支援します。",
+      title: "LINE 公式構築・運用",
+      body: "アカウント設計から月次の配信代行まで、再来店を仕組み化する継続支援。",
     },
     {
       slug: "meo",
       icon: "map-pin",
       title: "MEO 代行",
-      body: "Googleビジネスプロフィール整備・口コミ返信・週次投稿で地域検索を強化します。",
+      body: "Googleビジネスプロフィール整備・口コミ返信・隔週投稿で地域検索を強化します。",
     },
     {
       slug: "sns",
@@ -600,9 +600,9 @@ function Plans() {
       priceNote: "初月(初期 ¥60,000 + 月 ¥18,000)",
       features: [
         "LP 制作",
-        "LINE 公式構築",
-        "MEO 代行(初期 + 月次)",
-        "公開後1ヶ月サポート",
+        "LINE 公式 構築 + 月次配信運用",
+        "MEO 代行(初期 + 月次運用)",
+        "月次レポート",
       ],
       featured: true,
     },
@@ -613,7 +613,7 @@ function Plans() {
       priceNote: "初月(初期 ¥60,000 + 月 ¥36,000)",
       features: [
         "LP / LINE / MEO 一括",
-        "SNS 運用代行",
+        "LINE + MEO + SNS 月次運用",
         "月次レポート & 改善提案",
         "戦略ミーティング(月1回)",
       ],

@@ -41,8 +41,8 @@ export default function MeoPage() {
           },
           {
             image: "/lp/process-03-build.png",
-            title: "週次の投稿運用",
-            body: "お知らせ・新メニュー・季節情報を毎週発信。アクティブな店として評価されます。",
+            title: "隔週の投稿運用",
+            body: "お知らせ・新メニュー・季節情報を月2本発信。アクティブな店として評価されます。",
           },
           {
             image: "/lp/process-04-analyze.png",
@@ -69,7 +69,7 @@ export default function MeoPage() {
         includes={[
           "Googleビジネスプロフィール 初期最適化",
           "全口コミへの返信代行(月10件まで)",
-          "週次の投稿運用(月4本)",
+          "投稿運用(月2本)",
           "月次レポート(順位・閲覧数・行動数)",
           "営業時間・臨時休業の即時反映",
         ]}

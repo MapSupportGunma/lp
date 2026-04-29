@@ -91,7 +91,7 @@ function Header() {
                   href="/services/line"
                   className="block rounded-sm px-3 py-2 text-[13px] font-medium text-fg-soft transition hover:bg-bg-alt hover:text-primary"
                 >
-                  LINE 公式構築
+                  LINE 公式 構築・運用
                 </Link>
                 <Link
                   href="/services/meo"
