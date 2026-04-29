@@ -662,7 +662,12 @@ function Plans() {
         originalMonthly: "¥30,000",
         currentMonthly: "¥18,000",
       },
-      highlights: ["月4本の投稿企画・制作", "リール 月2本", "月次分析レポート"],
+      highlights: [
+        "月4本の投稿企画・制作",
+        "ストーリーズ 週1-2本",
+        "月次分析レポート",
+        "リール制作はオプション +¥10,000/月",
+      ],
       href: "/services/sns",
     },
   ];

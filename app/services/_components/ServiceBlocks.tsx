@@ -209,12 +209,14 @@ export function PricingBlock({
   original,
   unit,
   includes,
+  addOns,
   notIncluded,
 }: {
   current: string;
   original: string;
   unit: string;
   includes: string[];
+  addOns?: { label: string; price: string }[];
   notIncluded?: string[];
 }) {
   return (
@@ -264,6 +266,26 @@ export function PricingBlock({
                 </li>
               ))}
             </ul>
+            {addOns && addOns.length > 0 && (
+              <>
+                <p className="mt-7 text-[11px] font-medium uppercase tracking-[0.18em] text-fg-mute">
+                  オプション(別料金)
+                </p>
+                <ul className="mt-3 space-y-2 text-[12px] text-fg md:text-[13px]">
+                  {addOns.map((it) => (
+                    <li key={it.label} className="flex items-start justify-between gap-3">
+                      <span className="flex items-start gap-2">
+                        <span aria-hidden className="mt-1 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                        <span>{it.label}</span>
+                      </span>
+                      <span className="shrink-0 font-bold tracking-tight text-accent">
+                        {it.price}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
             {notIncluded && notIncluded.length > 0 && (
               <>
                 <p className="mt-7 text-[11px] font-medium uppercase tracking-[0.18em] text-fg-mute">
