@@ -19,15 +19,19 @@ export default function LpPage() {
     <>
       <ServiceHero
         title="LP 制作"
-        tagline="新規のお客さまに最初に渡す、24時間365日働く「営業マン」。お店の魅力を1ページに凝縮してお届けします。"
-        image="/lp/service-lp.png"
+        headline={<>問い合わせにつながるLPを、<br className="hidden md:block" />構成から公開まで制作。</>}
+        tagline="サービスの魅力・料金・申込み方法を1ページで分かりやすく整理。文章作成、デザイン、実装、フォーム設置までまとめて対応します。"
+        image="/lp/service-lp-rich-v2.png"
         price="¥30,000"
         originalPrice="¥50,000"
         duration="最短 3日"
+        badges={["構成設計", "文章作成", "デザイン・実装", "スマホ対応"]}
+        outcomes={["何を頼めるか伝わる", "申込み導線を整理", "公開後1ヶ月調整"]}
       />
 
       <FeaturesSection
         title={<>このサービスでできること</>}
+        body="ただ見た目を作るだけでなく、誰に何を伝え、どこから問い合わせてもらうかまで設計します。"
         features={[
           {
             image: "/lp/process-01-listen.png",
@@ -54,6 +58,7 @@ export default function LpPage() {
 
       <FlowSection
         title={<>ご相談から納品まで</>}
+        body="短納期でも雑に作らず、確認ポイントを区切りながら進めます。"
         steps={[
           { title: "ヒアリング", body: "Zoom等で30分。お店の世界観や目的を伺います。" },
           { title: "ご契約", body: "ご納得いただいてからのご契約。お見積後の追加費用なし。" },
@@ -66,7 +71,11 @@ export default function LpPage() {
         current="¥30,000"
         original="¥50,000"
         unit="/ 一括 / 最短3日納品(税抜)"
+        recommendedFor="まずは申込みを受けるページを整えたい方"
         includes={[
+          "構成設計",
+          "ライティング",
+          "デザイン・実装",
           "1ページLP(レスポンシブ対応)",
           "ドメイン設定サポート",
           "お問い合わせフォーム1つ",

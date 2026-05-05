@@ -20,7 +20,7 @@ const geistSans = Geist({
 const SITE_TITLE =
   "マップサポート群馬 — あなたの店を、選ばれる場所へ。";
 const SITE_DESCRIPTION =
-  "個人サロン・地域事業者のためのマーケティング一気通貫支援。LP制作 立ち上げ期 ¥30,000 / 最短3日納品から、LINE公式 構築・運用、MEO代行、SNS運用まで、必要なサービスを1つから自由に組み合わせ可能。AI活用で従来の半額以下、群馬発・全国対応。";
+  "個人サロン・地域事業者のための集客まわりの相談・制作・運用支援。LP制作、LINE公式、Googleマップ整備、SNS運用まで、必要なサービスを1つから自由に組み合わせ可能。群馬発・全国対応。";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mapsupportgunma.com"),
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "個人サロン マーケティング",
     "LP制作 群馬",
     "LINE公式 構築",
-    "MEO代行",
+    "Googleマップ整備",
     "SNS運用代行",
     "Instagram 運用代行",
     "AI マーケティング",
@@ -55,13 +55,13 @@ export const metadata: Metadata = {
     siteName: "マップサポート群馬",
     title: SITE_TITLE,
     description:
-      "LP制作 立ち上げ期 ¥30,000 から、LINE公式・MEO・SNS まで個人サロンの集客を一気通貫で。AI活用で従来の半額以下、必要なサービスを1つから自由に組み合わせ可能。",
+      "LP制作、LINE公式、Googleマップ整備、SNSまで。個人サロン・地域事業者の集客まわりを、相談しながら必要な分だけ整えます。",
     images: [
       {
-        url: "/lp/hero-main.png",
-        width: 1280,
-        height: 720,
-        alt: "マップサポート群馬 — マーケティング一気通貫支援",
+        url: "/lp/handdrawn-hero-gpt2.png",
+        width: 1448,
+        height: 1086,
+        alt: "マップサポート群馬 — 手書き風の親しみやすいマーケティング支援",
       },
     ],
   },
@@ -69,8 +69,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE_TITLE,
     description:
-      "LP・LINE・MEO・SNS を1つから自由に組み合わせ。AI活用で従来の半額以下、群馬発の個人サロン特化マーケ支援。",
-    images: ["/lp/hero-main.png"],
+      "LP・LINE・Googleマップ・SNSを1つから自由に組み合わせ。群馬発の相談しやすい集客支援。",
+    images: ["/lp/handdrawn-hero-gpt2.png"],
   },
   alternates: {
     canonical: "https://mapsupportgunma.com/",

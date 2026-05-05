@@ -19,15 +19,19 @@ export default function SnsPage() {
     <>
       <ServiceHero
         title="SNS 運用"
-        tagline="お店の世界観を毎週積み上げる、ブランド構築のパートナー。Instagram を中心に資産を育てます。"
-        image="/lp/service-sns.png"
+        headline={<>SNSの見せ方を整え、<br className="hidden md:block" />問い合わせにつなげる運用へ。</>}
+        tagline="Instagramを中心に、投稿企画・画像制作・文章作成・改善レポートまで対応。更新しているだけで終わらない運用を目指します。"
+        image="/lp/service-sns-rich-v2.png"
         price="月 ¥18,000~"
         originalPrice="月 ¥30,000~"
         duration="最短 即週"
+        badges={["投稿企画", "画像制作", "投稿文作成", "月次改善"]}
+        outcomes={["世界観を統一", "予約導線を意識", "反応を見て改善"]}
       />
 
       <FeaturesSection
         title={<>このサービスでできること</>}
+        body="なんとなく投稿するのではなく、誰に何を伝えるかを整理して、お店らしい見え方へ整えます。"
         features={[
           {
             image: "/lp/process-01-listen.png",
@@ -54,6 +58,7 @@ export default function SnsPage() {
 
       <FlowSection
         title={<>ご相談から運用開始まで</>}
+        body="初月は方向性づくりを大切にし、投稿後の反応を見ながら少しずつ改善します。"
         steps={[
           { title: "ヒアリング", body: "Zoom等で30分。お店の世界観と方向性を伺います。" },
           { title: "ご契約", body: "ご納得いただいてからのご契約。" },
@@ -66,6 +71,7 @@ export default function SnsPage() {
         current="月 ¥18,000~"
         original="月 ¥30,000~"
         unit="/ 月額(税抜) / Instagram メイン"
+        recommendedFor="SNSの見せ方を整えて問い合わせにつなげたい方"
         includes={[
           "月4本の投稿企画・画像作成・キャプション執筆",
           "ストーリーズ制作 週1-2本",

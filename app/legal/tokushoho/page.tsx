@@ -27,7 +27,7 @@ export default function TokushohoPage() {
         <Row label="販売価格">
           各サービスの公式サイト記載のとおり(税抜)
           <p className="mt-1 text-[12px] text-fg-mute">
-            LP制作 ¥50,000、LINE 公式構築 ¥30,000、MEO 代行 初期 ¥20,000 + 月
+            LP制作 ¥50,000、LINE 公式構築 ¥30,000、Googleマップ整備 初期 ¥20,000 + 月
             ¥15,000、SNS 運用 月 ¥30,000〜 等
           </p>
         </Row>

@@ -19,15 +19,19 @@ export default function LinePage() {
     <>
       <ServiceHero
         title="LINE 公式 構築・運用"
-        tagline="お客さまとの「関係構築・再来店」を自動化する基盤を組み立て、月次の配信運用まで一貫してお引き受けします。"
-        image="/lp/service-line.png"
+        headline={<>再来店につながるLINE導線を、<br className="hidden md:block" />設計から配信まで。</>}
+        tagline="リッチメニュー、あいさつメッセージ、友だち追加導線、月次配信まで。来店後のお客さまとつながり続ける仕組みを整えます。"
+        image="/lp/service-line-rich-v2.png"
         price="初期 ¥18,000 + 月 ¥9,000"
         originalPrice="初期 ¥30,000 + 月 ¥15,000"
         duration="最短 1週間"
+        badges={["リッチメニュー", "月4本配信", "再来店導線", "レポート"]}
+        outcomes={["予約導線を整備", "配信内容を代行", "反応を見て改善"]}
       />
 
       <FeaturesSection
         title={<>このサービスでできること</>}
+        body="LINEを作って終わりにせず、友だち追加から予約・再来店までの流れを整えます。"
         features={[
           {
             image: "/lp/process-01-listen.png",
@@ -54,6 +58,7 @@ export default function LinePage() {
 
       <FlowSection
         title={<>ご相談から運用開始まで</>}
+        body="初期構築後は、配信内容の作成と振り返りまで継続して伴走します。"
         steps={[
           { title: "ヒアリング", body: "Zoom等で30分。配信したい内容や活用法を伺います。" },
           { title: "ご契約", body: "ご納得いただいてからのご契約。" },
@@ -66,6 +71,7 @@ export default function LinePage() {
         current="初期 ¥18,000 + 月 ¥9,000"
         original="初期 ¥30,000 + 月 ¥15,000"
         unit="/ 初期費用 + 月額(税抜)"
+        recommendedFor="再来店やリピート導線を作りたい方"
         includes={[
           "LINE公式アカウント基本設定",
           "リッチメニュー設計・設置(2階層まで)",

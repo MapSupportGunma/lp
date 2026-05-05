@@ -1,26 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  /* Bridge-style palette: pure white + navy + gray */
-  --bg: 0 0% 100%;            /* Pure white */
-  --bg-alt: 220 17% 97%;      /* Very light gray section */
-  --bg-sunken: 220 14% 95%;   /* Slightly more shaded */
-  --bg-deep: 220 45% 20%;     /* Deep navy for dark sections */
-  --bg-elev: 0 0% 100%;       /* Cards = pure white */
+  --bg: 40 45% 97%;
+  --bg-alt: 42 42% 94%;
+  --bg-sunken: 42 28% 90%;
+  --bg-deep: 220 14% 8%;
+  --bg-elev: 0 0% 100%;
 
-  --fg: 220 9% 11%;           /* Near-black body */
-  --fg-soft: 220 8% 32%;
-  --fg-mute: 220 6% 50%;
-  --fg-faint: 220 6% 72%;
+  --fg: 34 22% 12%;
+  --fg-soft: 30 12% 30%;
+  --fg-mute: 32 10% 48%;
+  --fg-faint: 36 14% 72%;
 
-  --line: 220 14% 89%;
-  --line-strong: 220 12% 78%;
+  --line: 38 18% 82%;
+  --line-strong: 36 18% 64%;
 
-  --primary: 220 50% 22%;     /* Deep navy = primary CTA + emphasis */
-  --primary-soft: 220 50% 96%;
-  --primary-hover: 220 55% 28%;
+  --primary: 164 48% 34%;
+  --primary-soft: 150 52% 92%;
+  --primary-hover: 164 50% 27%;
 
-  --accent: 0 65% 55%;        /* Muted red for tiny accents (title underline) */
+  --accent: 12 92% 64%;
 }
 
 @theme inline {
@@ -42,6 +41,7 @@
 
   --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic Medium", sans-serif;
   --font-jp: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic Medium", "Meiryo", sans-serif;
+  --font-display: var(--font-fraunces), "Times New Roman", serif;
 }
 
 body {
@@ -49,9 +49,14 @@ body {
   color: hsl(var(--fg));
   font-family: var(--font-sans);
   font-feature-settings: "palt" 1, "ss01" 1;
-  letter-spacing: -0.005em;
+  letter-spacing: 0;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  font-family: var(--font-display);
 }
 
 /* ──────────────────────────────────────────
@@ -76,19 +81,19 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.875rem 1.75rem;
+  padding: 0.95rem 1.9rem;
   background: hsl(var(--primary));
   color: hsl(var(--bg));
   font-size: 0.9375rem;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 9999px;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
   white-space: nowrap;
 }
 .btn-primary:hover {
   background: hsl(var(--primary-hover));
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px hsl(var(--primary) / 0.25);
+  box-shadow: 0 18px 44px hsl(var(--primary) / 0.25);
 }
 
 .btn-secondary {
@@ -99,26 +104,28 @@ body {
   border: 1.5px solid hsl(var(--primary));
   color: hsl(var(--primary));
   font-size: 0.9375rem;
-  font-weight: 600;
-  background: hsl(var(--bg));
+  font-weight: 700;
+  background: hsl(var(--bg) / 0.72);
   border-radius: 9999px;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
   white-space: nowrap;
 }
 .btn-secondary:hover {
-  background: hsl(var(--primary-soft));
+  background: hsl(var(--bg-elev));
+  box-shadow: 0 12px 34px hsl(var(--fg) / 0.08);
 }
 
 /* Card */
 .card {
   background: hsl(var(--bg-elev));
   border: 1px solid hsl(var(--line));
-  border-radius: 8px;
-  transition: all 0.2s ease;
+  border-radius: 20px;
+  box-shadow: 0 24px 80px hsl(var(--fg) / 0.06);
+  transition: all 0.25s ease;
 }
 .card:hover {
   border-color: hsl(var(--line-strong));
-  box-shadow: 0 4px 16px hsl(var(--fg) / 0.04);
+  box-shadow: 0 30px 90px hsl(var(--fg) / 0.10);
 }
 
 /* Title underline accent (small red mark below H2) */
@@ -146,7 +153,7 @@ html {
 
 /* Container */
 .container-mod {
-  max-width: 1200px;
+  max-width: 1180px;
   margin-inline: auto;
   padding-inline: 1.5rem;
 }
@@ -169,4 +176,24 @@ details[open] .faq-icon {
 }
 .faq-icon {
   transition: transform 0.25s ease;
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-style: italic;
+  color: hsl(var(--accent));
+}
+
+.soft-shadow {
+  box-shadow: 0 34px 110px hsl(var(--fg) / 0.18);
+}
+
+.luxury-panel {
+  background:
+    linear-gradient(135deg, hsl(var(--bg-elev) / 0.92), hsl(var(--bg-elev) / 0.74)),
+    linear-gradient(180deg, hsl(var(--accent) / 0.08), transparent);
+  border: 1px solid hsl(var(--line));
+  box-shadow: 0 34px 110px hsl(var(--fg) / 0.12);
+  backdrop-filter: blur(18px);
 }

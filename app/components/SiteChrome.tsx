@@ -6,57 +6,51 @@ import Link from "next/link";
 export function StickyTop() {
   return (
     <>
-      {/* Fixed top — always visible regardless of scroll */}
       <div className="fixed inset-x-0 top-0 z-50">
         <FoundingBanner />
         <Header />
       </div>
-      {/* Spacer to compensate for fixed header height */}
-      <div aria-hidden className="h-[105px] md:h-[112px]" />
+      <div aria-hidden className="h-[108px] md:h-[118px]" />
     </>
   );
 }
 
 function FoundingBanner() {
   return (
-    <a
+    <Link
       href="/#offer"
-      className="block bg-primary text-bg transition hover:bg-primary-hover"
+      className="block border-b border-[#ffd5c8] bg-[#fff4ef] text-fg transition hover:bg-[#ffece4]"
     >
-      <div className="container-mod flex flex-col items-center justify-between gap-1 py-2 text-center md:flex-row md:py-2.5 md:text-left">
-        <p className="flex flex-wrap items-center justify-center gap-2 text-[11.5px] font-medium md:text-[13px]">
-          <span className="inline-flex h-1.5 w-1.5 shrink-0 rounded-full bg-bg" />
-          <span className="font-semibold">Founding Partners</span>
-          <span className="text-bg/85">
-            / 立ち上げ期につき<span className="whitespace-nowrap">先着3軒</span>、通常価格の <span className="whitespace-nowrap">40% OFF</span>
-          </span>
-        </p>
-        <p className="hidden text-[11px] font-medium text-bg/85 md:block">
-          詳しく →
-        </p>
+      <div className="container-mod flex items-center justify-center gap-2 px-4 py-2 text-center text-[11px] font-black leading-tight md:text-[13px]">
+        <span className="rounded-full bg-[#ff7a59] px-2.5 py-1 text-[10px] text-white md:text-[11px]">
+          立ち上げ期オファー
+        </span>
+        <span className="text-[#247c69] sm:hidden">先着3軒・40%OFF</span>
+        <span className="hidden text-[#247c69] sm:inline">先着3軒限定</span>
+        <span className="hidden text-fg-soft sm:inline">通常価格から40%OFF</span>
+        <span aria-hidden className="text-[#ff7a59]">→</span>
       </div>
-    </a>
+    </Link>
   );
 }
 
 function Header() {
   return (
-    <header className="border-b border-line bg-bg/95 backdrop-blur-md">
-      <div className="container-mod flex items-center justify-between py-4 md:py-5">
-        <Link href="/" className="flex items-baseline gap-3">
-          <span className="text-[20px] font-bold tracking-tight text-fg md:text-[22px]">
+    <header className="border-b border-[#eadfce]/80 bg-[#fffaf2]/92 text-fg backdrop-blur-xl">
+      <div className="container-mod flex items-center justify-between gap-3 py-4 md:py-5">
+        <Link href="/" className="flex min-w-0 items-baseline gap-3">
+          <span className="font-display truncate text-[18px] font-semibold tracking-normal text-fg md:text-[24px]">
             マップサポート群馬
           </span>
-          <span className="hidden text-[11px] text-fg-mute md:inline md:text-[12px]">
-            | マーケティング一気通貫支援
+          <span className="hidden text-[11px] font-semibold text-fg-mute md:inline md:text-[12px]">
+            集客まわりの相談・制作・運用
           </span>
         </Link>
-        <nav className="flex items-center gap-6 md:gap-7">
-          {/* Services with dropdown — bridge area to prevent gap-hover loss */}
+        <nav className="flex items-center gap-4 md:gap-7">
           <div className="relative hidden md:block group">
             <a
               href="/#services"
-              className="flex items-center gap-1 py-2 text-[13px] font-medium text-fg-soft transition hover:text-primary"
+              className="flex items-center gap-1 py-2 text-[13px] font-bold text-fg-soft transition hover:text-primary"
             >
               <span>サービス</span>
               <svg
@@ -73,35 +67,35 @@ function Header() {
             </a>
             {/* Dropdown wrapper — pt-3 creates invisible bridge so cursor doesn't lose hover */}
             <div className="invisible absolute left-1/2 top-full z-50 w-56 -translate-x-1/2 pt-3 opacity-0 transition delay-75 duration-150 group-hover:visible group-hover:opacity-100 group-hover:delay-0">
-              <div className="rounded-md border border-line bg-bg p-2 shadow-[0_8px_32px_hsl(var(--fg)/0.08)]">
+              <div className="rounded-xl border border-line bg-bg-elev p-2 shadow-[0_18px_48px_hsl(var(--fg)/0.10)]">
                 <Link
                   href="/#services"
-                  className="block rounded-sm px-3 py-2 text-[12px] font-medium text-fg-mute transition hover:bg-bg-alt hover:text-primary"
+                  className="block rounded-lg px-3 py-2 text-[12px] font-semibold text-fg-mute transition hover:bg-bg-alt hover:text-primary"
                 >
                   サービス一覧
                 </Link>
                 <div className="my-1 border-t border-line" />
                 <Link
                   href="/services/lp"
-                  className="block rounded-sm px-3 py-2 text-[13px] font-medium text-fg-soft transition hover:bg-bg-alt hover:text-primary"
+                  className="block rounded-lg px-3 py-2 text-[13px] font-semibold text-fg-soft transition hover:bg-bg-alt hover:text-primary"
                 >
                   LP 制作
                 </Link>
                 <Link
                   href="/services/line"
-                  className="block rounded-sm px-3 py-2 text-[13px] font-medium text-fg-soft transition hover:bg-bg-alt hover:text-primary"
+                  className="block rounded-lg px-3 py-2 text-[13px] font-semibold text-fg-soft transition hover:bg-bg-alt hover:text-primary"
                 >
                   LINE 公式 構築・運用
                 </Link>
                 <Link
                   href="/services/meo"
-                  className="block rounded-sm px-3 py-2 text-[13px] font-medium text-fg-soft transition hover:bg-bg-alt hover:text-primary"
+                  className="block rounded-lg px-3 py-2 text-[13px] font-semibold text-fg-soft transition hover:bg-bg-alt hover:text-primary"
                 >
-                  MEO 代行
+                  Googleマップ整備
                 </Link>
                 <Link
                   href="/services/sns"
-                  className="block rounded-sm px-3 py-2 text-[13px] font-medium text-fg-soft transition hover:bg-bg-alt hover:text-primary"
+                  className="block rounded-lg px-3 py-2 text-[13px] font-semibold text-fg-soft transition hover:bg-bg-alt hover:text-primary"
                 >
                   SNS 運用
                 </Link>
@@ -110,25 +104,32 @@ function Header() {
           </div>
 
           <a
+            href="/#works"
+            className="hidden text-[13px] font-bold text-fg-soft transition hover:text-primary md:inline"
+          >
+            制作実績
+          </a>
+          <a
             href="/#process"
-            className="hidden text-[13px] font-medium text-fg-soft transition hover:text-primary md:inline"
+            className="hidden text-[13px] font-bold text-fg-soft transition hover:text-primary md:inline"
           >
             進め方
           </a>
           <a
             href="/#plans"
-            className="hidden text-[13px] font-medium text-fg-soft transition hover:text-primary md:inline"
+            className="hidden text-[13px] font-bold text-fg-soft transition hover:text-primary md:inline"
           >
             料金プラン
           </a>
           <a
             href="/#faq"
-            className="hidden text-[13px] font-medium text-fg-soft transition hover:text-primary md:inline"
+            className="hidden text-[13px] font-bold text-fg-soft transition hover:text-primary md:inline"
           >
             よくある質問
           </a>
-          <Link href="/#contact" className="btn-primary text-[13px] md:text-[14px]">
+          <Link href="/#contact" className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#ff7a59] px-3.5 py-2.5 text-[12px] font-bold text-white shadow-[0_12px_30px_rgba(255,122,89,0.20)] transition hover:bg-[#e76242] md:px-5 md:text-[13px]">
             <span>無料相談する</span>
+            <span aria-hidden>→</span>
           </Link>
         </nav>
       </div>
